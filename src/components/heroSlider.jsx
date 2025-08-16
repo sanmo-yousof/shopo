@@ -1,0 +1,42 @@
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { HomeSlides } from "@/utils/utils";
+
+export default function HeroSlider() {
+  return (
+    <div className="relative z-0  w-full xl:h-[733px] h-[500px]">
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        loop
+        className="w-full h-full"
+      >
+        {HomeSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div
+              className="w-full h-full  bg-center flex items-center"
+              style={{ backgroundImage: `url(${slide.bg.src})` }}
+            >
+              <div className="container mx-auto relative px-6">
+                <div className="xl:w-[626px]  w-full">
+                  <p className="text-[#1867d6] font-medium md:text-3xl text-lg mb-3">
+                    {slide.subtitle}
+                  </p>
+                  <h1 className="text-4xl md:text-6xl font-bold text-black leading-tight mb-6">
+                    {slide.title}
+                  </h1>
+                  <Button className="px-8 py-6">{slide.button}</Button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
