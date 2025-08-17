@@ -19,10 +19,10 @@ export default function HeroSlider() {
         {HomeSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div
-              className="w-full h-full  bg-center flex items-center"
+              className="w-full h-full bg-no-repeat bg-cover  bg-center flex items-center"
               style={{ backgroundImage: `url(${slide.bg.src})` }}
             >
-              <div className="container mx-auto relative px-6">
+              <div className="w-7xl pl-4 mx-auto relative px-6">
                 <div className="xl:w-[626px]  w-full">
                   <p className="text-[#1867d6] font-medium md:text-3xl text-lg mb-3">
                     {slide.subtitle}

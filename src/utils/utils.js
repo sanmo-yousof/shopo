@@ -86,3 +86,26 @@ export const HomeSlides = [
 export const Brands = [
   brand1,brand2,brand3,brand4,brand5,brand6,brand7,brand8,brand9,brand10,brand11,brand12
 ];
+
+export const MobileMainMenuLinks = [
+    {
+      mainManu: "Home",
+      subMenu: ["Home1", "Home2", "Home3"],
+    },
+    {
+      mainManu: "Shop",
+    },
+    {
+      mainManu: "Pages",
+      subMenu: ["Privacy Policy", "FAQ", "Terms and Conditions"],
+    },
+    {
+      mainManu: "About",
+    },
+    {
+      mainManu: "Blogs",
+    },
+    {
+      mainManu: "Contact",
+    },
+  ];

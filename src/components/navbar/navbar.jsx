@@ -1,5 +1,5 @@
-'use client'
-import { Handbag, Heart, Link, Menu, Repeat2, UserRound } from "lucide-react";
+
+import { Handbag, Heart, Repeat2, UserRound } from "lucide-react";
 import Image from "next/image";
 import { Countries, Currencys, Languages } from "@/utils/utils";
 
@@ -13,11 +13,10 @@ import {
 import { Button } from "@/components/ui/button";
 import Onlydropdown from "../onlydropdown";
 import Menubar from "./menubar";
-import { useState } from "react";
-import MobileMenu from "./mobileMenu";
+import MobileMenuToggleBtn from "./mobileMenuToggleButton";
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   return (
     <header>
       <div className="">
@@ -46,7 +45,7 @@ export default function Navbar() {
         <hr />
         <div className="flex  mx-auto max-w-7xl py-5 px-2 justify-between items-center">
           <div className="block lg:hidden">
-            <Menu className="w-6 h-6 cursor-pointer" onClick={() => setIsMobileMenuOpen(true)} />
+            <MobileMenuToggleBtn/>
           </div>
           <div>
             <Image src="/logo-3.svg" alt="logo" width={150} height={50} />
@@ -86,8 +85,6 @@ export default function Navbar() {
         </div>
         <Menubar />
       </div>
-
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   );
 }
