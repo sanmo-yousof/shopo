@@ -16,6 +16,7 @@ import brand9 from "@/asset/homeImages/brand-9.png";
 import brand10 from "@/asset/homeImages/brand-10.png";
 import brand11 from "@/asset/homeImages/brand-11.png";
 import brand12 from "@/asset/homeImages/brand-12.png";
+import { BaggageClaim, RotateCcw, ShieldCheck, Trophy } from "lucide-react";
 
 export const Countries = [
   { name: "United States", flag: flag1 },
@@ -126,6 +127,7 @@ export const Products = [
     originalPrice: 79.01,
     discount: null,
     rating: 4.5,
+    selling:19,
     reviewCount: 128,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
@@ -140,6 +142,7 @@ export const Products = [
     originalPrice: 99.99,
     discount: 20,
     rating: 4.3,
+    selling:5,
     reviewCount: 89,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
@@ -154,6 +157,7 @@ export const Products = [
     originalPrice: 59.29,
     discount: null,
     rating: 4.2,
+    selling:7,
     reviewCount: 156,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-3.jpg",
@@ -168,6 +172,7 @@ export const Products = [
     originalPrice: 1499.99,
     discount: 13,
     rating: 4.7,
+    selling:0,
     reviewCount: 45,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-4.jpg",
@@ -182,6 +187,7 @@ export const Products = [
     originalPrice: 799.99,
     discount: 12,
     rating: 4.4,
+    selling:13,
     reviewCount: 203,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-5.jpg",
@@ -196,6 +202,7 @@ export const Products = [
     originalPrice: null,
     discount: null,
     rating: 4.1,
+    selling:44,
     reviewCount: 67,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-6.jpg",
@@ -210,6 +217,7 @@ export const Products = [
     originalPrice: null,
     discount: null,
     rating: 4.6,
+    selling:12,
     reviewCount: 92,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-7.jpg",
@@ -224,6 +232,7 @@ export const Products = [
     originalPrice: 119.99,
     discount: 25,
     rating: 4.3,
+    selling:25,
     reviewCount: 178,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-8.jpg",
@@ -238,6 +247,7 @@ export const Products = [
     originalPrice: 199.99,
     discount: 25,
     rating: 4.5,
+    selling:29,
     reviewCount: 134,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-9.jpg",
@@ -251,7 +261,8 @@ export const Products = [
     price: 499.99,
     originalPrice: null,
     discount: null,
-    rating: 4.8,
+    rating: 3.8,
+    selling:22,
     reviewCount: 89,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-10.jpg",
@@ -266,6 +277,7 @@ export const Products = [
     originalPrice: 79.99,
     discount: 12,
     rating: 4.6,
+    selling:2,
     reviewCount: 156,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
@@ -281,9 +293,51 @@ export const Products = [
     discount: 19,
     rating: 4.4,
     reviewCount: 78,
+    selling:2,
     images:
       "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
     badge: "Premium",
     inStock: true,
   },
 ];
+
+
+export const FeatureList = [
+  {
+    icon: BaggageClaim,
+    title: "Free Shipping",
+    subtitle: "When ordering over $100",
+  },
+  {
+    icon: RotateCcw,
+    title: "Free Return",
+    subtitle: "Get Return within 30 days",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure Payment",
+    subtitle: "100% Secure Online Payment",
+  },
+  {
+    icon: Trophy,
+    title: "Best Quality",
+    subtitle: "Original Product Guaranteed",
+  },
+];
+
+
+export const FooterData = [
+  {
+    title: "Feature",
+    links: ["About Us", "Terms Condition", "Best Products"],
+  },
+  {
+    title: "General Links",
+    links: ["Blog", "Tracking Order", "Become Seller"],
+  },
+  {
+    title: "Helpful",
+    links: ["Flash Sale", "FAQ", "Support"],
+  },
+];
+

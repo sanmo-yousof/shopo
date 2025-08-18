@@ -3,13 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { HomeSlides } from "@/utils/utils";
 
 export default function HeroSlider() {
   return (
-    <div className="relative z-0  w-full xl:h-[733px] h-[500px]">
+    <div className="relative z-0  w-full xl:h-[650px] h-[500px]">
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -23,7 +22,7 @@ export default function HeroSlider() {
               style={{ backgroundImage: `url(${slide.bg.src})` }}
             >
               <div className="w-7xl pl-4 mx-auto relative px-6">
-                <div className="xl:w-[626px]  w-full">
+                <div className="xl:w-[626px] sm:w-[600px]  w-full">
                   <p className="text-[#1867d6] font-medium md:text-3xl text-lg mb-3">
                     {slide.subtitle}
                   </p>

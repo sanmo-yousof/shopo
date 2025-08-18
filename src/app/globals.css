@@ -120,3 +120,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.sectionHeading{
+  @apply text-xl sm:text-3xl text-[#1d1d1d] font-semibold
+}
