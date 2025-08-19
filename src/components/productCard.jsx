@@ -1,9 +1,11 @@
 import { Expand, Handbag, Heart, Repeat2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const ProductCard = ({ product }) => {
   const {
+    id,
     name,
     category,
     price,
@@ -52,9 +54,9 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Product Name */}
-        <p className="text-gray-700 cursor-pointer duration-400 hover:text-[#1868d5] font-semibold text-base line-clamp-2">
+        <Link href={`/shop/${id}`} className="text-gray-700 cursor-pointer duration-400 hover:text-[#1868d5] font-semibold text-base line-clamp-2">
           {name}
-        </p>
+        </Link>
 
         {/* Price Section */}
         <div className="mt-3 text-lg">

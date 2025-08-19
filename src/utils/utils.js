@@ -127,12 +127,12 @@ export const Products = [
     originalPrice: 79.01,
     discount: null,
     rating: 4.5,
-    selling:19,
+    selling: 19,
     reviewCount: 128,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
     badge: null,
     inStock: true,
+    description: "A premium gaming experience with immersive graphics. Designed for serious players. A premium gaming experience with immersive graphics. Designed for serious players.",
   },
   {
     id: 2,
@@ -142,12 +142,12 @@ export const Products = [
     originalPrice: 99.99,
     discount: 20,
     rating: 4.3,
-    selling:5,
+    selling: 5,
     reviewCount: 89,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
     badge: "Sale",
     inStock: true,
+    description: "Compact and efficient device for tech enthusiasts. Built with performance in mind. Compact and efficient device for tech enthusiasts. Built with performance in mind.",
   },
   {
     id: 3,
@@ -157,12 +157,12 @@ export const Products = [
     originalPrice: 59.29,
     discount: null,
     rating: 4.2,
-    selling:7,
+    selling: 7,
     reviewCount: 156,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-3.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-3.jpg",
     badge: null,
     inStock: true,
+    description: "Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design. Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design.",
   },
   {
     id: 4,
@@ -172,12 +172,12 @@ export const Products = [
     originalPrice: 1499.99,
     discount: 13,
     rating: 4.7,
-    selling:0,
+    selling: 0,
     reviewCount: 45,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-4.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-4.jpg",
     badge: "New",
     inStock: true,
+    description: "Top-tier computing performance for professionals. Perfect for multitasking workloads. Top-tier computing performance for professionals. Perfect for multitasking workloads.",
   },
   {
     id: 5,
@@ -187,12 +187,12 @@ export const Products = [
     originalPrice: 799.99,
     discount: 12,
     rating: 4.4,
-    selling:13,
+    selling: 13,
     reviewCount: 203,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-5.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-5.jpg",
     badge: null,
     inStock: true,
+    description: "Stay connected with cutting-edge features. Long-lasting battery and vivid display. Stay connected with cutting-edge features. Long-lasting battery and vivid display.",
   },
   {
     id: 6,
@@ -202,12 +202,12 @@ export const Products = [
     originalPrice: null,
     discount: null,
     rating: 4.1,
-    selling:44,
+    selling: 44,
     reviewCount: 67,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-6.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-6.jpg",
     badge: null,
     inStock: true,
+    description: "Affordable gadget for daily convenience. Compact size with essential functions. Affordable gadget for daily convenience. Compact size with essential functions.",
   },
   {
     id: 7,
@@ -217,12 +217,12 @@ export const Products = [
     originalPrice: null,
     discount: null,
     rating: 4.6,
-    selling:12,
+    selling: 12,
     reviewCount: 92,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-7.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-7.jpg",
     badge: null,
     inStock: true,
+    description: "Reliable electronics built for durability. Great value for everyday use. Reliable electronics built for durability. Great value for everyday use.",
   },
   {
     id: 8,
@@ -232,12 +232,12 @@ export const Products = [
     originalPrice: 119.99,
     discount: 25,
     rating: 4.3,
-    selling:25,
+    selling: 25,
     reviewCount: 178,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-8.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-8.jpg",
     badge: "Popular",
     inStock: true,
+    description: "Crystal clear audio with deep bass. Ideal for music lovers and audiophiles. Crystal clear audio with deep bass. Ideal for music lovers and audiophiles.",
   },
   {
     id: 9,
@@ -247,12 +247,12 @@ export const Products = [
     originalPrice: 199.99,
     discount: 25,
     rating: 4.5,
-    selling:29,
+    selling: 29,
     reviewCount: 134,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-9.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-9.jpg",
     badge: null,
     inStock: true,
+    description: "High-definition sound with noise isolation. Designed for immersive listening. High-definition sound with noise isolation. Designed for immersive listening.",
   },
   {
     id: 10,
@@ -262,12 +262,12 @@ export const Products = [
     originalPrice: null,
     discount: null,
     rating: 3.8,
-    selling:22,
+    selling: 22,
     reviewCount: 89,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-10.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-10.jpg",
     badge: null,
     inStock: true,
+    description: "Experience next-gen gaming at high frame rates. Built for serious performance. Experience next-gen gaming at high frame rates. Built for serious performance.",
   },
   {
     id: 11,
@@ -277,12 +277,12 @@ export const Products = [
     originalPrice: 79.99,
     discount: 12,
     rating: 4.6,
-    selling:2,
+    selling: 2,
     reviewCount: 156,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
     badge: null,
     inStock: true,
+    description: "Smooth gameplay and responsive controls. A great pick for casual gamers. Smooth gameplay and responsive controls. A great pick for casual gamers.",
   },
   {
     id: 12,
@@ -293,13 +293,14 @@ export const Products = [
     discount: 19,
     rating: 4.4,
     reviewCount: 78,
-    selling:2,
-    images:
-      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    selling: 2,
+    images: "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
     badge: "Premium",
     inStock: true,
+    description: "Premium build with advanced tech features. A sleek upgrade for your setup. Premium build with advanced tech features. A sleek upgrade for your setup.",
   },
 ];
+
 
 
 export const FeatureList = [
@@ -340,4 +341,35 @@ export const FooterData = [
     links: ["Flash Sale", "FAQ", "Support"],
   },
 ];
+
+
+export const Categories = [
+      "Mobile & Laptops",
+      "Gaming Entertainment",
+      "Image & Video",
+      "Vehicles",
+      "Furnitures",
+      "Sport",
+      "Food & Drinks",
+      "Fashion Accessories",
+      "Toilet & Sanitation",
+      "Makeup Corner",
+      "Baby Items",
+    ];
+
+
+export const FilterBrands = [
+  "Apple",
+  "Samsung",
+  "Walton",
+  "Oneplus",
+  "Furnitures",
+  "Vivo",
+  "Oppo",
+  "Xiomi",
+  "Other",
+];
+export const Storage = ["64GB", "128GB", "256GB", "512GB", "1024GB"];
+export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
+    
 
