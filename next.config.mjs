@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "shopo.quomodothemes.website",
       },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
     ],
   },
 };

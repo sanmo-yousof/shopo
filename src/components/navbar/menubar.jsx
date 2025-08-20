@@ -225,7 +225,7 @@ const Menubar = () => {
         </div>
 
         {/* Right side */}
-        <Button className="bg-black text-white px-5 py-2 rounded-none font-semibold hover:bg-black/90 flex items-center gap-2">
+        <Button variant={"blackBg"} className="">
           Become a Seller <ChevronRight size={16} />
         </Button>
       </div>

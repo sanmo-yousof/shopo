@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
     inStock,
   } = product;
   return (
-    <div className="bg-white group shadow-xs  overflow-hidden">
+    <div className="bg-white group shadow-md  overflow-hidden">
       {/* Image Wrapper with fixed size */}
       <div className="w-full lg:p-12 relative sm:p-16 md:p-8 h-[300px] flex justify-center items-center bg-white">
         <Image
