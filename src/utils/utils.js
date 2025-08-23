@@ -526,3 +526,33 @@ export const Seller = {
     img: "https://randomuser.me/api/portraits/men/68.jpg",
     rating: 4.3,
   };
+
+
+  
+export const FaqData = [
+  {
+    id: 1,
+    question: "How does Information Technology work?",
+    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+  },
+  {
+    id: 2,
+    question: "How can I become an IT manager?",
+    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+  },
+  {
+    id: 3,
+    question: "What are the latest trends in IT?",
+    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+  },
+  {
+    id: 4,
+    question: "What skills are important in the IT field?",
+    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+  },
+  {
+    id: 5,
+    question: "What certifications are useful for IT professionals?",
+    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+  }
+];
