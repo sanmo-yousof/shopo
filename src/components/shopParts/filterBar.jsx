@@ -21,7 +21,7 @@ const FilterBar = () => {
       {/* Filter Bar Top Controls */}
       <div className="flex flex-col lg:flex-row p-3 bg-white lg:justify-between lg:items-center">
         <p className="text-sm">
-          <span className="text-gray-400">Showing</span> 1–16 of 66 results
+          <span className="text-gray-400">Showing</span> 1–16 of 66 results 
         </p>
 
         <div className="mt-4 lg:mt-0 flex items-center gap-2">

@@ -100,21 +100,21 @@ const Menubar = () => {
               <ChevronDown size={16} />
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent className="w-68 font-medium px-0 rounded-t-none">
+            <DropdownMenuContent className="w-68 hidden lg:block right-0-0 font-medium px-0 rounded-t-none">
               {MenuCategories.map((category, index) => {
                 const Icon = icon[index];
                 return (
                   <div key={index}>
-                    {/* <DropdownMenuSeparator className="my-0" /> */}
-                    <DropdownMenuItem className="hover:!bg-[#1867d6] hover:!text-white rounded-none py-4 px-4 duration-300  cursor-pointer">
-                      <div className="flex w-full justify-between items-center">
+                    
+                    <Link href={category?.href} className="hover:!bg-[#1867d6] hover:!text-white rounded-none py-3 px-4 duration-300  block cursor-pointer">
+                      
                         <div className="flex items-center text-[12px] gap-2">
-                          <Icon className="hover:text-white" />
-                          <p>{category}</p>
+                          <Icon  className="hover:text-white h-4 w-4 " />
+                          <p>{category?.label}</p>
                         </div>
-                        <ChevronRight className="hover:text-white" size={16} />
-                      </div>
-                    </DropdownMenuItem>
+                        
+                     
+                    </Link>
                   </div>
                 );
               })}
@@ -126,41 +126,11 @@ const Menubar = () => {
           <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Homepage</NavigationMenuTrigger>
-                <NavigationMenuContent className="z-10">
-                  <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <a
-                          className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                          href="/"
-                        >
-                          <div className="mt-4 mb-2 text-lg font-medium">
-                            shadcn/ui
-                          </div>
-                          <p className="text-muted-foreground text-sm leading-tight">
-                            Beautifully designed components built with Tailwind
-                            CSS.
-                          </p>
-                        </a>
-                      </NavigationMenuLink>
-                    </li>
-                    <ListItem href="/docs" title="Introduction">
-                      Re-usable components built using Radix UI and Tailwind
-                      CSS.
-                    </ListItem>
-                    <ListItem href="/docs/installation" title="Installation">
-                      How to install dependencies and structure your app.
-                    </ListItem>
-                    <ListItem
-                      href="/docs/primitives/typography"
-                      title="Typography"
-                    >
-                      Styles for headings, paragraphs, lists...etc
-                    </ListItem>
-                  </ul>
-                </NavigationMenuContent>
+                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
+                  <Link href="/">Home</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
                 <NavigationMenuContent className="z-10">
@@ -218,6 +188,21 @@ const Menubar = () => {
                   className={navigationMenuTriggerStyle()}
                 >
                   <Link href="/docs">Document</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
+                  <Link href="/">About</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
+                  <Link href="/">Blog</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
+                  <Link href="/">Contact</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>

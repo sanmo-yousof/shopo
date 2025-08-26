@@ -3,8 +3,8 @@ import FilterSideBar from "@/components/shopParts/filterOption";
 import FilterBar from "@/components/shopParts/filterBar";
 import AllProducts from "@/components/shopParts/allProducts";
 import Discount from "@/components/shopParts/discount";
-import PromotionalAds from "@/components/shopParts/promotionalAds";
-import PromotionalAdsSecond from "@/components/shopParts/promotionalAdsSecond";
+import PromotionalAds2 from "@/components/ads/promotionalAds2";
+import PromotionalAds1 from "@/components/ads/promotionalAds1";
 
 const Shop = () => {
   return (
@@ -14,15 +14,15 @@ const Shop = () => {
         {/* Desktop Sidebar */}
         <div className="hidden lg:block  col-span-1">
           <FilterSideBar/>
-          <PromotionalAdsSecond/>
+          <PromotionalAds2/>
         </div>
 
         {/* Main Content */}
         <div className="lg:col-span-3 ">
           <FilterBar/>
-          {/* TODO: Product grid goes here */}
+          {/* Product grid goes here */}
           <AllProducts/>
-          <PromotionalAds/>
+          <PromotionalAds1/>
         </div>
       </div>
       <Discount/>

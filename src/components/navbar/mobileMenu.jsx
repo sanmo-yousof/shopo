@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+
 import {
-  ChevronRight,
   Search,
   Gamepad2,
   Armchair,
@@ -14,14 +14,24 @@ import {
   MonitorSmartphone,
   CarFront,
   Images,
+  ChevronDown,
+  House,
+  ShoppingCart,
+  PackageSearch,
+  ReceiptText,
+  LogIn,
+  ShieldCheck,
+  CircleQuestionMark,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MenuCategories } from "@/utils/utils";
-import { MobileMainMenuLinks } from "@/utils/utils"
+import { MobileMainMenuLinks } from "@/utils/utils";
+import Link from "next/link";
 
 export default function MobileMenu({ isOpen, onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [toggleMenu, setToggleMenu] = useState(true);
+  const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
 
   if (!isOpen) return null;
 
@@ -36,7 +46,8 @@ export default function MobileMenu({ isOpen, onClose }) {
     Shirt,
   ];
 
-
+  const menuIcon = [House,PackageSearch,ShoppingCart,ReceiptText,LogIn]
+  const submenuIcon = [ShieldCheck,CircleQuestionMark]
 
   return (
     <>
@@ -85,19 +96,19 @@ export default function MobileMenu({ isOpen, onClose }) {
         </div>
 
         {/* Categories / Main Menu Toggle */}
-        <div className="flex justify-center gap-2 border-b pb-2">
+        <div className="flex justify-center  items-center gap-2 border-b pb-2">
           <Button
             onClick={() => setToggleMenu(true)}
-            className={`text-lg ${
+            className={`text-base ${
               toggleMenu ? "text-gray-700" : "text-gray-400"
             } font-semibold bg-white`}
           >
             Categories
           </Button>
-          |
+          <span>|</span>
           <Button
             onClick={() => setToggleMenu(false)}
-            className={`text-lg ${
+            className={`text-base ${
               !toggleMenu ? "text-gray-700" : "text-gray-400"
             } font-semibold bg-white`}
           >
@@ -108,51 +119,80 @@ export default function MobileMenu({ isOpen, onClose }) {
         {/* Categories */}
         {toggleMenu ? (
           <div className="w-full mt-4 font-medium px-0">
-            {MenuCategories.map((category, index) => {
+            {MenuCategories?.map((category, index) => {
               const Icon = icon[index];
               return (
                 <div key={index}>
-                  <div className="hover:!bg-[#1867d6] hover:!text-white py-4 px-4 duration-300 cursor-pointer">
-                    <div className="flex w-full justify-between items-center">
-                      <div className="flex items-center text-[12px] gap-2">
-                        <Icon />
-                        <p>{category}</p>
-                      </div>
-                      <ChevronRight size={16} />
+                  <Link
+                    href={category?.href}
+                    className="hover:!bg-[#1867d6] hover:!text-white w-full block py-3 px-4 duration-300 cursor-pointer"
+                  >
+                    <div className="flex items-center text-[12px] gap-2">
+                      <Icon className="h-4 w-4" />
+                      <p>{category?.label}</p>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             })}
           </div>
         ) : (
           /* Main Menu (submenu always visible) */
-          <div className="w-full mt-4 font-medium px-0">
-            {MobileMainMenuLinks.map((category, index) => (
-              <div key={index}>
-                
-                  <div className="flex duration-300 cursor-pointer hover:!text-white w-full py-4 px-4  hover:!bg-[#1867d6] justify-between items-center">
-                    <p>{category.mainManu}</p>
-                    <ChevronRight size={16} />
-                  </div>
+          <div className="w-full  font-medium px-0">
+            {MobileMainMenuLinks.map((category, index) => {
+              const isOpen = openSubmenuIndex === index;
+              const Icon = menuIcon[index];
 
-                  {/* Always visible submenu */}
-                  {category?.subMenu && (
-                    <div className="ml-6">
-                      {category.subMenu.map((single, idx) => (
-                        <div
-                          key={idx}
-                          className="flex hover:bg-amber-400 w-full justify-between py-3 px-2 items-center"
-                        >
-                          <p>{single}</p>
-                          <ChevronRight size={14} />
+              const toggleSubmenu = () => {
+                setOpenSubmenuIndex((prev) => (prev === index ? null : index));
+              };
+
+              return (
+                <div key={index}>
+                  {category.subMenu ? (
+                    // Parent with submenu
+                    <>
+                      <div
+                        onClick={toggleSubmenu}
+                        className="flex duration-300 cursor-pointer text-sm hover:!text-white w-full py-2 px-4 hover:!bg-[#1867d6] justify-between items-center"
+                      >
+                        <p>{category.mainManu}</p>
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-300 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </div>
+
+                      {/* Submenu */}
+                      {isOpen && category.subMenu && category.subhref && (
+                        <div className="ml-6">
+                          {category.subMenu.map((single, idx) => (
+                            <Link
+                              key={idx}
+                              href={category.subhref[idx]}
+                              className="flex hover:bg-amber-400 w-full justify-between text-sm py-2 hover:text-white px-2 items-center"
+                            >
+                              <p>{single}</p>
+                            </Link>
+                          ))}
                         </div>
-                      ))}
-                    </div>
+                      )}
+                    </>
+                  ) : (
+                    // Single-level menu with direct link
+                    <Link
+                      href={category.href}
+                      className="flex duration-300 cursor-pointer hover:!text-white text-sm w-full py-3 px-4 hover:!bg-[#1867d6] gap-2 items-center"
+                    >
+                      <Icon className="w-4"/>
+                      <p>{category.mainManu}</p>
+                    </Link>
                   )}
-                
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

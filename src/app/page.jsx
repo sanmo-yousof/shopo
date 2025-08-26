@@ -7,8 +7,9 @@ import PopularSales from "@/components/homeParts/popularSales";
 import FlashSale from "@/components/homeParts/flashSale";
 import PopularSaleSecond from "@/components/homeParts/popularSaleSecond";
 import Features from "@/components/homeParts/features";
-import PromotionalAdsSecond from "@/components/shopParts/promotionalAdsSecond";
-import PromotionalAds from "@/components/homeParts/promotionalAds";
+
+import PromotionalAds1 from "@/components/ads/promotionalAds1";
+import PromotionalAds2 from "@/components/ads/promotionalAds2";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
 
       <NewArrivals />
 
-      <PromotionalAds/>
+      <PromotionalAds1/>
 
       <GamerWorld />
 
@@ -27,10 +28,10 @@ const Home = () => {
 
       <div className="mx-auto flex gap-4 md:gap-6 lg:gap-8 flex-col sm:flex-row max-w-7xl px-4">
         <div className="w-full sm:w-1/2">
-          <PromotionalAdsSecond/>
+          <PromotionalAds2/>
         </div>
         <div className="w-full sm:w-1/2">
-          <PromotionalAdsSecond/>
+          <PromotionalAds2/>
         </div>
 
       </div>

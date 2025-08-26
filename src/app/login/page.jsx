@@ -73,6 +73,7 @@ const Login = () => {
                 <div className="flex gap-2 items-center text-gray-700">
                   <Image
                   src={google}
+                  alt="google"
                   quality={100}
                   className="w-8"/>
                   <span>Sign In with Google</span>

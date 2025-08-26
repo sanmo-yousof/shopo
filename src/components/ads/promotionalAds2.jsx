@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const PromotionalAdsSecond = () => {
+const PromotionalAds2 = () => {
   return(
     <div
           className="bg-cover relative mt-8 bg-gray-200 lg:mt-16 h-[300px] bg-no-repeat bg-center"
@@ -17,4 +17,4 @@ const PromotionalAdsSecond = () => {
         </div>
   );
 }
-export default PromotionalAdsSecond;
+export default PromotionalAds2;

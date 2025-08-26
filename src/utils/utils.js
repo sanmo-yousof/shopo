@@ -46,14 +46,14 @@ export const Languages = [
 ];
 
 export const MenuCategories = [
-  "Mobiles & Laptops",
-  "Gaming Enterainment",
-  "Image & Video",
-  "Vehicles",
-  "Furnitures",
-  "Sport",
-  "Food & Drinks",
-  "Fashion",
+  { label: "Mobiles & Laptops", href: "/category/mobiles-laptops" },
+  { label: "Gaming Entertainment", href: "/category/gaming" },
+  { label: "Image & Video", href: "/category/image-video" },
+  { label: "Vehicles", href: "/category/vehicles" },
+  { label: "Furnitures", href: "/category/furnitures" },
+  { label: "Sport", href: "/category/sport" },
+  { label: "Food & Drinks", href: "/category/food-drinks" },
+  { label: "Fashion", href: "/category/fashion" },
 ];
 
 export const HomeSlides = [
@@ -98,24 +98,30 @@ export const Brands = [
 export const MobileMainMenuLinks = [
   {
     mainManu: "Home",
-    subMenu: ["Home1", "Home2", "Home3"],
+    href:"/"
   },
   {
     mainManu: "Shop",
+     href:"/shop"
   },
   {
+    mainManu: "Cart",
+    href:"/cart"
+  },
+  {
+    mainManu: "Checkout",
+    href:"/checkout"
+  },
+  {
+    mainManu: "Login",
+    href:"/login"
+  },
+   {
     mainManu: "Pages",
-    subMenu: ["Privacy Policy", "FAQ", "Terms and Conditions"],
-  },
-  {
-    mainManu: "About",
-  },
-  {
-    mainManu: "Blogs",
-  },
-  {
-    mainManu: "Contact",
-  },
+     
+    subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ"],
+    subhref : ["/privacy","/terms","/faq"]
+  }
 ];
 
 export const Products = [
@@ -129,13 +135,28 @@ export const Products = [
     rating: 4.5,
     selling: 19,
     reviewCount: 128,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
-    allImages:["https://shopo.quomodothemes.website/assets/images/product-img-1.jpg","https://shopo.quomodothemes.website/assets/images/product-img-1.jpg","https://shopo.quomodothemes.website/assets/images/product-img-1.jpg","https://shopo.quomodothemes.website/assets/images/product-img-1.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+    allImages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "A premium gaming experience with immersive graphics. Designed for serious players. A premium gaming experience with immersive graphics. Designed for serious players.",
-    fullDescription: "Experience unparalleled gaming performance with our premium gaming headset. Featuring 7.1 surround sound for precise audio positioning, memory foam ear cushions for extended comfort during long sessions, customizable RGB lighting, noise-cancelling microphone for crystal clear communication, and durable construction with adjustable headband. Perfect for competitive gaming where every sound matters.",
-    featured: ["7.1 Surround Sound", "Memory Foam Ear Cushions", "Noise-Cancelling Microphone", "Customizable RGB Lighting", "Adjustable Headband", "Durable Construction"]
+    description:
+      "A premium gaming experience with immersive graphics. Designed for serious players. A premium gaming experience with immersive graphics. Designed for serious players.",
+    fullDescription:
+      "Experience unparalleled gaming performance with our premium gaming headset. Featuring 7.1 surround sound for precise audio positioning, memory foam ear cushions for extended comfort during long sessions, customizable RGB lighting, noise-cancelling microphone for crystal clear communication, and durable construction with adjustable headband. Perfect for competitive gaming where every sound matters.",
+    featured: [
+      "7.1 Surround Sound",
+      "Memory Foam Ear Cushions",
+      "Noise-Cancelling Microphone",
+      "Customizable RGB Lighting",
+      "Adjustable Headband",
+      "Durable Construction",
+    ],
   },
   {
     id: 2,
@@ -147,13 +168,28 @@ export const Products = [
     rating: 4.3,
     selling: 5,
     reviewCount: 89,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: "Sale",
     inStock: true,
-    description: "Compact and efficient device for tech enthusiasts. Built with performance in mind. Compact and efficient device for tech enthusiasts. Built with performance in mind.",
-    fullDescription: "This versatile smart home hub connects and controls all your compatible devices from one central location. Features include voice assistant integration, compatibility with 1000+ smart devices, easy setup through mobile app, energy monitoring capabilities, sleek minimalist design that fits any decor, and advanced security protocols to keep your home network safe.",
-    featured: ["Voice Assistant Integration", "1000+ Device Compatibility", "Mobile App Control", "Energy Monitoring", "Sleek Minimalist Design", "Advanced Security Protocols"]
+    description:
+      "Compact and efficient device for tech enthusiasts. Built with performance in mind. Compact and efficient device for tech enthusiasts. Built with performance in mind.",
+    fullDescription:
+      "This versatile smart home hub connects and controls all your compatible devices from one central location. Features include voice assistant integration, compatibility with 1000+ smart devices, easy setup through mobile app, energy monitoring capabilities, sleek minimalist design that fits any decor, and advanced security protocols to keep your home network safe.",
+    featured: [
+      "Voice Assistant Integration",
+      "1000+ Device Compatibility",
+      "Mobile App Control",
+      "Energy Monitoring",
+      "Sleek Minimalist Design",
+      "Advanced Security Protocols",
+    ],
   },
   {
     id: 3,
@@ -165,13 +201,28 @@ export const Products = [
     rating: 4.2,
     selling: 7,
     reviewCount: 156,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-3.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-3.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design. Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design.",
-    fullDescription: "This budget-friendly gaming mouse delivers performance beyond its price point. Features high-precision 6400 DPI optical sensor for accurate tracking, 6 programmable buttons for custom macros, RGB lighting with multiple effects, ergonomic design for comfortable grip during extended sessions, durable Omron switches rated for 10 million clicks, and braided cable for increased longevity.",
-    featured: ["6400 DPI Optical Sensor", "6 Programmable Buttons", "RGB Lighting Effects", "Ergonomic Design", "Durable Omron Switches", "Braided Cable"]
+    description:
+      "Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design. Enjoy fast-paced action with this budget-friendly choice. Sleek and powerful design.",
+    fullDescription:
+      "This budget-friendly gaming mouse delivers performance beyond its price point. Features high-precision 6400 DPI optical sensor for accurate tracking, 6 programmable buttons for custom macros, RGB lighting with multiple effects, ergonomic design for comfortable grip during extended sessions, durable Omron switches rated for 10 million clicks, and braided cable for increased longevity.",
+    featured: [
+      "6400 DPI Optical Sensor",
+      "6 Programmable Buttons",
+      "RGB Lighting Effects",
+      "Ergonomic Design",
+      "Durable Omron Switches",
+      "Braided Cable",
+    ],
   },
   {
     id: 4,
@@ -183,13 +234,29 @@ export const Products = [
     rating: 4.7,
     selling: 0,
     reviewCount: 45,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-4.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-4.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: "New",
     inStock: true,
-    description: "Top-tier computing performance for professionals. Perfect for multitasking workloads. Top-tier computing performance for professionals. Perfect for multitasking workloads.",
-    fullDescription: "Professional-grade laptop designed for demanding workloads. Features Intel Core i7-11800H processor, 16GB DDR4 RAM, 1TB NVMe SSD storage, NVIDIA RTX 3050 Ti graphics, 15.6-inch 4K OLED display with 100% DCI-P3 color gamut, Thunderbolt 4 ports, backlit keyboard with numeric pad, Windows 11 Pro, and all-day battery life. Perfect for content creators, developers, and professionals who need power on the go.",
-    featured: ["Intel Core i7-11800H Processor", "16GB DDR4 RAM", "1TB NVMe SSD", "NVIDIA RTX 3050 Ti Graphics", "15.6-inch 4K OLED Display", "Thunderbolt 4 Ports", "All-day Battery Life"]
+    description:
+      "Top-tier computing performance for professionals. Perfect for multitasking workloads. Top-tier computing performance for professionals. Perfect for multitasking workloads.",
+    fullDescription:
+      "Professional-grade laptop designed for demanding workloads. Features Intel Core i7-11800H processor, 16GB DDR4 RAM, 1TB NVMe SSD storage, NVIDIA RTX 3050 Ti graphics, 15.6-inch 4K OLED display with 100% DCI-P3 color gamut, Thunderbolt 4 ports, backlit keyboard with numeric pad, Windows 11 Pro, and all-day battery life. Perfect for content creators, developers, and professionals who need power on the go.",
+    featured: [
+      "Intel Core i7-11800H Processor",
+      "16GB DDR4 RAM",
+      "1TB NVMe SSD",
+      "NVIDIA RTX 3050 Ti Graphics",
+      "15.6-inch 4K OLED Display",
+      "Thunderbolt 4 Ports",
+      "All-day Battery Life",
+    ],
   },
   {
     id: 5,
@@ -201,13 +268,29 @@ export const Products = [
     rating: 4.4,
     selling: 13,
     reviewCount: 203,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-5.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-5.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Stay connected with cutting-edge features. Long-lasting battery and vivid display. Stay connected with cutting-edge features. Long-lasting battery and vivid display.",
-    fullDescription: "Flagship smartphone with exceptional camera capabilities and all-day battery. Features 6.7-inch AMOLED 120Hz display, Snapdragon 8 Gen 1 processor, 12GB RAM, 256GB storage, triple camera system with 108MP main sensor, 5000mAh battery with 65W fast charging, IP68 water resistance, 5G connectivity, under-display fingerprint sensor, and stereo speakers with Dolby Atmos support.",
-    featured: ["6.7-inch AMOLED 120Hz Display", "Snapdragon 8 Gen 1 Processor", "108MP Triple Camera System", "5000mAh Battery with 65W Charging", "IP68 Water Resistance", "5G Connectivity", "Under-display Fingerprint Sensor"]
+    description:
+      "Stay connected with cutting-edge features. Long-lasting battery and vivid display. Stay connected with cutting-edge features. Long-lasting battery and vivid display.",
+    fullDescription:
+      "Flagship smartphone with exceptional camera capabilities and all-day battery. Features 6.7-inch AMOLED 120Hz display, Snapdragon 8 Gen 1 processor, 12GB RAM, 256GB storage, triple camera system with 108MP main sensor, 5000mAh battery with 65W fast charging, IP68 water resistance, 5G connectivity, under-display fingerprint sensor, and stereo speakers with Dolby Atmos support.",
+    featured: [
+      "6.7-inch AMOLED 120Hz Display",
+      "Snapdragon 8 Gen 1 Processor",
+      "108MP Triple Camera System",
+      "5000mAh Battery with 65W Charging",
+      "IP68 Water Resistance",
+      "5G Connectivity",
+      "Under-display Fingerprint Sensor",
+    ],
   },
   {
     id: 6,
@@ -219,13 +302,29 @@ export const Products = [
     rating: 4.1,
     selling: 44,
     reviewCount: 67,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-6.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-6.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Affordable gadget for daily convenience. Compact size with essential functions. Affordable gadget for daily convenience. Compact size with essential functions.",
-    fullDescription: "Compact portable power bank with fast charging capabilities. Features 10000mAh capacity, 18W PD quick charge, dual USB outputs, USB-C input, built-in LED power indicator, compact lightweight design, safety protections against overcharging and short circuits, and compatible with most smartphones, tablets, and other USB devices. Perfect for travel and daily use.",
-    featured: ["10000mAh Capacity", "18W PD Quick Charge", "Dual USB Outputs", "USB-C Input", "Built-in LED Power Indicator", "Safety Protections", "Compact Lightweight Design"]
+    description:
+      "Affordable gadget for daily convenience. Compact size with essential functions. Affordable gadget for daily convenience. Compact size with essential functions.",
+    fullDescription:
+      "Compact portable power bank with fast charging capabilities. Features 10000mAh capacity, 18W PD quick charge, dual USB outputs, USB-C input, built-in LED power indicator, compact lightweight design, safety protections against overcharging and short circuits, and compatible with most smartphones, tablets, and other USB devices. Perfect for travel and daily use.",
+    featured: [
+      "10000mAh Capacity",
+      "18W PD Quick Charge",
+      "Dual USB Outputs",
+      "USB-C Input",
+      "Built-in LED Power Indicator",
+      "Safety Protections",
+      "Compact Lightweight Design",
+    ],
   },
   {
     id: 7,
@@ -237,13 +336,29 @@ export const Products = [
     rating: 4.6,
     selling: 12,
     reviewCount: 92,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-7.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-7.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Reliable electronics built for durability. Great value for everyday use. Reliable electronics built for durability. Great value for everyday use.",
-    fullDescription: "Premium wireless earbuds with active noise cancellation. Features hybrid active noise cancellation technology, 30-hour total battery life with charging case, IPX5 water resistance, touch controls for music and calls, Bluetooth 5.2 connectivity, low latency gaming mode, customizable EQ through mobile app, comfortable secure fit with multiple ear tip sizes, and voice assistant support.",
-    featured: ["Hybrid Active Noise Cancellation", "30-hour Battery Life", "IPX5 Water Resistance", "Bluetooth 5.2 Connectivity", "Low Latency Gaming Mode", "Customizable EQ", "Voice Assistant Support"]
+    description:
+      "Reliable electronics built for durability. Great value for everyday use. Reliable electronics built for durability. Great value for everyday use.",
+    fullDescription:
+      "Premium wireless earbuds with active noise cancellation. Features hybrid active noise cancellation technology, 30-hour total battery life with charging case, IPX5 water resistance, touch controls for music and calls, Bluetooth 5.2 connectivity, low latency gaming mode, customizable EQ through mobile app, comfortable secure fit with multiple ear tip sizes, and voice assistant support.",
+    featured: [
+      "Hybrid Active Noise Cancellation",
+      "30-hour Battery Life",
+      "IPX5 Water Resistance",
+      "Bluetooth 5.2 Connectivity",
+      "Low Latency Gaming Mode",
+      "Customizable EQ",
+      "Voice Assistant Support",
+    ],
   },
   {
     id: 8,
@@ -255,13 +370,29 @@ export const Products = [
     rating: 4.3,
     selling: 25,
     reviewCount: 178,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-8.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-8.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: "Popular",
     inStock: true,
-    description: "Crystal clear audio with deep bass. Ideal for music lovers and audiophiles. Crystal clear audio with deep bass. Ideal for music lovers and audiophiles.",
-    fullDescription: "High-fidelity bookshelf speakers with exceptional sound quality. Features 5.25-inch woven fiberglass woofers, 1-inch silk dome tweeters, 100W peak power handling, rear-firing bass port for extended low frequencies, magnetic shielding for placement near displays, professional-grade crossover network, real wood veneer finish, and gold-plated binding posts. Perfect for stereo music listening and home theater setups.",
-    featured: ["5.25-inch Woven Fiberglass Woofers", "1-inch Silk Dome Tweeters", "100W Peak Power Handling", "Rear-firing Bass Port", "Magnetic Shielding", "Professional-grade Crossover", "Real Wood Veneer Finish"]
+    description:
+      "Crystal clear audio with deep bass. Ideal for music lovers and audiophiles. Crystal clear audio with deep bass. Ideal for music lovers and audiophiles.",
+    fullDescription:
+      "High-fidelity bookshelf speakers with exceptional sound quality. Features 5.25-inch woven fiberglass woofers, 1-inch silk dome tweeters, 100W peak power handling, rear-firing bass port for extended low frequencies, magnetic shielding for placement near displays, professional-grade crossover network, real wood veneer finish, and gold-plated binding posts. Perfect for stereo music listening and home theater setups.",
+    featured: [
+      "5.25-inch Woven Fiberglass Woofers",
+      "1-inch Silk Dome Tweeters",
+      "100W Peak Power Handling",
+      "Rear-firing Bass Port",
+      "Magnetic Shielding",
+      "Professional-grade Crossover",
+      "Real Wood Veneer Finish",
+    ],
   },
   {
     id: 9,
@@ -273,13 +404,29 @@ export const Products = [
     rating: 4.5,
     selling: 29,
     reviewCount: 134,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-9.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-9.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "High-definition sound with noise isolation. Designed for immersive listening. High-definition sound with noise isolation. Designed for immersive listening.",
-    fullDescription: "Professional studio headphones for critical listening and music production. Features 40mm neodymium drivers with extended frequency response, circumaural design with memory foam ear pads, foldable design for portability, detachable oxygen-free copper cable, ¼-inch adapter included, minimal sound leakage, comfortable for extended wearing sessions, and rugged construction for durability in studio environments.",
-    featured: ["40mm Neodymium Drivers", "Circumaural Design", "Memory Foam Ear Pads", "Foldable Design", "Detachable Cable", "Minimal Sound Leakage", "Rugged Construction"]
+    description:
+      "High-definition sound with noise isolation. Designed for immersive listening. High-definition sound with noise isolation. Designed for immersive listening.",
+    fullDescription:
+      "Professional studio headphones for critical listening and music production. Features 40mm neodymium drivers with extended frequency response, circumaural design with memory foam ear pads, foldable design for portability, detachable oxygen-free copper cable, ¼-inch adapter included, minimal sound leakage, comfortable for extended wearing sessions, and rugged construction for durability in studio environments.",
+    featured: [
+      "40mm Neodymium Drivers",
+      "Circumaural Design",
+      "Memory Foam Ear Pads",
+      "Foldable Design",
+      "Detachable Cable",
+      "Minimal Sound Leakage",
+      "Rugged Construction",
+    ],
   },
   {
     id: 10,
@@ -291,13 +438,29 @@ export const Products = [
     rating: 3.8,
     selling: 22,
     reviewCount: 89,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-10.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-10.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Experience next-gen gaming at high frame rates. Built for serious performance. Experience next-gen gaming at high frame rates. Built for serious performance.",
-    fullDescription: "High-performance gaming monitor with exceptional response times. Features 27-inch QHD (2560x1440) IPS display, 165Hz refresh rate, 1ms response time, NVIDIA G-SYNC compatibility, HDR400 support, 99% sRGB color coverage, adjustable stand with height, tilt and swivel, AMD FreeSync Premium, built-in gaming modes, and flicker-free technology with blue light filter for extended gaming sessions.",
-    featured: ["27-inch QHD IPS Display", "165Hz Refresh Rate", "1ms Response Time", "NVIDIA G-SYNC Compatible", "HDR400 Support", "99% sRGB Color Coverage", "Adjustable Stand"]
+    description:
+      "Experience next-gen gaming at high frame rates. Built for serious performance. Experience next-gen gaming at high frame rates. Built for serious performance.",
+    fullDescription:
+      "High-performance gaming monitor with exceptional response times. Features 27-inch QHD (2560x1440) IPS display, 165Hz refresh rate, 1ms response time, NVIDIA G-SYNC compatibility, HDR400 support, 99% sRGB color coverage, adjustable stand with height, tilt and swivel, AMD FreeSync Premium, built-in gaming modes, and flicker-free technology with blue light filter for extended gaming sessions.",
+    featured: [
+      "27-inch QHD IPS Display",
+      "165Hz Refresh Rate",
+      "1ms Response Time",
+      "NVIDIA G-SYNC Compatible",
+      "HDR400 Support",
+      "99% sRGB Color Coverage",
+      "Adjustable Stand",
+    ],
   },
   {
     id: 11,
@@ -309,13 +472,29 @@ export const Products = [
     rating: 4.6,
     selling: 2,
     reviewCount: 156,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-1.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: null,
     inStock: true,
-    description: "Smooth gameplay and responsive controls. A great pick for casual gamers. Smooth gameplay and responsive controls. A great pick for casual gamers.",
-    fullDescription: "Mechanical gaming keyboard with customizable RGB lighting. Features Cherry MX Red switches for smooth linear keystrokes, full RGB backlighting with software customization, aluminum top plate for durability, dedicated media controls, N-key rollover, detachable USB-C cable, programmable macro keys, and ergonomic design with adjustable feet. Perfect for gamers who want responsive tactile feedback.",
-    featured: ["Cherry MX Red Switches", "Full RGB Backlighting", "Aluminum Top Plate", "Dedicated Media Controls", "N-key Rollover", "Detachable USB-C Cable", "Programmable Macro Keys"]
+    description:
+      "Smooth gameplay and responsive controls. A great pick for casual gamers. Smooth gameplay and responsive controls. A great pick for casual gamers.",
+    fullDescription:
+      "Mechanical gaming keyboard with customizable RGB lighting. Features Cherry MX Red switches for smooth linear keystrokes, full RGB backlighting with software customization, aluminum top plate for durability, dedicated media controls, N-key rollover, detachable USB-C cable, programmable macro keys, and ergonomic design with adjustable feet. Perfect for gamers who want responsive tactile feedback.",
+    featured: [
+      "Cherry MX Red Switches",
+      "Full RGB Backlighting",
+      "Aluminum Top Plate",
+      "Dedicated Media Controls",
+      "N-key Rollover",
+      "Detachable USB-C Cable",
+      "Programmable Macro Keys",
+    ],
   },
   {
     id: 12,
@@ -327,17 +506,31 @@ export const Products = [
     rating: 4.4,
     reviewCount: 78,
     selling: 2,
-    images: "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
-    allimages: ["https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg","https://shopo.quomodothemes.website/assets/images/product-img-2.jpg"],
+    images:
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    allimages: [
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+      "https://shopo.quomodothemes.website/assets/images/product-img-2.jpg",
+    ],
     badge: "Premium",
     inStock: true,
-    description: "Premium build with advanced tech features. A sleek upgrade for your setup. Premium build with advanced tech features. A sleek upgrade for your setup.",
-    fullDescription: "Ultra-slim external SSD with blazing fast transfer speeds. Features USB 3.2 Gen 2 interface with up to 1050MB/s read speeds, capacities up to 2TB, shock-resistant metal enclosure, hardware encryption for data security, compact pocket-sized design, backward compatible with USB 3.0/2.0, included USB-C to C and USB-C to A cables, and 3-year limited warranty. Perfect for photographers, videographers, and professionals needing fast portable storage.",
-    featured: ["1050MB/s Read Speeds", "Up to 2TB Capacity", "Shock-resistant Metal Enclosure", "Hardware Encryption", "Compact Pocket-sized Design", "Backward Compatible", "3-year Warranty"]
+    description:
+      "Premium build with advanced tech features. A sleek upgrade for your setup. Premium build with advanced tech features. A sleek upgrade for your setup.",
+    fullDescription:
+      "Ultra-slim external SSD with blazing fast transfer speeds. Features USB 3.2 Gen 2 interface with up to 1050MB/s read speeds, capacities up to 2TB, shock-resistant metal enclosure, hardware encryption for data security, compact pocket-sized design, backward compatible with USB 3.0/2.0, included USB-C to C and USB-C to A cables, and 3-year limited warranty. Perfect for photographers, videographers, and professionals needing fast portable storage.",
+    featured: [
+      "1050MB/s Read Speeds",
+      "Up to 2TB Capacity",
+      "Shock-resistant Metal Enclosure",
+      "Hardware Encryption",
+      "Compact Pocket-sized Design",
+      "Backward Compatible",
+      "3-year Warranty",
+    ],
   },
 ];
-
-
 
 export const FeatureList = [
   {
@@ -362,7 +555,6 @@ export const FeatureList = [
   },
 ];
 
-
 export const FooterData = [
   {
     title: "Feature",
@@ -378,21 +570,19 @@ export const FooterData = [
   },
 ];
 
-
 export const Categories = [
-      "Mobile & Laptops",
-      "Gaming Entertainment",
-      "Image & Video",
-      "Vehicles",
-      "Furnitures",
-      "Sport",
-      "Food & Drinks",
-      "Fashion Accessories",
-      "Toilet & Sanitation",
-      "Makeup Corner",
-      "Baby Items",
-    ];
-
+  "Mobile & Laptops",
+  "Gaming Entertainment",
+  "Image & Video",
+  "Vehicles",
+  "Furnitures",
+  "Sport",
+  "Food & Drinks",
+  "Fashion Accessories",
+  "Toilet & Sanitation",
+  "Makeup Corner",
+  "Baby Items",
+];
 
 export const FilterBrands = [
   "Apple",
@@ -408,15 +598,14 @@ export const FilterBrands = [
 export const Storage = ["64GB", "128GB", "256GB", "512GB", "1024GB"];
 export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
 
-
- export const Reviews = [
+export const Reviews = [
   {
     id: 1,
     name: "Sarah Johnson",
     img: "https://randomuser.me/api/portraits/women/32.jpg",
     country: "UK, London",
     rating: 5,
-    desc: "Absolutely love this product! The quality exceeded my expectations and delivery was faster than promised. Will definitely purchase again."
+    desc: "Absolutely love this product! The quality exceeded my expectations and delivery was faster than promised. Will definitely purchase again.",
   },
   {
     id: 2,
@@ -424,7 +613,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/45.jpg",
     country: "USA, New York",
     rating: 4,
-    desc: "Good product overall. The build quality is solid and it works as described. Minor issues with setup but customer support was helpful."
+    desc: "Good product overall. The build quality is solid and it works as described. Minor issues with setup but customer support was helpful.",
   },
   {
     id: 3,
@@ -432,7 +621,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/67.jpg",
     country: "Canada, Toronto",
     rating: 5,
-    desc: "Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive."
+    desc: "Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive.",
   },
   {
     id: 3,
@@ -440,7 +629,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/67.jpg",
     country: "Canada, Toronto",
     rating: 5,
-    desc: "Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. "
+    desc: "Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. Exceptional value for money! This has completely transformed my daily routine. The attention to detail in design is impressive. ",
   },
   {
     id: 4,
@@ -448,7 +637,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/22.jpg",
     country: "Australia, Sydney",
     rating: 3,
-    desc: "Average product. Does what it says but nothing extraordinary. The packaging could be better as mine arrived slightly damaged."
+    desc: "Average product. Does what it says but nothing extraordinary. The packaging could be better as mine arrived slightly damaged.",
   },
   {
     id: 5,
@@ -456,7 +645,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/89.jpg",
     country: "South Korea, Seoul",
     rating: 5,
-    desc: "Outstanding performance! I've tried several brands but this one stands out. The customer service was also excellent when I had questions."
+    desc: "Outstanding performance! I've tried several brands but this one stands out. The customer service was also excellent when I had questions.",
   },
   {
     id: 6,
@@ -464,7 +653,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/56.jpg",
     country: "Germany, Berlin",
     rating: 4,
-    desc: "Very satisfied with this purchase. Reliable and durable. It arrived well-packaged and the instructions were clear and easy to follow."
+    desc: "Very satisfied with this purchase. Reliable and durable. It arrived well-packaged and the instructions were clear and easy to follow.",
   },
   {
     id: 7,
@@ -472,7 +661,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/43.jpg",
     country: "UK, Manchester",
     rating: 2,
-    desc: "Disappointed with the quality. It stopped working after just two weeks of light use. Waiting to hear back about a replacement or refund."
+    desc: "Disappointed with the quality. It stopped working after just two weeks of light use. Waiting to hear back about a replacement or refund.",
   },
   {
     id: 8,
@@ -480,7 +669,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/78.jpg",
     country: "USA, Chicago",
     rating: 5,
-    desc: "Absolutely brilliant! Worth every penny. The features are well thought out and it's incredibly user-friendly even for beginners."
+    desc: "Absolutely brilliant! Worth every penny. The features are well thought out and it's incredibly user-friendly even for beginners.",
   },
   {
     id: 9,
@@ -488,7 +677,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/12.jpg",
     country: "Spain, Madrid",
     rating: 4,
-    desc: "Great product with minor flaws. The main functions work perfectly but some additional features could be improved. Overall happy with my purchase."
+    desc: "Great product with minor flaws. The main functions work perfectly but some additional features could be improved. Overall happy with my purchase.",
   },
   {
     id: 10,
@@ -496,7 +685,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/34.jpg",
     country: "France, Paris",
     rating: 1,
-    desc: "Terrible experience. Product arrived damaged and nothing like the description. Customer service has been unresponsive to my complaints."
+    desc: "Terrible experience. Product arrived damaged and nothing like the description. Customer service has been unresponsive to my complaints.",
   },
   {
     id: 11,
@@ -504,7 +693,7 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/women/76.jpg",
     country: "UK, Edinburgh",
     rating: 5,
-    desc: "Exceeded all expectations! The quality is premium and it's incredibly efficient. I've already recommended it to all my friends and family."
+    desc: "Exceeded all expectations! The quality is premium and it's incredibly efficient. I've already recommended it to all my friends and family.",
   },
   {
     id: 12,
@@ -512,47 +701,92 @@ export const Size = ["S", "M", "XL", "XXL", "Sliem Fit"];
     img: "https://randomuser.me/api/portraits/men/91.jpg",
     country: "USA, Los Angeles",
     rating: 3,
-    desc: "It's okay for the price. Does the basic job but don't expect premium performance. Might upgrade to a better model in the future."
-  }
+    desc: "It's okay for the price. Does the basic job but don't expect premium performance. Might upgrade to a better model in the future.",
+  },
 ];
 
-
 export const Seller = {
-    product: 120,
-    category: ["Mobile Phone", "Sports", "Gaming", "Electronics"],
-    tags: ["Beer", "Foamer"],
-    name: "Ridoy Rock",
-    country: "Germany",
-    img: "https://randomuser.me/api/portraits/men/68.jpg",
-    rating: 4.3,
-  };
+  product: 120,
+  category: ["Mobile Phone", "Sports", "Gaming", "Electronics"],
+  tags: ["Beer", "Foamer"],
+  name: "Ridoy Rock",
+  country: "Germany",
+  img: "https://randomuser.me/api/portraits/men/68.jpg",
+  rating: 4.3,
+};
 
-
-  
 export const FaqData = [
   {
     id: 1,
     question: "How does Information Technology work?",
-    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+    answer:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words.",
   },
   {
     id: 2,
     question: "How can I become an IT manager?",
-    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+    answer:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words.",
   },
   {
     id: 3,
     question: "What are the latest trends in IT?",
-    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+    answer:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words.",
   },
   {
     id: 4,
     question: "What skills are important in the IT field?",
-    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
+    answer:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words.",
   },
   {
     id: 5,
     question: "What certifications are useful for IT professionals?",
-    answer: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words."
-  }
+    answer:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised words.",
+  },
+];
+
+export const TermsDAta = [
+  {
+    id: 1,
+    title: "What Are Terms and Conditions?",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.",
+  },
+  {
+    id: 2,
+    title: "Does My Online Shop Need Terms and Conditions?",
+    content:
+      "While it’s not legally required for ecommerce websites to have a terms and conditions agreement, adding one will help protect your online business.As terms and conditions are legally enforceable rules, they allow you to set standards for how users interact with your site. Here are some of the major benefits of including terms and conditions on your ecommerce site: \n has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop.",
+  },
+  {
+    id: 3,
+    title: "Key Features of Our Terms",
+    option: [
+      "Slim body with metal cover",
+      "Intel Core i5-1135G7 processor (4 cores / 8 threads)",
+      "8GB DDR4 RAM and 512GB PCIe SSD",
+      "NVIDIA GeForce MX350 2GB GDDR5 graphics card backlit keyboard, touchpad with gesture support",
+    ],
+  },
+  {
+    id: 4,
+    title: "Protect Your Property",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.",
+  },
+  {
+    id: 5,
+    title: "What to Include in Terms and Conditions for Online Stores",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. \n five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book.",
+  },
+  {
+    id: 6,
+    title: "Pricing and Payment Terms",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. \n five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. \n It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop",
+  },
 ];

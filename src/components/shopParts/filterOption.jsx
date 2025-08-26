@@ -11,7 +11,7 @@ const FilterSideBar = () => {
 
   
 
-    const [store, setStore] = useState(Storage[0]);
+  const [store, setStore] = useState(Storage[0]);
     
 return(
 <div className="lg:py-6 lg:px-6 bg-white">

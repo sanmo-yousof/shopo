@@ -35,7 +35,7 @@ const Footer = () => {
                     key={i}
                     className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
                   >
-                    {link}
+                    <Link href={'#'}>{link}</Link>
                   </li>
                 ))}
               </ul>

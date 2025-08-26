@@ -49,7 +49,7 @@ const FAQ = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 p-6 bg-white">
-            <h2 className="text-2xl md:text-3xl text-center font-semibold">
+            <h2 className="text-xl md:text-2xl text-center font-semibold">
               Have Any Questions
             </h2>
 
