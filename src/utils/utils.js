@@ -16,7 +16,7 @@ import brand9 from "@/asset/homeImages/brand-9.png";
 import brand10 from "@/asset/homeImages/brand-10.png";
 import brand11 from "@/asset/homeImages/brand-11.png";
 import brand12 from "@/asset/homeImages/brand-12.png";
-import { BaggageClaim, RotateCcw, ShieldCheck, Trophy } from "lucide-react";
+import { BaggageClaim, Clock3, icons, Key, LogIn, Mail, PackageCheck, PanelsTopLeft, Repeat, RotateCcw, ShieldCheck, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
 
 export const Countries = [
   { name: "United States", flag: flag1 },
@@ -790,3 +790,154 @@ export const TermsDAta = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. \n five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum to make a type specimen book. \n It has survived not only five centuries but also the on leap into electronic typesetting, remaining essentially unchanged. It wasn’t popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, andei more recently with desktop",
   },
 ];
+
+
+export const DashboardLinks = [
+  {
+    text: "Overview",
+    href: "/dashboard",
+    icon: PanelsTopLeft
+  },
+  {
+    text: "Purchased Items",
+    href: "/dashboard/purchased-items",
+    icon:  ShoppingBag
+  },
+  {
+    text: "Transactions",
+    href: "/dashboard/transactions",
+    icon:  Repeat
+  },
+  {
+    text: "Order Tracking",
+    href: "/dashboard/order-tracking",
+    icon: Truck
+  },
+   {
+    text: "Messages",
+    href: "/dashboard/messages",
+    icon: Mail
+  },
+   {
+    text: "Tickets",
+    href: "/dashboard/tickets",
+    icon: Ticket
+  },
+  {
+    text: "Edit Profile",
+    href: "/dashboard/edit-profile",
+    icon: UserPenIcon
+  },
+  {
+    text: "Reset Password",
+    href: "/dashboard/reset-password",
+    icon: Key
+  },
+  {
+    text: "Logout",
+    href: "/logout",
+    icon: LogIn
+  },
+]
+
+export const dashboardOverviewCards = [
+  {
+    key: "totalProducts",
+    label: "Total Products",
+    value: 128, 
+    icon: PackageCheck,
+  },
+  {
+    key: "totalOrders",
+    label: "Total Orders",
+    value: 342,
+    icon: ShoppingCart,
+  },
+  {
+    key: "pendingOrders",
+    label: "Pending Orders",
+    value: 27,
+    icon: Clock3,
+  },
+  
+  {
+    key: "walletBalance",
+    label: "Wallet Balance",
+    value: "$1,254.00",
+    icon: Wallet,
+  },
+];
+
+export const Orders = [
+  {
+    id: 1,
+    order_id: "ORD1001",
+    date: "2025-08-25",
+    total_amount: 150.00,
+    order_status: "Completed"
+  },
+  {
+    id: 2,
+    order_id: "ORD1002",
+    date: "2025-08-25",
+    total_amount: 89.99,
+    order_status: "Pending"
+  },
+  {
+    id: 3,
+    order_id: "ORD1003",
+    date: "2025-08-26",
+    total_amount: 299.00,
+    order_status: "Completed"
+  },
+  {
+    id: 4,
+    order_id: "ORD1004",
+    date: "2025-08-26",
+    total_amount: 45.50,
+    order_status: "Completed"
+  },
+  {
+    id: 5,
+    order_id: "ORD1005",
+    date: "2025-08-27",
+    total_amount: 120.75,
+    order_status: "Pending"
+  },
+  {
+    id: 6,
+    order_id: "ORD1006",
+    date: "2025-08-27",
+    total_amount: 199.99,
+    order_status: "Completed"
+  },
+  {
+    id: 7,
+    order_id: "ORD1007",
+    date: "2025-08-27",
+    total_amount: 340.00,
+    order_status: "Pending"
+  },
+  {
+    id: 8,
+    order_id: "ORD1008",
+    date: "2025-08-27",
+    total_amount: 59.99,
+    order_status: "Completed"
+  },
+  {
+    id: 9,
+    order_id: "ORD1009",
+    date: "2025-08-27",
+    total_amount: 74.20,
+    order_status: "Pending"
+  },
+  {
+    id: 10,
+    order_id: "ORD1010",
+    date: "2025-08-27",
+    total_amount: 500.00,
+    order_status: "Completed"
+  }
+];
+

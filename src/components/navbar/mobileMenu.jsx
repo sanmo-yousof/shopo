@@ -22,6 +22,7 @@ import {
   LogIn,
   ShieldCheck,
   CircleQuestionMark,
+  ScrollText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MenuCategories } from "@/utils/utils";
@@ -47,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose }) {
   ];
 
   const menuIcon = [House,PackageSearch,ShoppingCart,ReceiptText,LogIn]
-  const submenuIcon = [ShieldCheck,CircleQuestionMark]
+  const submenuIcon = [ShieldCheck,ScrollText ,CircleQuestionMark]
 
   return (
     <>
@@ -154,7 +155,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                     <>
                       <div
                         onClick={toggleSubmenu}
-                        className="flex duration-300 cursor-pointer text-sm hover:!text-white w-full py-2 px-4 hover:!bg-[#1867d6] justify-between items-center"
+                        className="flex duration-300 cursor-pointer text-sm hover:!text-white w-full py-3 px-4 hover:!bg-[#1867d6] justify-between items-center"
                       >
                         <p>{category.mainManu}</p>
                         <ChevronDown
@@ -168,15 +169,18 @@ export default function MobileMenu({ isOpen, onClose }) {
                       {/* Submenu */}
                       {isOpen && category.subMenu && category.subhref && (
                         <div className="ml-6">
-                          {category.subMenu.map((single, idx) => (
+                          {category.subMenu.map((single, idx) => {
+                            const Icon = submenuIcon[idx]
+                            return(
                             <Link
                               key={idx}
                               href={category.subhref[idx]}
-                              className="flex hover:bg-amber-400 w-full justify-between text-sm py-2 hover:text-white px-2 items-center"
+                              className="flex hover:bg-amber-400 w-full gap-2 text-sm py-3 hover:text-white px-2 items-center"
                             >
+                              <Icon className="w-4 h-4"/>
                               <p>{single}</p>
                             </Link>
-                          ))}
+                          )})}
                         </div>
                       )}
                     </>

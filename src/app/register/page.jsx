@@ -136,8 +136,8 @@ const Register = () => {
 
               <div className="mt-4 flex items-center justify-center text-gray-500  gap-2">
                 
-                <p className="text-gray-400">Don't have an Account?</p>
-                <Link className="text-black" href={"/login"}>Sign up free</Link>
+                <p className="text-gray-400">Already have an Account?</p>
+                <Link className="text-black" href={"/login"}>Log In</Link>
               </div>
               
             </form>
