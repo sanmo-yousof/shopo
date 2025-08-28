@@ -71,8 +71,8 @@ export default function Navbar() {
               </Select>
             </div>
             <div>
-              <Button asChild>
-                <span>Search</span>
+              <Button className={'rounded-none'} variant={"secondary"} >
+                Search
               </Button>
             </div>
           </div>

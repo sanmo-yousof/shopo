@@ -23,6 +23,7 @@ import {
   ShieldCheck,
   CircleQuestionMark,
   ScrollText,
+  Layout,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MenuCategories } from "@/utils/utils";
@@ -47,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose }) {
     Shirt,
   ];
 
-  const menuIcon = [House,PackageSearch,ShoppingCart,ReceiptText,LogIn]
+  const menuIcon = [House,PackageSearch,ShoppingCart,ReceiptText,Layout,LogIn]
   const submenuIcon = [ShieldCheck,ScrollText ,CircleQuestionMark]
 
   return (
@@ -97,24 +98,26 @@ export default function MobileMenu({ isOpen, onClose }) {
         </div>
 
         {/* Categories / Main Menu Toggle */}
-        <div className="flex justify-center  items-center gap-2 border-b pb-2">
-          <Button
+        <div className="flex justify-center w-full px-4  items-center gap-2 border-b pb-2">
+          <span
             onClick={() => setToggleMenu(true)}
             className={`text-base ${
-              toggleMenu ? "text-gray-700" : "text-gray-400"
-            } font-semibold bg-white`}
+              toggleMenu ? "text-black" : "text-gray-600"
+            } font-semibold   w-1/2`}
           >
             Categories
-          </Button>
-          <span>|</span>
-          <Button
+          </span>
+
+          
+          
+          <span
             onClick={() => setToggleMenu(false)}
             className={`text-base ${
-              !toggleMenu ? "text-gray-700" : "text-gray-400"
-            } font-semibold bg-white`}
+              !toggleMenu ? "text-black" : "text-gray-600"
+            } font-semibold  w-1/2`}
           >
             Main Menu
-          </Button>
+          </span>
         </div>
 
         {/* Categories */}

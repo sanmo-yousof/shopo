@@ -210,7 +210,7 @@ const Menubar = () => {
         </div>
 
         {/* Right side */}
-        <Button variant={"blackBg"} className="">
+        <Button variant={"secondary"} className="">
           Become a Seller <ChevronRight size={16} />
         </Button>
       </div>

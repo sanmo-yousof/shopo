@@ -1,4 +1,5 @@
-import RecentOrders from "@/dashboardComponents/overviewParts/recentOrders";
+
+import RecentOrders from "@/components/dashboardComponents/recentOrders";
 import { dashboardOverviewCards } from "@/utils/utils";
 
 

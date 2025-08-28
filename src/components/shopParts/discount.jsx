@@ -11,7 +11,7 @@ const Discount = () => {
             <p className="text-sm mt-2 text-center lg:text-base">by Subscribe our Newsletter</p>
             <div className="flex px-2 mt-3">
               <input className="bg-white  text-xs max-w-2xl w-full lg:text-base md:text-sm  outline-0 lg:p-4 p-3" placeholder="Email Address" type="text" />
-              <Button className="py-5 text-xs md:text-base md:py-7">
+              <Button variant={'secondary'} className="py-5 rounded-none text-xs md:text-base md:py-7">
                 Get the Coupon
               </Button>
             </div>

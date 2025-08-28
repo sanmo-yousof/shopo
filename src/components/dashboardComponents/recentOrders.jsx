@@ -15,7 +15,7 @@ const RecentOrders = () => {
           <thead>
             <tr className="bg-blue-100 text-left text-xs md:text-sm font-semibold text-gray-700">
               <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
-                Order ID
+                #Order ID
               </th>
               <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
                 Date

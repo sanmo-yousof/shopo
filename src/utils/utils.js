@@ -113,6 +113,10 @@ export const MobileMainMenuLinks = [
     href:"/checkout"
   },
   {
+    mainManu: "Dashboard",
+    href:"/dashboard"
+  },
+  {
     mainManu: "Login",
     href:"/login"
   },
@@ -815,7 +819,7 @@ export const DashboardLinks = [
   },
    {
     text: "Messages",
-    href: "/dashboard/messages",
+    href: "/dashboard/message",
     icon: Mail
   },
    {
@@ -940,4 +944,112 @@ export const Orders = [
     order_status: "Completed"
   }
 ];
+
+
+export const Transactions = [
+  {
+    "transactionId": "TXN001",
+    "amount": 150.75,
+    "transactionDate": "2025-08-01",
+    "details": "Payment received"
+  },
+  {
+    "transactionId": "TXN002",
+    "amount": 89.99,
+    "transactionDate": "2025-08-02",
+    "details": "Monthly subscription"
+  },
+  {
+    "transactionId": "TXN003",
+    "amount": 300.00,
+    "transactionDate": "2025-08-03",
+    "details": "Online purchase"
+  },
+  {
+    "transactionId": "TXN004",
+    "amount": 45.50,
+    "transactionDate": "2025-08-04",
+    "details": "Fuel refill"
+  },
+  {
+    "transactionId": "TXN005",
+    "amount": 1200.00,
+    "transactionDate": "2025-08-05",
+    "details": "Salary credited"
+  },
+  {
+    "transactionId": "TXN006",
+    "amount": 62.35,
+    "transactionDate": "2025-08-06",
+    "details": "Grocery shopping"
+  },
+  {
+    "transactionId": "TXN007",
+    "amount": 200.00,
+    "transactionDate": "2025-08-07",
+    "details": "Gym membership"
+  },
+  {
+    "transactionId": "TXN008",
+    "amount": 18.20,
+    "transactionDate": "2025-08-08",
+    "details": "Coffee shop"
+  },
+  {
+    "transactionId": "TXN009",
+    "amount": 750.00,
+    "transactionDate": "2025-08-09",
+    "details": "Freelance work"
+  },
+  {
+    "transactionId": "TXN010",
+    "amount": 99.99,
+    "transactionDate": "2025-08-10",
+    "details": "Utility bill"
+  }
+]
+
+export const Messages = [
+  {
+    name: "Alice Johnson",
+    message: "Hi there! I just wanted to follow up on our meeting from last week. Let me know if you had any more questions.",
+    sent: "2 days ago"
+  },
+  {
+    name: "Michael Lee",
+    message: "The documents you asked for have been uploaded to the shared folder. Let me know once you’ve reviewed them.",
+    sent: "5 days ago"
+  },
+  {
+    name: "Samantha Green",
+    message: "Thanks again for your help on the project. I really appreciated your feedback and support throughout.",
+    sent: "12 days ago"
+  },
+  {
+    name: "David Kim",
+    message: "Just a reminder that we have a call scheduled tomorrow at 10 AM. Please confirm your availability.",
+    sent: "1 day ago"
+  },
+  {
+    name: "Emma Wilson",
+    message: "I’ve completed the first draft of the proposal. Can you take a look and let me know your thoughts by Friday?",
+    sent: "3 days ago"
+  },
+  {
+    name: "Chris Martin",
+    message: "I ran into a small issue with the deployment process, but it’s under control. I’ll update you soon.",
+    sent: "7 days ago"
+  },
+  {
+    name: "Olivia Brown",
+    message: "Let’s schedule a quick check-in next week to go over the upcoming milestones and reassign any tasks if needed.",
+    sent: "9 days ago"
+  },
+  {
+    name: "Nathan Scott",
+    message: "Hey! Just wanted to say great job on the recent release. The clients are really happy with the outcome.",
+    sent: "4 days ago"
+  }
+];
+
 

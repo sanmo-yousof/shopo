@@ -1,4 +1,5 @@
-import DashboardMenu from "@/dashboardComponents/dashboardMenu/dashboardmenu";
+import DashboardMenu from "@/components/dashboardComponents/dashboardmenu";
+
 
 export default function DashboardLayout({ children }) {
   return (

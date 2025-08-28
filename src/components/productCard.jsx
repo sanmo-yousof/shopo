@@ -69,7 +69,7 @@ const ProductCard = ({ product }) => {
           <span className="text-red-600 font-semibold">${price}</span>
         </div>
         <div className="absolute bottom-4 left-0 right-0 px-6 space-y-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
-          <Button className="w-full"><Handbag /> Add to Cart</Button>
+          <Button   variant={"secondary"} className="w-full"><Handbag /> Add to Cart</Button>
         </div>
       </div>
     </div>
