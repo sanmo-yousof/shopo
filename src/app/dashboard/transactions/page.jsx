@@ -41,10 +41,10 @@ const Transaction = () => {
                     {order.transactionId}
                   </td>
                   <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    {order.amount}
+                    ${order.amount}
                   </td>
                   <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    ${order.transactionDate}
+                    {order.transactionDate}
                   </td>
 
                   <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">

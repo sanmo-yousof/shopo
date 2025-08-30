@@ -10,15 +10,15 @@ import {
 import { Eye } from "lucide-react";
 import Image from "next/image";
 import product from "@/asset/registerImages/register.png";
+import { Button } from "../ui/button";
 
 const ProductViewModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="inline-flex cursor-pointer items-center gap-1 rounded border px-2 py-1 bg-blue-500 text-white lg:text-sm text-xs">
-          <Eye className="w-4 h-4" />
-          View
-        </div>
+        <Button size={"sm"}>
+          <Eye/>
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="flex flex-row sm:max-w-[425px]">

@@ -1,7 +1,13 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { useState } from "react";
 import { Flag, Heart } from "lucide-react";
 import { Button } from "../ui/button";
@@ -11,8 +17,8 @@ import pinterest from "@/asset/singleProductImages/pinterest.png";
 import useSingleProduct from "@/hook/useSingleProduct";
 
 const ProductInfo = () => {
-    const [color, setColour] = useState("red");
-    const {data} = useSingleProduct()
+  const [color, setColour] = useState("red");
+  const { data } = useSingleProduct();
   return (
     <>
       <div className="mx-4 flex flex-col my-8 gap-12 lg:flex-row">
@@ -24,7 +30,7 @@ const ProductInfo = () => {
               width={400}
               height={400}
               quality={100}
-              className="border p-8 sm:px-32 lg:p-10 w-full"
+              className=" border p-4 sm:p-8 lg:p-10 w-full h-60        sm:h-72 md:h-80 lg:h-[400px] object-contain"
             />
           </div>
           <div className="lg:mt-4 mt-2 flex-wrap lg:gap-4 gap-2 flex">
@@ -37,7 +43,7 @@ const ProductInfo = () => {
                   width={100}
                   height={200}
                   quality={100}
-                  className="border w-16 h-18 sm:w-24 sm:h-26  md:p-4 p-2"
+                  className="border w-16 h-16 sm:w-24 sm:h-24  md:p-4 p-2"
                 />
               );
             })}
@@ -119,7 +125,7 @@ const ProductInfo = () => {
               <Heart className="text-gray-500 md:h-9 md:w-9" />
             </div>
             <div className="w-full">
-              <Button variant={"blackBg"} size={"lg"} className=" w-full ">
+              <Button size={"lg"} className=" w-full ">
                 Add to Cart
               </Button>
             </div>

@@ -1,14 +1,14 @@
 import { Eye } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { Button } from "../ui/button";
 
 const TransactionViewModal = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="inline-flex cursor-pointer items-center gap-1 rounded border px-2 py-1 bg-blue-500 text-white lg:text-sm text-xs">
+        <Button size={"sm"}>
           <Eye className="w-4 h-4" />
-          View
-        </div>
+        </Button>
       </DialogTrigger>
 
       <DialogContent className=" sm:max-w-[425px]">

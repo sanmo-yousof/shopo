@@ -10,7 +10,7 @@ const Overview = () => {
         <h2 className="lg:text-2xl smtext-xl text-base font-semibold text-gray-700">
           Overview
         </h2>
-        <div className="grid mt-4 gap-4 grid-cols-2 lg:grid-cols-4">
+        <div className="grid mt-4 gap-4 grid-cols-2 md:grid-cols-4">
           {dashboardOverviewCards.map((item, indx) => {
             const Icon = item.icon;
             return (

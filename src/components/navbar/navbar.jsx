@@ -71,7 +71,7 @@ export default function Navbar() {
               </Select>
             </div>
             <div>
-              <Button className={'rounded-none'} variant={"secondary"} >
+              <Button className={'rounded-none'} >
                 Search
               </Button>
             </div>

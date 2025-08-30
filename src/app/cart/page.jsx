@@ -73,7 +73,7 @@ const Cart = () => {
                   </td>
                   <td className="p-3 border-b">${product.price}</td>
                   <td className="p-3 border-b ">
-                    <Button onClick={removeCart} className="rounded">
+                    <Button size={"sm"} onClick={removeCart} className="rounded">
                       X
                     </Button>
                   </td>
@@ -90,7 +90,7 @@ const Cart = () => {
                 placeholder="Discount Code"
                 type="text"
               />
-              <Button variant="blackBg">Get the Coupon</Button>
+              <Button className={"rounded-none"}>Get the Coupon</Button>
             </div>
 
             <div className="flex mt-6 sm:mt-0 gap-4">
@@ -152,7 +152,7 @@ const Cart = () => {
                   type="text"
                 />
 
-                <Button size="lg" className="bg-gray-100 w-full text-black">
+                <Button size="lg" className="w-full">
                   Update Cart
                 </Button>
               </div>
@@ -165,7 +165,7 @@ const Cart = () => {
 
               {/* Checkout Button */}
               <div className="mt-4">
-                <Button className="w-full" variant="blackBg" size="lg">
+                <Button variant="secondary" className="w-full "  size="lg">
                   Proceed to Checkout
                 </Button>
               </div>

@@ -4,8 +4,8 @@ import { MessagingInterface } from "@/components/dashboardComponents/messageinte
 
 export default function Conversation() {
   return (
-    <main className="min-h-screen ">
+    
       <MessagingInterface/>
-    </main>
+  
   )
 }

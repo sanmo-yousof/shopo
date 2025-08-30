@@ -1,4 +1,4 @@
-import BillingFrom from "@/components/checkOutParts/billingFrom";
+import BillingFrom from "@/components/checkOutParts/billingForm";
 import OrderSummary from "@/components/checkOutParts/orderSummary";
 import Discount from "@/components/shopParts/discount";
 

@@ -122,7 +122,7 @@ const OrderSummary = () => {
         </div>
 
         {/* Place Order Button */}
-        <Button className="w-full" variant="blackBg" size="lg">
+        <Button className="w-full"  size="lg">
           Place Order Now
         </Button>
       </div>

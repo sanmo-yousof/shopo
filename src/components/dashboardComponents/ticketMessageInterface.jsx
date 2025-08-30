@@ -9,21 +9,19 @@ import Link from "next/link"
 import { mockMessages } from "@/utils/utils"
 
 
-
-export function MessagingInterface() {
-  const [messages, setMessages] = useState(mockMessages)
-  const [newMessage, setNewMessage] = useState("")
-  const [currentUser] = useState("customer")
-  const messagesEndRef = useRef(null)
-  const inputRef = useRef(null)
-
+const TicketMessageInterface = () => {
+  const [messages, setMessages] = useState(mockMessages);
+  const [newMessage, setNewMessage] = useState("");
+  const [currentUser] = useState("customer");
+  const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -33,36 +31,45 @@ export function MessagingInterface() {
         sender: currentUser,
         timestamp: new Date(),
         senderName: currentUser === "customer" ? "Sarah Johnson" : "Mike Chen",
-        senderAvatar: currentUser === "customer" ? "/professional-woman-diverse.png" : "/professional-man.png",
-      }
-      setMessages([...messages, message])
-      setNewMessage("")
-      inputRef.current?.focus()
+        senderAvatar:
+          currentUser === "customer"
+            ? "/professional-woman-diverse.png"
+            : "/professional-man.png",
+      };
+      setMessages([...messages, message]);
+      setNewMessage("");
+      inputRef.current?.focus();
     }
-  }
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      handleSendMessage()
+      e.preventDefault();
+      handleSendMessage();
     }
-  }
+  };
 
   const formatTime = (date) => {
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
-    })
-  }
+    });
+  };
 
-  const otherUser = currentUser === "customer" ? "vendor" : "customer"
-  const otherUserName = currentUser === "customer" ? "Mike Chen" : "Sarah Johnson"
+  const otherUser = currentUser === "customer" ? "vendor" : "customer";
+  const otherUserName =
+    currentUser === "customer" ? "Mike Chen" : "Sarah Johnson";
 
   return (
     <div className="flex rounded flex-col h-screen  mx-auto ">
       <div className="flex items-center gap-4 mb-6">
-        <Link href={'/dashboard/message'}><Button size={"sm"}><MoveLeft/>Back</Button></Link>
+        <Link href={"/dashboard/tickets"}>
+          <Button size={"sm"}>
+            <MoveLeft />
+            Back
+          </Button>
+        </Link>
         <h2 className="lg:text-2xl  sm:text-xl text-base font-semibold text-gray-700">
           Messages with vendor
         </h2>
@@ -85,16 +92,16 @@ export function MessagingInterface() {
                 .map((n) => n[0])
                 .join("")}
             </AvatarFallback>
-            
           </Avatar>
           <div>
-            <h2 className="font-semibold text-card-foreground text-balance">{otherUserName}</h2>
+            <h2 className="font-semibold text-card-foreground text-balance">
+              {otherUserName}
+            </h2>
             <p className="text-xs text-muted-foreground">
-              {currentUser === "customer" ? "Vendor" : "Customer"} 
+              {currentUser === "customer" ? "Vendor" : "Customer"}
             </p>
           </div>
         </div>
-        
       </div>
 
       {/* Messages */}
@@ -102,10 +109,15 @@ export function MessagingInterface() {
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex gap-3 ${message.sender === currentUser ? "flex-row-reverse" : "flex-row"}`}
+            className={`flex gap-3 ${
+              message.sender === currentUser ? "flex-row-reverse" : "flex-row"
+            }`}
           >
             <Avatar className="h-8 w-8 flex-shrink-0">
-              <AvatarImage src={message.senderAvatar || "/placeholder.svg"} alt={message.senderName} />
+              <AvatarImage
+                src={message.senderAvatar || "/placeholder.svg"}
+                alt={message.senderName}
+              />
               <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
                 {message.senderName
                   .split(" ")
@@ -127,7 +139,9 @@ export function MessagingInterface() {
               >
                 <p className="text-sm leading-relaxed">{message.content}</p>
               </div>
-              <span className="text-xs text-muted-foreground mt-1 px-1">{formatTime(message.timestamp)}</span>
+              <span className="text-xs text-muted-foreground mt-1 px-1">
+                {formatTime(message.timestamp)}
+              </span>
             </div>
           </div>
         ))}
@@ -156,5 +170,7 @@ export function MessagingInterface() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default TicketMessageInterface;

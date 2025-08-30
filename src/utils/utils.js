@@ -1053,3 +1053,39 @@ export const Messages = [
 ];
 
 
+export const mockMessages = [
+  {
+    id: "1",
+    content: "Hi! I'm interested in your product. Can you tell me more about the pricing?",
+    sender: "customer",
+    timestamp: new Date("2024-01-15T10:30:00"),
+    senderName: "Sarah Johnson",
+    senderAvatar: "/professional-woman-diverse.png",
+  },
+  {
+    id: "2",
+    content:
+      "Hello Sarah! I'd be happy to help you with pricing information. Our basic package starts at $99/month and includes all core features.",
+    sender: "vendor",
+    timestamp: new Date("2024-01-15T10:32:00"),
+    senderName: "Mike Chen",
+    senderAvatar: "/professional-man.png",
+  },
+  {
+    id: "3",
+    content: "That sounds reasonable. What's included in the premium package?",
+    sender: "customer",
+    timestamp: new Date("2024-01-15T10:35:00"),
+    senderName: "Sarah Johnson",
+    senderAvatar: "/professional-woman-diverse.png",
+  },
+  {
+    id: "4",
+    content:
+      "The premium package is $199/month and includes advanced analytics, priority support, and custom integrations. Would you like me to schedule a demo?",
+    sender: "vendor",
+    timestamp: new Date("2024-01-15T10:37:00"),
+    senderName: "Mike Chen",
+    senderAvatar: "/professional-man.png",
+  },
+]

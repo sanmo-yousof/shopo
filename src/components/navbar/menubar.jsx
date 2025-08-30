@@ -86,6 +86,38 @@ const Menubar = () => {
     Shirt,
   ];
 
+  const MobileMainMenuLinks = [
+    {
+      mainManu: "Home",
+      href: "/",
+    },
+    {
+      mainManu: "Shop",
+      href: "/shop",
+    },
+    {
+      mainManu: "Cart",
+      href: "/cart",
+    },
+    {
+      mainManu: "Checkout",
+      href: "/checkout",
+    },
+    {
+      mainManu: "Dashboard",
+      href: "/dashboard",
+    },
+    {
+      mainManu: "Login",
+      href: "/login",
+    },
+    {
+      mainManu: "Pages",
+      subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ"],
+      subhref: ["/privacy", "/terms", "/faq"],
+    },
+  ];
+
   return (
     <div className="bg-[#1868d5] hidden lg:block">
       <div className="flex items-center justify-between mx-auto max-w-7xl py-3 px-2">
@@ -105,15 +137,14 @@ const Menubar = () => {
                 const Icon = icon[index];
                 return (
                   <div key={index}>
-                    
-                    <Link href={category?.href} className="hover:!bg-[#1867d6] hover:!text-white rounded-none py-3 px-4 duration-300  block cursor-pointer">
-                      
-                        <div className="flex items-center text-[12px] gap-2">
-                          <Icon  className="hover:text-white h-4 w-4 " />
-                          <p>{category?.label}</p>
-                        </div>
-                        
-                     
+                    <Link
+                      href={category?.href}
+                      className="hover:!bg-[#1867d6] hover:!text-white rounded-none py-3 px-4 duration-300  block cursor-pointer"
+                    >
+                      <div className="flex items-center text-[12px] gap-2">
+                        <Icon className="hover:text-white h-4 w-4 " />
+                        <p>{category?.label}</p>
+                      </div>
                     </Link>
                   </div>
                 );
@@ -122,89 +153,47 @@ const Menubar = () => {
           </DropdownMenu>
 
           {/* Navigation Menu */}
-
           <NavigationMenu viewport={false}>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
-                  <Link href="/">Home</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
-                <NavigationMenuContent className="z-10">
-                  <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {components.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Pages</NavigationMenuTrigger>
-                <NavigationMenuContent className="z-10">
-                  <ul className="grid w-[300px] gap-4">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link href="#">
-                          <div className="font-medium">Components</div>
-                          <div className="text-muted-foreground">
-                            Browse all components in the library.
-                          </div>
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link href="#">
-                          <div className="font-medium">Documentation</div>
-                          <div className="text-muted-foreground">
-                            Learn how to use the library.
-                          </div>
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link href="#">
-                          <div className="font-medium">Blog</div>
-                          <div className="text-muted-foreground">
-                            Read our latest blog posts.
-                          </div>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                  className={navigationMenuTriggerStyle()}
-                >
-                  <Link href="/docs">Document</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
-                  <Link href="/">About</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
-                  <Link href="/">Blog</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild className="px-4 hover:bg-[#1867d6] text-white hover:text-white  py-2">
-                  <Link href="/">Contact</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {MobileMainMenuLinks.map((item, index) => {
+                if (item.subMenu) {
+                  // Render dropdown for items with submenu
+                  return (
+                    <NavigationMenuItem key={index}>
+                      <NavigationMenuTrigger>
+                        {item.mainManu}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="z-10">
+                        <ul className="w-[200px] p-2">
+                          {item.subMenu.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={item.subhref[subIndex]}
+                                  className="block p-2 hover:bg-accent hover:text-accent-foreground rounded-md"
+                                >
+                                  {subItem}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  );
+                } else {
+                  // Render regular link for items without submenu
+                  return (
+                    <NavigationMenuItem key={index}>
+                      <Link href={item.href} legacyBehavior passHref>
+                        <NavigationMenuLink className="px-4 py-2 text-white hover:bg-[#1867d6] hover:text-white rounded-md">
+                          {item.mainManu}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  );
+                }
+              })}
             </NavigationMenuList>
           </NavigationMenu>
         </div>
