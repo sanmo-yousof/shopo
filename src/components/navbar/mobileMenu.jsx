@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { usePathname } from "next/navigation";
 import {
   Search,
   Gamepad2,
@@ -26,14 +26,14 @@ import {
   Layout,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MenuCategories } from "@/utils/utils";
-import { MobileMainMenuLinks } from "@/utils/utils";
+import { MenuCategories, MobileMainMenuLinks } from "@/utils/utils";
 import Link from "next/link";
 
 export default function MobileMenu({ isOpen, onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [toggleMenu, setToggleMenu] = useState(true);
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
+  const pathname = usePathname();
 
   if (!isOpen) return null;
 
@@ -48,8 +48,8 @@ export default function MobileMenu({ isOpen, onClose }) {
     Shirt,
   ];
 
-  const menuIcon = [House,PackageSearch,ShoppingCart,ReceiptText,Layout,LogIn]
-  const submenuIcon = [ShieldCheck,ScrollText ,CircleQuestionMark]
+  const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, Layout, LogIn];
+  const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
 
   return (
     <>
@@ -97,24 +97,22 @@ export default function MobileMenu({ isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Categories / Main Menu Toggle */}
-        <div className="flex justify-center w-full px-4  items-center gap-2 border-b pb-2">
+        {/* Toggle */}
+        <div className="flex justify-center w-full px-4 items-center gap-2 border-b pb-2">
           <span
             onClick={() => setToggleMenu(true)}
-            className={`text-base ${
-              toggleMenu ? "text-black" : "text-gray-600"
-            } font-semibold   w-1/2`}
+            className={`text-base cursor-pointer ${
+              toggleMenu ? "text-black" : "text-gray-400"
+            } font-semibold w-1/2`}
           >
             Categories
           </span>
 
-          
-          
           <span
             onClick={() => setToggleMenu(false)}
-            className={`text-base ${
-              !toggleMenu ? "text-black" : "text-gray-600"
-            } font-semibold  w-1/2`}
+            className={`text-base cursor-pointer ${
+              !toggleMenu ? "text-black" : "text-gray-400"
+            } font-semibold w-1/2`}
           >
             Main Menu
           </span>
@@ -125,79 +123,94 @@ export default function MobileMenu({ isOpen, onClose }) {
           <div className="w-full mt-4 font-medium px-0">
             {MenuCategories?.map((category, index) => {
               const Icon = icon[index];
+              const isActive = pathname === category.href;
+
               return (
-                <div key={index}>
-                  <Link
-                    href={category?.href}
-                    className="hover:!bg-[#1867d6] hover:!text-white w-full block py-3 px-4 duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center text-[12px] gap-2">
-                      <Icon className="h-4 w-4" />
-                      <p>{category?.label}</p>
-                    </div>
-                  </Link>
-                </div>
+                <Link
+                  key={index}
+                  href={category.href}
+                  className={`w-full block py-3 px-4 duration-300 cursor-pointer flex items-center text-[12px] gap-2 
+                    ${
+                      isActive
+                        ? "bg-[#1867d6] text-white"
+                        : "hover:bg-[#1867d6] hover:text-white"
+                    }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  <p>{category.label}</p>
+                </Link>
               );
             })}
           </div>
         ) : (
-          /* Main Menu (submenu always visible) */
-          <div className="w-full  font-medium px-0">
+          /* Main Menu */
+          <div className="w-full font-medium px-0">
             {MobileMainMenuLinks.map((category, index) => {
-              const isOpen = openSubmenuIndex === index;
+              const isMenuOpen = openSubmenuIndex === index;
               const Icon = menuIcon[index];
 
               const toggleSubmenu = () => {
                 setOpenSubmenuIndex((prev) => (prev === index ? null : index));
               };
 
-              return (
-                <div key={index}>
-                  {category.subMenu ? (
-                    // Parent with submenu
-                    <>
-                      <div
-                        onClick={toggleSubmenu}
-                        className="flex duration-300 cursor-pointer text-sm hover:!text-white w-full py-3 px-4 hover:!bg-[#1867d6] justify-between items-center"
-                      >
-                        <p>{category.mainManu}</p>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </div>
-
-                      {/* Submenu */}
-                      {isOpen && category.subMenu && category.subhref && (
-                        <div className="ml-6">
-                          {category.subMenu.map((single, idx) => {
-                            const Icon = submenuIcon[idx]
-                            return(
-                            <Link
-                              key={idx}
-                              href={category.subhref[idx]}
-                              className="flex hover:bg-amber-400 w-full gap-2 text-sm py-3 hover:text-white px-2 items-center"
-                            >
-                              <Icon className="w-4 h-4"/>
-                              <p>{single}</p>
-                            </Link>
-                          )})}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    // Single-level menu with direct link
-                    <Link
-                      href={category.href}
-                      className="flex duration-300 cursor-pointer hover:!text-white text-sm w-full py-3 px-4 hover:!bg-[#1867d6] gap-2 items-center"
+              if (category.subMenu) {
+                return (
+                  <div key={index}>
+                    <div
+                      onClick={toggleSubmenu}
+                      className="flex duration-300 cursor-pointer text-sm w-full py-3 px-4 justify-between items-center hover:bg-[#1867d6] hover:text-white"
                     >
-                      <Icon className="w-4"/>
                       <p>{category.mainManu}</p>
-                    </Link>
-                  )}
-                </div>
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${
+                          isMenuOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+
+                    {/* Submenu */}
+                    {isMenuOpen &&
+                      category.subMenu.map((single, idx) => {
+                        const SubIcon = submenuIcon[idx];
+                        const isActive = pathname === category.subhref[idx];
+
+                        return (
+                          <Link
+                            key={idx}
+                            href={category.subhref[idx]}
+                            className={`flex w-full gap-2 text-sm py-3 px-6 items-center 
+                              ${
+                                isActive
+                                  ? "bg-[#1867d6] text-white"
+                                  : "hover:bg-[#1867d6] hover:text-white"
+                              }`}
+                          >
+                            <SubIcon className="w-4 h-4" />
+                            <p>{single}</p>
+                          </Link>
+                        );
+                      })}
+                  </div>
+                );
+              }
+
+              const isActive = pathname === category.href;
+
+              return (
+                <Link
+                  key={index}
+                  href={category.href}
+                  className={`flex duration-300 cursor-pointer text-sm w-full py-3 px-4 gap-2 items-center 
+                    ${
+                      isActive
+                        ? "bg-[#1867d6] text-white"
+                        : "hover:bg-[#1867d6] hover:text-white"
+                    }`}
+                >
+                  <Icon className="w-4" />
+                  <p>{category.mainManu}</p>
+                </Link>
               );
             })}
           </div>
