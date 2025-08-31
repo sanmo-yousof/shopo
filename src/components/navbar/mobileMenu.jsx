@@ -24,9 +24,11 @@ import {
   CircleQuestionMark,
   ScrollText,
   Layout,
+  HeartIcon,
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MenuCategories, MobileMainMenuLinks } from "@/utils/utils";
+import { MenuCategories, Navmenu } from "@/utils/utils";
 import Link from "next/link";
 
 export default function MobileMenu({ isOpen, onClose }) {
@@ -37,18 +39,7 @@ export default function MobileMenu({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const icon = [
-    MonitorSmartphone,
-    Gamepad2,
-    Images,
-    CarFront,
-    Armchair,
-    Trophy,
-    Coffee,
-    Shirt,
-  ];
-
-  const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, Layout, LogIn];
+  const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, HeartIcon ,Layout, LogIn];
   const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
 
   return (
@@ -65,14 +56,14 @@ export default function MobileMenu({ isOpen, onClose }) {
         <div className="flex p-4 justify-between items-center">
           <div className="flex space-x-3">
             <Repeat2 className="cursor-pointer w-6 h-6 text-gray-600" />
-            <Heart className="cursor-pointer w-6 h-6 text-gray-600" />
+            <Link href={"/wishlist"}><Heart className="cursor-pointer w-6 h-6 text-gray-600" /></Link>
           </div>
           <Button
             onClick={onClose}
             className="rounded-full h-12 w-12"
             variant="outline"
           >
-            X
+            <X/>
           </Button>
         </div>
 
@@ -122,7 +113,7 @@ export default function MobileMenu({ isOpen, onClose }) {
         {toggleMenu ? (
           <div className="w-full mt-4 font-medium px-0">
             {MenuCategories?.map((category, index) => {
-              const Icon = icon[index];
+              const Icon = category.icon;
               const isActive = pathname === category.href;
 
               return (
@@ -145,7 +136,7 @@ export default function MobileMenu({ isOpen, onClose }) {
         ) : (
           /* Main Menu */
           <div className="w-full font-medium px-0">
-            {MobileMainMenuLinks.map((category, index) => {
+            {Navmenu.map((category, index) => {
               const isMenuOpen = openSubmenuIndex === index;
               const Icon = menuIcon[index];
 

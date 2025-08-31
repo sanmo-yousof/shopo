@@ -19,13 +19,13 @@ const EditProfile = () => {
               height={100}
               quality={100}
               alt="User Profile"
-              className="rounded-full overflow-hidden p-1 mb-2 border-4 border-[#1868d5]"
+              className="rounded-full overflow-hidden p-1 mb-2 border-4 border-[#1867d6]"
             />
 
             {/* Label for file input */}
             <label
               htmlFor="file-upload"
-              className="text-white absolute cursor-pointer rounded-full bg-[#1868d5] bottom-5 -right-2 p-1 border border-white"
+              className="text-white absolute cursor-pointer rounded-full bg-[#1867d6] bottom-5 -right-2 p-1 border border-white"
             >
               <Camera />
             </label>
@@ -43,8 +43,6 @@ const EditProfile = () => {
                 }
               }}
             />
-
-            
           </div>
 
           <h3 className="text-gray-600 text-sm sm:text-lg font-semibold text-center">
@@ -53,8 +51,6 @@ const EditProfile = () => {
         </div>
 
         <div>
-          
-          
           <h2 className=" text-gray-700 ml-4  mt-6 text-sm sm:text-lg font-semibold text-cente">
             User Information
           </h2>

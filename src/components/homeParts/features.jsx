@@ -14,7 +14,7 @@ const Features = () => {
           return (
             <div key={idx} className="flex items-center gap-4">
               <Icon
-                className="text-[#1868d5] w-6 h-6 lg:w-10 lg:h-10"
+                className="text-[#1867d6] w-6 h-6 lg:w-10 lg:h-10"
                 strokeWidth={1.5}
               />
               <div>

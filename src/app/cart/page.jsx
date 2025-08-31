@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Minus, Plus } from "lucide-react";
 const Cart = () => {
   return (
     <>
@@ -55,25 +56,23 @@ const Cart = () => {
                   <td className="p-3 border-b">XL</td>
                   <td className="p-3 border-b">${product.price}</td>
                   <td className="p-3 border-b">
-                    <div className="flex items-center justify-center gap-2 border px-2 py-1 max-w-fit">
+                    <div className="flex items-center justify-center gap-2 border  max-w-fit">
                       <Button
-                        size="sm"
-                        className="bg-white    text-gray-500 px-2"
+                        className={"rounded-none"}
                       >
-                        -
+                        <Minus/>
                       </Button>
-                      <span>0</span>
+                      <span className="mx-2">0</span>
                       <Button
-                        size="sm"
-                        className="bg-white  text-gray-500 px-2"
+                        className={"rounded-none"}
                       >
-                        +
+                        <Plus/>
                       </Button>
                     </div>
                   </td>
                   <td className="p-3 border-b">${product.price}</td>
                   <td className="p-3 border-b ">
-                    <Button size={"sm"} onClick={removeCart} className="rounded">
+                    <Button onClick={removeCart} className="rounded">
                       X
                     </Button>
                   </td>

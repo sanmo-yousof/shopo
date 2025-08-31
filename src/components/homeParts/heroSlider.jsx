@@ -5,6 +5,7 @@ import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { Button } from "../ui/button";
 import { HomeSlides } from "@/utils/utils";
+import Link from "next/link";
 
 export default function HeroSlider() {
   return (
@@ -29,7 +30,7 @@ export default function HeroSlider() {
                   <h1 className="text-4xl md:text-6xl font-bold text-black leading-tight mb-6">
                     {slide.title}
                   </h1>
-                  <Button className="px-8 py-6">{slide.button}</Button>
+                  <Link href={"/shop"}><Button className="px-8 py-6">{slide.button}</Button></Link>
                 </div>
               </div>
             </div>

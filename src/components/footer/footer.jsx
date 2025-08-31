@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Static About Section */}
         <div className="w-full lg:w-[420px]">
           <h3 className="text-base font-semibold mb-4">About Us</h3>
-          <p className="text-sm w-full sm:w-1/2 lg:w-[80%] text-gray-500 leading-relaxed">
+          <p className="sm:text-sm text-xs w-full sm:w-1/2 lg:w-[80%] text-gray-500 leading-relaxed">
             We know there are a lot of threa developers our but we pride into a
             firm in the industry.
           </p>
@@ -35,7 +35,7 @@ const Footer = () => {
                     key={i}
                     className="text-sm text-gray-500 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
                   >
-                    <Link href={'#'}>{link}</Link>
+                    <Link href={section.href[i]}>{link}</Link>
                   </li>
                 ))}
               </ul>
@@ -45,14 +45,14 @@ const Footer = () => {
       </div>
 
       <hr className="pb-6 lg:pb-8" />
-      <div className="pb-6 flex lg:justify-between lg:flex-row flex-col lg:pb-8">
+      <div className="pb-6 flex lg:justify-between lg:flex-row justify-center items-center flex-col lg:pb-8">
         <div className="flex items-center justify-between lg:justify-start gap-3">
           <div className="flex gap-1">
             <Instagram className="h-5 w-5 cursor-pointer hover:text-black text-gray-500" />
             <Facebook className="h-5 w-5 cursor-pointer hover:text-black text-gray-500" />
             <Youtube className="h-5 w-5 cursor-pointer hover:text-black text-gray-500" />
           </div>
-          <p className="sm:text-sm  text-gray-500 text-xs ">
+          <p className="sm:text-sm  text-gray-500 text-[11px] ">
             ©2025{" "}
             <span className="font-semibold text-gray-800">Quomodosoft</span> All
             rights reserved
@@ -60,7 +60,7 @@ const Footer = () => {
         </div>
 
 
-        <div className=" mt-4 lg:mt-0">
+        <div className=" mt-4  lg:mt-0">
           <Link href={"#"}>
           <Image
           src={payment}

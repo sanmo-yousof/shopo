@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import Onlydropdown from "../onlydropdown";
 import Menubar from "./menubar";
 import MobileMenuToggleBtn from "./mobileMenuToggleButton";
+import Link from "next/link";
 
 export default function Navbar() {
   
@@ -78,9 +79,9 @@ export default function Navbar() {
           </div>
           <div className="flex space-x-4">
             <Repeat2 className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" />
-            <Heart className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" />
-            <Handbag className="cursor-pointer w-6 h-6 text-gray-600" />
-            <UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" />
+            <Link href={"/wishlist"}><Heart className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" /></Link>
+            <Link href={"/cart"}><Handbag className="cursor-pointer w-6 h-6 text-gray-600" /></Link>
+            <Link href={"/dashboard"}><UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" /></Link>
           </div>
         </div>
         <Menubar />

@@ -16,7 +16,7 @@ import brand9 from "@/asset/homeImages/brand-9.png";
 import brand10 from "@/asset/homeImages/brand-10.png";
 import brand11 from "@/asset/homeImages/brand-11.png";
 import brand12 from "@/asset/homeImages/brand-12.png";
-import { BaggageClaim, Clock3, icons, Key, LogIn, Mail, PackageCheck, PanelsTopLeft, Repeat, RotateCcw, ShieldCheck, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
+import { Armchair, BaggageClaim, CarFront, CircleQuestionMark, Clock3, Coffee, Gamepad, Gamepad2, HeartIcon, House, icons, Images, Key, Layout, LogIn, Mail, MonitorSmartphone, PackageCheck, PackageSearch, PanelsTopLeft, ReceiptText, Repeat, RotateCcw, ScrollText, ShieldCheck, Shirt, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
 
 export const Countries = [
   { name: "United States", flag: flag1 },
@@ -46,14 +46,14 @@ export const Languages = [
 ];
 
 export const MenuCategories = [
-  { label: "Mobiles & Laptops", href: "/category/mobiles-laptops" },
-  { label: "Gaming Entertainment", href: "/category/gaming" },
-  { label: "Image & Video", href: "/category/image-video" },
-  { label: "Vehicles", href: "/category/vehicles" },
-  { label: "Furnitures", href: "/category/furnitures" },
-  { label: "Sport", href: "/category/sport" },
-  { label: "Food & Drinks", href: "/category/food-drinks" },
-  { label: "Fashion", href: "/category/fashion" },
+  { label: "Mobiles & Laptops", href: "/category/mobiles-laptops", icon: MonitorSmartphone },
+  { label: "Gaming Entertainment", href: "/category/gaming",icon:Gamepad2 },
+  { label: "Image & Video", href: "/category/image-video",icon:Images },
+  { label: "Vehicles", href: "/category/vehicles",icon:CarFront },
+  { label: "Furnitures", href: "/category/furnitures",icon:Armchair },
+  { label: "Sport", href: "/category/sport",icon:Trophy },
+  { label: "Food & Drinks", href: "/category/food-drinks",icon:Coffee },
+  { label: "Fashion", href: "/category/fashion",icon:Shirt },
 ];
 
 export const HomeSlides = [
@@ -95,36 +95,48 @@ export const Brands = [
   brand12,
 ];
 
-export const MobileMainMenuLinks = [
+export const Navmenu = [
   {
     mainManu: "Home",
-    href:"/"
+    href:"/",
+    icon:House
   },
   {
     mainManu: "Shop",
-     href:"/shop"
+     href:"/shop",
+     icon:PackageSearch
   },
   {
     mainManu: "Cart",
-    href:"/cart"
+    href:"/cart",
+    icon:ShoppingCart
   },
   {
     mainManu: "Checkout",
-    href:"/checkout"
+    href:"/checkout",
+    icon:ReceiptText
+  },
+  {
+    mainManu: "Wishlist",
+    href:"/wishlist",
+    icon:HeartIcon
   },
   {
     mainManu: "Dashboard",
-    href:"/dashboard"
+    href:"/dashboard",
+    icon:Layout
   },
   {
     mainManu: "Login",
-    href:"/login"
+    href:"/login",
+    icon:LogIn
   },
    {
     mainManu: "Pages",
      
     subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ"],
-    subhref : ["/privacy","/terms","/faq"]
+    subhref : ["/privacy","/terms","/faq"],
+    submenuIcon : [ShieldCheck, ScrollText, CircleQuestionMark]
   }
 ];
 
@@ -161,6 +173,7 @@ export const Products = [
       "Adjustable Headband",
       "Durable Construction",
     ],
+    section: "gamer world",
   },
   {
     id: 2,
@@ -194,6 +207,7 @@ export const Products = [
       "Sleek Minimalist Design",
       "Advanced Security Protocols",
     ],
+    section: "popular sales",
   },
   {
     id: 3,
@@ -227,6 +241,7 @@ export const Products = [
       "Durable Omron Switches",
       "Braided Cable",
     ],
+    section: "gamer world",
   },
   {
     id: 4,
@@ -261,6 +276,7 @@ export const Products = [
       "Thunderbolt 4 Ports",
       "All-day Battery Life",
     ],
+    section: "new arrivals",
   },
   {
     id: 5,
@@ -295,6 +311,7 @@ export const Products = [
       "5G Connectivity",
       "Under-display Fingerprint Sensor",
     ],
+     section: "top selling",
   },
   {
     id: 6,
@@ -329,6 +346,7 @@ export const Products = [
       "Safety Protections",
       "Compact Lightweight Design",
     ],
+      section: "top selling",
   },
   {
     id: 7,
@@ -363,6 +381,7 @@ export const Products = [
       "Customizable EQ",
       "Voice Assistant Support",
     ],
+    section: "popular sales", 
   },
   {
     id: 8,
@@ -397,6 +416,7 @@ export const Products = [
       "Professional-grade Crossover",
       "Real Wood Veneer Finish",
     ],
+    section: "popular sales", 
   },
   {
     id: 9,
@@ -431,6 +451,7 @@ export const Products = [
       "Minimal Sound Leakage",
       "Rugged Construction",
     ],
+      section: "top selling", 
   },
   {
     id: 10,
@@ -465,6 +486,7 @@ export const Products = [
       "99% sRGB Color Coverage",
       "Adjustable Stand",
     ],
+     section: "gamer world",
   },
   {
     id: 11,
@@ -499,6 +521,7 @@ export const Products = [
       "Detachable USB-C Cable",
       "Programmable Macro Keys",
     ],
+     section: "gamer world"
   },
   {
     id: 12,
@@ -533,6 +556,7 @@ export const Products = [
       "Backward Compatible",
       "3-year Warranty",
     ],
+    section: "new arrivals",
   },
 ];
 
@@ -563,14 +587,17 @@ export const FooterData = [
   {
     title: "Feature",
     links: ["About Us", "Terms Condition", "Best Products"],
+    href : ["#","/terms","/shop"]
   },
   {
     title: "General Links",
     links: ["Blog", "Tracking Order", "Become Seller"],
+    href:["#","/dashboard/order-tracking","#"]
   },
   {
     title: "Helpful",
     links: ["Flash Sale", "FAQ", "Support"],
+    href:["/shop","/faq","#"]
   },
 ];
 

@@ -1,6 +1,7 @@
 import { Products } from "@/utils/utils";
 import ProductCardSecond from "../productCardSecond";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const TopSelling = () => {
   return(
@@ -9,9 +10,9 @@ const TopSelling = () => {
           <div className="flex justify-between items-center">
             <h2 className="sectionHeading">Top Selling Product</h2>
             <div>
-              <a className="flex text-base" href="#">
+              <Link className="flex text-base" href="/shop">
                 View More <ArrowRight />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid grid-cols-1 mt-4 lg:gap-7 gap-5  md:grid-cols-2 ">

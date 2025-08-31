@@ -125,7 +125,7 @@ const EditProfileForm = () => {
         {/* Submit Button */}
         <div className="flex justify-end mt-6">
           <input
-            className="text-sm md:text-base border cursor-pointer rounded text-white bg-[#1868d5] px-6 py-2"
+            className="text-sm md:text-base border cursor-pointer rounded text-white bg-[#1867d6] px-6 py-2"
             type="submit"
             value="Update Profile"
           />
