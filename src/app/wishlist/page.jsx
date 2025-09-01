@@ -1,82 +1,239 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { Products } from "@/utils/utils";
-import { Minus, Plus } from "lucide-react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import WishlistSkeleton from "@/components/wishlistSkeleton";
+import useAllProducts from "@/hook/useAllProduct";
+import { getWishlist, removeWishlist } from "@/utils/loaclSorage";
+import { Minus, Plus, Trash, X } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const Wishlist = () => {
-  return(
-    <>
-    <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
-          <h2 className="sectionHeading">WishList</h2>
-        </div>
+  const [wishlistIds, setWishlistIds] = useState([]);
+  const [data, loading] = useAllProducts();
 
-        <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
-          <table className="min-w-[700px] w-full text-left border border-gray-200">
-            <thead className="bg-gray-100 text-sm sm:text-base">
-              <tr>
-                <th className="p-3 border-b">PRODUCT</th>
-                <th className="p-3 border-b">COLOR</th>
-                <th className="p-3 border-b">SIZE</th>
-                <th className="p-3 border-b">PRICE</th>
-                <th className="p-3 border-b">QUANTITY</th>
-                <th className="p-3 border-b">TOTAL</th>
-                <th className="p-3 border-b">ACTION</th>
-              </tr>
-            </thead>
+  useEffect(() => {
+    setWishlistIds(getWishlist());
+  }, []);
+
+  const wishlistProducts = data.filter((product) =>
+    wishlistIds.includes(product.id)
+  );
+
+  const handleRemoveWishlist = (id) => {
+    removeWishlist(id);
+    setWishlistIds(getWishlist());
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Deleted!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  const handleDeleteWishlist = () => {
+    localStorage.removeItem("wishlist");
+    setWishlistIds([]);
+    window.dispatchEvent(new Event("wishlistUpdated"));
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Delete all wishlist items",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  const handleAddCart = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Items added to Cart",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+  return (
+    <>
+      <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
+        <h2 className="sectionHeading">WishList</h2>
+      </div>
+
+      <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
+        <table className="min-w-[700px] w-full text-left border border-gray-200">
+          <thead className="bg-gray-100 text-xs sm:text-sm">
+            <tr>
+              <th className="p-3 border-b">PRODUCT</th>
+              <th className="p-3 border-b">COLOR</th>
+              <th className="p-3 border-b">SIZE</th>
+              <th className="p-3 border-b">PRICE</th>
+              <th className="p-3 border-b">QUANTITY</th>
+              <th className="p-3 border-b">TOTAL</th>
+              <th className="p-3 border-b">ACTION</th>
+            </tr>
+          </thead>
+          {loading ? (
+            <WishlistSkeleton />
+          ) : (
             <tbody>
-              {Products?.slice(2, 5)?.map((product, indx) => (
+              {wishlistProducts?.map((product, indx) => (
                 <tr key={indx} className="text-gray-500  text-sm sm:text-base">
                   <td className="p-3 border-b">
                     <div className="flex items-center gap-2">
                       <Image
                         src={product.images}
                         quality={100}
-                        width={100}
-                        height={100}
+                        width={80}
+                        height={80}
                         alt={product.name}
-                        className="border w-16 bg-white sm:w-[100px] p-2"
+                        className="border w-14 bg-white md:w-[90px] p-2"
                       />
-                      <p className="text-black text-sm break-words md:text-base w-[240px] sm:max-w-[300px]">
+                      <p className="text-black text-xs md:text-sm break-words w-[240px] sm:max-w-[300px]">
                         {product.name}
                       </p>
                     </div>
                   </td>
                   <td className="p-3 border-b">
-                    <div className="h-5 w-5 bg-amber-400 rounded-full" />
+                    <div
+                      className={`h-5 w-5 border rounded-full`}
+                      style={{ backgroundColor: product?.colors[3] }}
+                    />
                   </td>
-                  <td className="p-3 border-b">XL</td>
-                  <td className="p-3 border-b">${product.price}</td>
+                  <td className="p-3 text-xs md:text-sm border-b">
+                    {product?.sizes[0]}
+                  </td>
+                  <td className="p-3 text-xs md:text-sm border-b">
+                    ${product.price}
+                  </td>
                   <td className="p-3 border-b">
                     <div className="flex items-center justify-center gap-2 border  max-w-fit">
-                      <Button
-                        className={"rounded-none"}
-                      >
-                        <Minus/>
+                      <Button size={"sm"} className={"rounded-none"}>
+                        <Minus />
                       </Button>
                       <span className="mx-2">0</span>
-                      <Button
-                        className={"rounded-none"}
-                      >
-                        <Plus/>
+                      <Button size={"sm"} className={"rounded-none"}>
+                        <Plus />
                       </Button>
                     </div>
                   </td>
-                  <td className="p-3 border-b">${product.price}</td>
+                  <td className="p-3 text-xs md:text-sm border-b">
+                    ${product.price}
+                  </td>
                   <td className="p-3 border-b ">
-                    <Button  className="rounded">
-                      X
+                    <Button
+                      onClick={() => handleRemoveWishlist(product?.id)}
+                      size={"sm"}
+                      className="rounded bg-red-500"
+                    >
+                      <Trash />
                     </Button>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
-        <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-2">
-        <Button size={"lg"} variant={"outline"}>Clean Wishlist</Button>
-        <Button size={"lg"} >Add to Cart</Button>
+          )}
+        </table>
+      </div>
+      <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-2">
+        <Dialog>
+          <form>
+            <DialogTrigger asChild>
+              <Button size={"lg"} variant={"outline"}>
+                Clean Wishlist
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Delete Wishlist Items? </DialogTitle>
+                <DialogDescription></DialogDescription>
+              </DialogHeader>
 
-        </div>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button size="sm" variant="outline">
+                    Cancel
+                  </Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button
+                    onClick={handleDeleteWishlist}
+                    className="bg-red-500"
+                    size="sm"
+                  >
+                    Delete
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </form>
+        </Dialog>
+
+        <Dialog>
+          <form>
+            <DialogTrigger asChild>
+              <Button size={"lg"}>Add to Cart</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Add to Cart all items? </DialogTitle>
+              </DialogHeader>
+
+              {wishlistProducts?.map((item, indx) => {
+                return (
+                  <div
+                    className="flex justify-between items-center px-4"
+                    key={indx}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div>
+                        <Image
+                          src={item?.images}
+                          alt="product"
+                          width={20}
+                          height={20}
+                          quality={100}
+                          className="w-6"
+                        />
+                      </div>
+                      <p className="text-[10px] text-gray-500">
+                        {item?.name.length > 20
+                          ? item?.name.slice(0, 20) + "..."
+                          : item?.name}
+                      </p>
+                    </div>
+                    <h3 className="text-sm text-gray-500 font-semibold">1X</h3>
+                  </div>
+                );
+              })}
+
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button size="sm" variant="outline">
+                    Cancel
+                  </Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button onClick={handleAddCart} size="sm">
+                    Confirm
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </form>
+        </Dialog>
+      </div>
     </>
   );
 };

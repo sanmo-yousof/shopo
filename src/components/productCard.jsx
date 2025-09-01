@@ -4,38 +4,58 @@ import { Expand, Handbag, Heart, Repeat2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { getCart, getWishlist, removeWishlist, setCart, setWishlist } from "@/utils/loaclSorage";
 
 const ProductCard = ({ product }) => {
-  const [wishlist, setWishlist] = useState([]);
-  const { id, name, price, originalPrice, rating, images } = product;
+  
+  const { id, name, price, originalPrice, sizes, rating, images, colors } = product;
+  
+  const [wishlist, setWishlistState] = useState([]);
+  useEffect(() => {
+    setWishlistState(getWishlist());
+  }, []);
 
-  const handleWishlist = (id) => {
+   const handleWishlist = (id) => {
     if (wishlist.includes(id)) {
-      // remove from wishlist
-      const updated = wishlist.filter((itemId) => itemId !== id);
-      setWishlist(updated);
+      
+      removeWishlist(id);
+      setWishlistState(getWishlist()); 
     } else {
-      // add to wishlist
-      setWishlist([...wishlist, id]);
+      
+      setWishlist(id);
+      setWishlistState(getWishlist()); 
     }
   };
 
-  const handleAddToCart = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Added to cart successfully!",
-      showConfirmButton: false,
-      timer: 1500,
-    });
+  
+const handleAddToCart = () => {
+  const cartData = {
+    ...product,
+    orderQuantity: 1,
+    orderColor: colors[0],
+    orderSize: sizes[0]
   };
+
+  setCart(cartData);
+
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Added to cart successfully!",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+};
+
+console.log(getCart())
+
 
   return (
     <div className="bg-white group shadow-md overflow-hidden">
       {/* Image Wrapper */}
-      <div className="w-full lg:p-12 relative sm:p-16 md:p-8 h-[300px] flex justify-center items-center bg-white">
+      <div className="w-full lg:p-12 relative sm:p-16 md:p-8 h-[220px] flex justify-center items-center bg-white">
         <Image
           alt="Product Image"
           src={images}
@@ -46,7 +66,9 @@ const ProductCard = ({ product }) => {
         />
         <div className="absolute flex flex-col space-y-3 right-5 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
           <span className="p-2 bg-gray-200 cursor-pointer rounded-md">
+            <Link href={`/shop/${id}`}>
             <Expand className="h-5 w-5" />
+            </Link>
           </span>
           <span
             onClick={() => handleWishlist(id)}

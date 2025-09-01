@@ -1,9 +1,15 @@
+"use client";
+
 import { Expand, Heart, Repeat2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { getWishlist, removeWishlist, setWishlist } from "@/utils/loaclSorage";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const ProductCardSecond = ({ product }) => {
   const {
+    id,
     name,
     category,
     price,
@@ -15,6 +21,21 @@ const ProductCardSecond = ({ product }) => {
     badge,
     inStock,
   } = product;
+
+  const [wishlist, setWishlistState] = useState([]);
+  useEffect(() => {
+    setWishlistState(getWishlist());
+  }, []);
+
+  const handleWishlist = (id) => {
+    if (wishlist.includes(id)) {
+      removeWishlist(id);
+      setWishlistState(getWishlist());
+    } else {
+      setWishlist(id);
+      setWishlistState(getWishlist());
+    }
+  };
   return (
     <div className="bg-white group shadow-xs items-center flex relative  overflow-hidden">
       {/* Image Wrapper with fixed size */}
@@ -61,9 +82,16 @@ const ProductCardSecond = ({ product }) => {
       </div>
       <div className="absolute flex flex-col space-y-3 right-5 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
         <span className="p-2 bg-gray-200 cursor-pointer rounded-md">
-          <Expand className="h-5 w-5" />
+          <Link href={`/shop/${id}`}>
+            <Expand className="h-5 w-5" />
+          </Link>
         </span>
-        <span className="p-2 bg-gray-200 cursor-pointer rounded-md">
+        <span
+          onClick={() => handleWishlist(id)}
+          className={`p-2 rounded-md cursor-pointer ${
+            wishlist.includes(id) ? "bg-[#1867d6] text-white" : "bg-gray-200"
+          }`}
+        >
           <Heart className="h-5 w-5" />
         </span>
         <span className="p-2 bg-gray-200 cursor-pointer rounded-md">

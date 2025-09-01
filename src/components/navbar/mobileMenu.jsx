@@ -30,17 +30,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { MenuCategories, Navmenu } from "@/utils/utils";
 import Link from "next/link";
+import WishlistIcon from "./wishlistIcon";
 
 export default function MobileMenu({ isOpen, onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [toggleMenu, setToggleMenu] = useState(true);
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
   const pathname = usePathname();
+ 
 
   if (!isOpen) return null;
 
   const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, HeartIcon ,Layout, LogIn];
   const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
+
+   
+  
 
   return (
     <>
@@ -56,7 +61,9 @@ export default function MobileMenu({ isOpen, onClose }) {
         <div className="flex p-4 justify-between items-center">
           <div className="flex space-x-3">
             <Repeat2 className="cursor-pointer w-6 h-6 text-gray-600" />
-            <Link href={"/wishlist"}><Heart className="cursor-pointer w-6 h-6 text-gray-600" /></Link>
+            <Link className="relative" href={"/wishlist"}>
+            <WishlistIcon/>
+            </Link>
           </div>
           <Button
             onClick={onClose}

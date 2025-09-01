@@ -1,0 +1,72 @@
+const WISHLIST_KEY = "wishlist";
+
+const getWishlist = () => {
+  if (typeof window === "undefined") return [];
+  let value = localStorage.getItem(WISHLIST_KEY);
+  return value ? JSON.parse(value) : [];
+};
+
+const setWishlist = (id) => {
+  const oldArray = getWishlist();
+  if (!oldArray.includes(id)) {
+    const updated = [...oldArray, id];
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(updated));
+    window.dispatchEvent(new Event("wishlistUpdated"));
+    return true;
+  }
+  return false;
+};
+
+const removeWishlist = (id) => {
+  const updated = getWishlist().filter((itemId) => itemId !== id);
+  localStorage.setItem(WISHLIST_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event("wishlistUpdated"));
+};
+
+// cart
+const CART_KEY = "cart";
+
+const getCart = () => {
+  if (typeof window === "undefined") return [];
+  let value = localStorage.getItem(CART_KEY);
+  return value ? JSON.parse(value) : [];
+};
+
+const setCart = (data) => {
+  const oldArray = getCart();
+  const existingIndex = oldArray.findIndex(
+    (item) => item.id === data.id && item.orderColor === data.orderColor
+  );
+
+  let updated;
+
+  if (existingIndex !== -1) {
+    updated = [...oldArray];
+    updated[existingIndex].orderQuantity += data.orderQuantity || 1;
+  } else {
+    updated = [
+      ...oldArray,
+      { ...data, orderQuantity: data.orderQuantity || 1 },
+    ];
+  }
+  localStorage.setItem(CART_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event("CartUpdated"));
+  return true;
+};
+
+const removeCart = (id, orderColor) => {
+  const updated = getCart().filter(
+    (item) => !(item.id === id && item.orderColor === orderColor)
+  );
+  localStorage.setItem(CART_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event("CartUpdated"));
+};
+
+export {
+  setWishlist,
+  getWishlist,
+  removeWishlist,
+  getCart,
+  removeCart,
+  setCart,
+};

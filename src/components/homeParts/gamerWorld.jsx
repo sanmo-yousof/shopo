@@ -2,7 +2,6 @@
 
 import { ArrowRight } from "lucide-react";
 import ProductCard from "../productCard";
-import { Products } from "@/utils/utils";
 import Link from "next/link";
 import useAllProducts from "@/hook/useAllProduct";
 import ProductCard1Skeletion from "../productCard1skeleton";

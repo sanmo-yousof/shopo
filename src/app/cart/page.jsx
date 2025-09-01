@@ -1,8 +1,9 @@
+"use client";
+
 import Discount from "@/components/shopParts/discount";
 import { Button } from "@/components/ui/button";
-import { Products } from "@/utils/utils";
 import Image from "next/image";
-import { removeCart } from "@/lib/customFunction";
+
 import {
   Select,
   SelectContent,
@@ -10,8 +11,43 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus, Trash, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getCart, removeCart } from "@/utils/loaclSorage";
+import WishlistSkeleton from "@/components/wishlistSkeleton";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { DialogClose, DialogTitle } from "@radix-ui/react-dialog";
+import Swal from "sweetalert2";
+
 const Cart = () => {
+  const [cartdata, setCartData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    setCartData(getCart());
+    setLoading(false);
+  }, []);
+
+  const handleRemoveCart = (id, color) => {
+    removeCart(id, color);
+    setCartData(getCart());
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Items remove from Cart!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   return (
     <>
       <div className="">
@@ -21,7 +57,7 @@ const Cart = () => {
 
         <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
           <table className="min-w-[700px] w-full text-left border border-gray-200">
-            <thead className="bg-gray-100 text-sm sm:text-base">
+            <thead className="bg-gray-100  text-xs sm:text-sm">
               <tr>
                 <th className="p-3 border-b">PRODUCT</th>
                 <th className="p-3 border-b">COLOR</th>
@@ -32,53 +68,122 @@ const Cart = () => {
                 <th className="p-3 border-b">ACTION</th>
               </tr>
             </thead>
-            <tbody>
-              {Products?.slice(2, 5)?.map((product, indx) => (
-                <tr key={indx} className="text-gray-500  text-sm sm:text-base">
-                  <td className="p-3 border-b">
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src={product.images}
-                        quality={100}
-                        width={100}
-                        height={100}
-                        alt={product.name}
-                        className="border w-16 bg-white sm:w-[100px] p-2"
+            {loading ? (
+              <WishlistSkeleton />
+            ) : (
+              <tbody>
+                {cartdata?.map((product, indx) => (
+                  <tr
+                    key={indx}
+                    className="text-gray-500  text-sm sm:text-base"
+                  >
+                    <td className="p-3 border-b">
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src={product.images}
+                          quality={100}
+                          width={80}
+                          height={80}
+                          alt={product.name}
+                          className="border w-14 bg-white md:w-[90px] p-2"
+                        />
+                        <p className="text-black text-xs md:text-sm break-words w-[240px] sm:max-w-[300px]">
+                          {product.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-3 border-b">
+                      <div
+                        className={`h-5 w-5 border rounded-full`}
+                        style={{ backgroundColor: product?.orderColor }}
                       />
-                      <p className="text-black text-sm break-words md:text-base w-[240px] sm:max-w-[300px]">
-                        {product.name}
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-3 border-b">
-                    <div className="h-5 w-5 bg-amber-400 rounded-full" />
-                  </td>
-                  <td className="p-3 border-b">XL</td>
-                  <td className="p-3 border-b">${product.price}</td>
-                  <td className="p-3 border-b">
-                    <div className="flex items-center justify-center gap-2 border  max-w-fit">
-                      <Button
-                        className={"rounded-none"}
-                      >
-                        <Minus/>
-                      </Button>
-                      <span className="mx-2">0</span>
-                      <Button
-                        className={"rounded-none"}
-                      >
-                        <Plus/>
-                      </Button>
-                    </div>
-                  </td>
-                  <td className="p-3 border-b">${product.price}</td>
-                  <td className="p-3 border-b ">
-                    <Button onClick={removeCart} className="rounded">
-                      X
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+                    </td>
+                    <td className="p-3 text-xs md:text-sm  border-b">
+                      {product?.orderSize}
+                    </td>
+                    <td className="p-3 text-xs md:text-sm  border-b">
+                      ${product.price}
+                    </td>
+                    <td className="p-3 border-b">
+                      <div className="flex items-center justify-center gap-2 border  max-w-fit">
+                        <Button size={"sm"} className={"rounded-none"}>
+                          <Minus />
+                        </Button>
+                        <span className="mx-2">{product?.orderQuantity}</span>
+                        <Button size={"sm"} className={"rounded-none"}>
+                          <Plus />
+                        </Button>
+                      </div>
+                    </td>
+                    <td className="p-3 text-xs md:text-sm  border-b">
+                      ${product.price * product?.orderQuantity}
+                    </td>
+                    <td className="p-3 border-b ">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button
+                            size={"sm"}
+                            onClick={removeCart}
+                            className="rounded bg-red-500"
+                          >
+                            <Trash />
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                          <DialogHeader>
+                            <DialogTitle>Remove from Cart?</DialogTitle>
+                            <DialogDescription>
+                              
+                            </DialogDescription>
+                          </DialogHeader>
+
+                          <div className="flex p-3 justify-between">
+                            <div className="flex gap-2 items-center">
+                              <Image
+                                alt="product"
+                                src={product?.images}
+                                width={50}
+                                height={50}
+                                quality={100}
+                                className="w-6"
+                              />
+                              <p className="text-[10px] text-gray-500">
+                                {product?.name}
+                              </p>
+                            </div>
+                            <h4 className="text-sm font-semibold text-gray-500">
+                              {product?.orderQuantity}X
+                            </h4>
+                          </div>
+
+                          <DialogFooter>
+                            <DialogClose asChild>
+                              <Button size="sm" variant="outline">
+                                Cancel
+                              </Button>
+                            </DialogClose>
+                            <DialogClose asChild>
+                              <Button
+                                onClick={() =>
+                                  handleRemoveCart(
+                                    product.id,
+                                    product?.orderColor
+                                  )
+                                }
+                                size="sm"
+                                type="button"
+                              >
+                                Remove
+                              </Button>
+                            </DialogClose>
+                          </DialogFooter>
+                        </DialogContent>
+                      </Dialog>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
         <div className="md:mt-12  mx-auto max-w-7xl mt-6 ">
@@ -164,7 +269,7 @@ const Cart = () => {
 
               {/* Checkout Button */}
               <div className="mt-4">
-                <Button variant="secondary" className="w-full "  size="lg">
+                <Button variant="secondary" className="w-full " size="lg">
                   Proceed to Checkout
                 </Button>
               </div>

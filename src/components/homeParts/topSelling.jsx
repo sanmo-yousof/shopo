@@ -1,9 +1,14 @@
-import { Products } from "@/utils/utils";
+"use client"
+
+
 import ProductCardSecond from "../productCardSecond";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import useAllProducts from "@/hook/useAllProduct";
+import ProductCard2Skeletion from "../productCard2skeleton";
 
 const TopSelling = () => {
+  const [data,loading] = useAllProducts();
   return(
     <section className="mt-8 lg:mt-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -16,11 +21,16 @@ const TopSelling = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 mt-4 lg:gap-7 gap-5  md:grid-cols-2 ">
-            {Products?.sort((a, b) => b.selling - a.selling)
+              {loading
+            ? Array(4)
+                .fill(0)
+                .map((_, i) => <ProductCard2Skeletion key={i} />)
+            : data?.sort((a, b) => b.selling - a.selling)
               ?.slice(0, 4)
               ?.map((product, indx) => {
                 return <ProductCardSecond product={product} key={indx} />;
-              })}
+              }
+            )}
           </div>
         </div>
       </section>

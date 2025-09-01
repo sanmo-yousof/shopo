@@ -1,4 +1,5 @@
 
+
 import { Handbag, Heart, Repeat2, UserRound } from "lucide-react";
 import Image from "next/image";
 import { Countries, Currencys, Languages } from "@/utils/utils";
@@ -15,38 +16,34 @@ import Onlydropdown from "../onlydropdown";
 import Menubar from "./menubar";
 import MobileMenuToggleBtn from "./mobileMenuToggleButton";
 import Link from "next/link";
+import WishlistIcon from "./wishlistIcon";
+
 
 export default function Navbar() {
   
+
   return (
     <header>
       <div className="">
-        <div className="flex max-w-7xl px-2 py-3  mx-auto items-center justify-between">
+        <div className="flex max-w-7xl px-2 py-3 mx-auto items-center justify-between">
           {/* Left Links */}
           <ul className="text-xs flex space-x-6 font-medium">
-            <li>
-              <a href="#">Account</a>
-            </li>
-            <li>
-              <a href="#">Track Order</a>
-            </li>
-            <li>
-              <a href="#">Support</a>
-            </li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Support</a></li>
           </ul>
 
           {/* Dropdowns */}
           <div className="sm:flex items-center hidden space-x-4">
-            {/* Country Dropdown */}
             <Onlydropdown data={Countries} />
             <Onlydropdown data={Currencys} />
             <Onlydropdown data={Languages} />
           </div>
         </div>
         <hr />
-        <div className="flex  mx-auto max-w-7xl py-5 px-2 justify-between items-center">
+        <div className="flex mx-auto max-w-7xl py-5 px-2 justify-between items-center">
           <div className="block lg:hidden">
-            <MobileMenuToggleBtn/>
+            <MobileMenuToggleBtn />
           </div>
           <div>
             <Image src="/logo-3.svg" alt="logo" width={150} height={50} />
@@ -59,7 +56,7 @@ export default function Navbar() {
                 type="text"
               />
             </div>
-            <div className="">
+            <div>
               <Select>
                 <SelectTrigger className="py-0 rounded-none w-[150px] border-none shadow-none text-xs outline-none focus:outline-none focus:ring-0">
                   <SelectValue placeholder="Category" />
@@ -72,16 +69,20 @@ export default function Navbar() {
               </Select>
             </div>
             <div>
-              <Button className={'rounded-none'} >
-                Search
-              </Button>
+              <Button className={"rounded-none"}>Search</Button>
             </div>
           </div>
           <div className="flex space-x-4">
             <Repeat2 className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" />
-            <Link href={"/wishlist"}><Heart className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" /></Link>
-            <Link href={"/cart"}><Handbag className="cursor-pointer w-6 h-6 text-gray-600" /></Link>
-            <Link href={"/dashboard"}><UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" /></Link>
+            <Link className="relative hidden lg:block" href={"/wishlist"}>
+              <WishlistIcon />
+            </Link>
+            <Link href={"/cart"}>
+              <Handbag className="cursor-pointer w-6 h-6 text-gray-600" />
+            </Link>
+            <Link href={"/dashboard"}>
+              <UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" />
+            </Link>
           </div>
         </div>
         <Menubar />
