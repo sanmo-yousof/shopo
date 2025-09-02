@@ -17,6 +17,7 @@ import Menubar from "./menubar";
 import MobileMenuToggleBtn from "./mobileMenuToggleButton";
 import Link from "next/link";
 import WishlistIcon from "./wishlistIcon";
+import CartIcon from "./cartIcon";
 
 
 export default function Navbar() {
@@ -77,8 +78,8 @@ export default function Navbar() {
             <Link className="relative hidden lg:block" href={"/wishlist"}>
               <WishlistIcon />
             </Link>
-            <Link href={"/cart"}>
-              <Handbag className="cursor-pointer w-6 h-6 text-gray-600" />
+            <Link className="relative" href={"/cart"}>
+              <CartIcon/>
             </Link>
             <Link href={"/dashboard"}>
               <UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" />

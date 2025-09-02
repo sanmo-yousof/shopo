@@ -1,33 +1,36 @@
-import { Button } from "@/components/ui/button";
+'use client'
 
-const OrderSummary = () => {
-  const orderItems = [
-    {
-      name: "Apple Watch",
-      description: "64GB, Black, 44mm, Chain Belt",
-      quantity: 1,
-      price: 38,
-    },
-    {
-      name: "Apple Watch",
-      description: "64GB, Black, 44mm, Chain Belt",
-      quantity: 1,
-      price: 38,
-    },
-    {
-      name: "Apple Watch",
-      description: "64GB, Black, 44mm, Chain Belt",
-      quantity: 1,
-      price: 38,
-    },
-  ];
+import { getCart } from "@/utils/loaclSorage";
+import { useEffect, useState } from "react";
 
-  const subtotal = orderItems.reduce((sum, item) => sum + item.price, 0);
+
+const OrderSummary = ({formId,error,setPaymentMethod}) => {
+
+  const [orderData,setOrderData] = useState([]);
+
+  useEffect(() => {
+    const loadCart = () => setOrderData(getCart());
+    loadCart();
+
+    // listen to custom event
+    window.addEventListener("CartUpdated", loadCart);
+
+    return () => {
+      window.removeEventListener("CartUpdated", loadCart);
+    };
+  }, []);
+
+
+  const subtotal = orderData.reduce(
+    (acc, item) => acc + item.price * item.orderQuantity,
+    0
+  );
+  
   return (
     <div className="space-y-6 mt-12 lg:mt-0">
-      <h2 className="text-xl font-semibold">Order Summary</h2>
+      <h2 className="text-base font-semibold">Order Summary</h2>
 
-      <div className="space-y-4 p-4 lg:p-10 border">
+      <div className="space-y-4 p-4 lg:p-10 rounded-md border">
         {/* Header */}
         <div className="flex justify-between text-sm font-medium text-gray-600 uppercase">
           <span>Product</span>
@@ -36,28 +39,28 @@ const OrderSummary = () => {
         <hr />
 
         {/* Items */}
-        {orderItems.map((item, index) => (
+        {orderData.map((item, index) => (
           <div key={index} className="space-y-2">
             <div className="flex justify-between items-start">
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium text-sm">{item.name}</span>
+                  <span className="font-medium text-sm">{item.category}</span>
                   <span className="text-xs bg-gray-100 px-1 rounded">
-                    ×{item.quantity}
+                    ×{item.orderQuantity}
                   </span>
                 </div>
-                <div className="text-xs text-gray-600">{item.description}</div>
+                <div className="text-xs text-gray-600">{item.name}</div>
               </div>
-              <div className="font-medium">${item.price}</div>
+              <div className="font-medium">${(item.price*item.orderQuantity).toFixed(2)}</div>
             </div>
-            {index < orderItems.length - 1 && <hr />}
+            {index < orderData.length && <hr />}
           </div>
         ))}
 
         {/* Subtotal */}
-        <div className="flex justify-between text-sm font-medium pt-2">
+        <div className="flex justify-between text-sm  font-medium pt-2">
           <span>SUBTOTAL</span>
-          <span>${subtotal}</span>
+          <span className="text-red-500">${subtotal.toFixed(2)}</span>
         </div>
 
         {/* Shipping */}
@@ -72,7 +75,7 @@ const OrderSummary = () => {
         {/* Total */}
         <div className="flex justify-between text-lg font-bold pt-4 border-t">
           <span>Total</span>
-          <span className="text-red-600">${subtotal}</span>
+          <span className="text-red-500">${subtotal.toFixed(2)}</span>
         </div>
 
         {/* Payment Methods */}
@@ -84,6 +87,8 @@ const OrderSummary = () => {
               id="bank-transfer"
               value="bank-transfer"
               className="accent-black"
+              onChange={() => setPaymentMethod('Direct Bank Transfer')}
+              required
             />
             <label htmlFor="bank-transfer" className="font-medium text-sm">
               Direct Bank Transfer
@@ -101,6 +106,8 @@ const OrderSummary = () => {
               id="cash-delivery"
               value="cash-delivery"
               className="accent-black"
+              onChange={() => setPaymentMethod('Cash on Delivery')}
+              required
             />
             <label htmlFor="cash-delivery" className="font-medium text-sm">
               Cash on Delivery
@@ -114,6 +121,8 @@ const OrderSummary = () => {
               id="card-paypal"
               value="card-paypal"
               className="accent-black"
+              onChange={() => setPaymentMethod('Credit/Debit Card or PayPal')}
+              required
             />
             <label htmlFor="card-paypal" className="font-medium text-sm">
               Credit/Debit Card or PayPal
@@ -121,10 +130,17 @@ const OrderSummary = () => {
           </div>
         </div>
 
+
+         {error && <p className={'text-red-500 text-[12px] font-semibold'}>{error}</p>}
         {/* Place Order Button */}
-        <Button className="w-full"  size="lg">
-          Place Order Now
-        </Button>
+        
+        <button
+        type="submit"
+        form={formId} 
+        className="mt-6 w-full bg-blue-500 text-white px-6 py-2 rounded"
+      >
+        Place Order Now
+      </button>
       </div>
     </div>
   );

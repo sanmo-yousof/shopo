@@ -62,6 +62,28 @@ const removeCart = (id, orderColor) => {
   window.dispatchEvent(new Event("CartUpdated"));
 };
 
+
+const updateCartQuantity = (id, orderColor, action) => {
+  let cart = getCart();
+
+  cart = cart.map((item) => {
+    if (item.id === id && item.orderColor === orderColor) {
+      let newQty = item.orderQuantity;
+      if (action === "increment") {
+        newQty += 1;
+      } else if (action === "decrement" && newQty > 1) {
+        newQty -= 1;
+      }
+      return { ...item, orderQuantity: newQty };
+    }
+    return item;
+  });
+
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  window.dispatchEvent(new Event("CartUpdated"));
+};
+
+
 export {
   setWishlist,
   getWishlist,
@@ -69,4 +91,5 @@ export {
   getCart,
   removeCart,
   setCart,
+  updateCartQuantity
 };

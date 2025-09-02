@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 function Select({
   ...props
 }) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />;
+  return <SelectPrimitive.Root required data-slot="select" {...props} />;
 }
 
 function SelectGroup({

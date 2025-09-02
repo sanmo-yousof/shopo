@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { useState } from "react";
 import { Categories, FilterBrands, Size, Storage } from "@/utils/utils";
+import { Plus } from "lucide-react";
 
 const FilterSideBar = () => {
   const [store, setStore] = useState(Storage[0]);
@@ -16,21 +17,21 @@ const FilterSideBar = () => {
         <h4 className="text-black mb-4 text-base font-semibold">
           Product Categories
         </h4>
-        <div className="space-y-1">
+        <div className="space-y-3 text-gray-500">
           {Categories.map((category) => (
-            <div key={category} className="flex justify-between items-center">
+            <div key={category} className="flex  justify-between items-center">
               <div className="flex gap-2 items-center">
                 <Checkbox
                   id={category}
-                  className="border-black data-[state=checked]:bg-[#1867d6]"
+                  className="border-gray-500 data-[state=checked]:bg-[#1867d6]"
                 />
                 <label htmlFor={category} className="text-xs">
                   {category}
                 </label>
               </div>
-              <Button className="bg-white text-gray-400 text-sm p-0" size="sm">
-                +
-              </Button>
+              <span>
+                <Plus className="w-3 h-3 cursor-pointer"/>
+              </span>
             </div>
           ))}
         </div>
@@ -44,12 +45,12 @@ const FilterSideBar = () => {
       {/* Brands */}
       <div className="border-b py-6">
         <h4 className="text-black text-base font-semibold mb-4">Brands</h4>
-        <div className="flex flex-col space-y-5">
+        <div className="flex text-gray-500 flex-col space-y-3">
           {FilterBrands.map((brand) => (
             <div key={brand} className="flex gap-2 items-center">
               <Checkbox
                 id={`brand-${brand}`}
-                className="border-black data-[state=checked]:bg-[#1867d6]"
+                className="border-gray-500 data-[state=checked]:bg-[#1867d6]"
               />
               <label htmlFor={`brand-${brand}`} className="text-xs">
                 {brand}
@@ -84,12 +85,12 @@ const FilterSideBar = () => {
       {/* Sizes */}
       <div className="border-t py-6">
         <h4 className="text-black text-base font-semibold mb-4">Size</h4>
-        <div className="flex flex-col space-y-5">
+        <div className="flex text-gray-500 flex-col space-y-3">
           {Size.map((s) => (
             <div key={s} className="flex gap-2 items-center">
               <Checkbox
                 id={`size-${s}`}
-                className="border-black  data-[state=checked]:bg-[#1867d6]"
+                className="border-gray-500  data-[state=checked]:bg-[#1867d6]"
               />
               <label htmlFor={`size-${s}`} className="text-xs">
                 {s}

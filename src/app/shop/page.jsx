@@ -19,7 +19,7 @@ const Shop = () => {
 
         {/* Main Content */}
         <div className="lg:col-span-3 ">
-          <FilterBar/>
+          
           {/* Product grid goes here */}
           <AllProducts/>
           <PromotionalAds1/>

@@ -13,7 +13,7 @@ import {
 import FilterSideBar from "./filterOption";
 import { cn } from "@/lib/utils";
 
-const FilterBar = () => {
+const FilterBar = ({ sort, onSortChange }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ const FilterBar = () => {
       {/* Filter Bar Top Controls */}
       <div className="flex flex-col lg:flex-row p-3 bg-white lg:justify-between lg:items-center">
         <p className="text-sm">
-          <span className="text-gray-400">Showing</span> 1–16 of 66 results 
+          <span className="text-gray-400">Showing</span> 1–16 of 66 results
         </p>
 
         <div className="mt-4 lg:mt-0 flex items-center gap-2">
@@ -38,15 +38,15 @@ const FilterBar = () => {
 
           {/* Desktop select */}
           <div className="hidden lg:block">
-            <Select defaultValue="name-asc">
-              <SelectTrigger className="w-[140px] border-0 border-b rounded-none outline-0 shadow-none">
+            <Select value={sort} onValueChange={onSortChange}>
+              <SelectTrigger className="w-[160px] text-xs border-0 border-b rounded-none outline-0 shadow-none">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="name-asc">Name (A → Z)</SelectItem>
-                <SelectItem value="name-desc">Name (Z → A)</SelectItem>
-                <SelectItem value="price-asc">Price (Low → High)</SelectItem>
-                <SelectItem value="price-desc">Price (High → Low)</SelectItem>
+                <SelectItem className={"text-xs"} value="name-asc">Name (A → Z)</SelectItem>
+                <SelectItem className={"text-xs"}  value="name-desc">Name (Z → A)</SelectItem>
+                <SelectItem className={"text-xs"}  value="price-asc">Price (Low → High)</SelectItem>
+                <SelectItem className={"text-xs"}  value="price-desc">Price (High → Low)</SelectItem>
               </SelectContent>
             </Select>
           </div>
