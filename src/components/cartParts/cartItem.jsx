@@ -221,7 +221,7 @@ const CartItem = () => {
           </div>
         </div>
 
-        <div className="grid lg:justify-end justify-center  px-2 sm:px-4">
+        <div className="grid lg:justify-end justify-center  px-4">
           <div className=" max-w-md my-6 sm:my-8 p-4 w-74 md:w-82  border rounded-md">
             {/* Subtotal */}
             <div className="text-sm flex justify-between md:text-base">

@@ -6,51 +6,53 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { getCart, getWishlist, removeWishlist, setCart, setWishlist } from "@/utils/loaclSorage";
+import {
+  getCart,
+  getWishlist,
+  removeWishlist,
+  setCart,
+  setWishlist,
+} from "@/utils/loaclSorage";
 
 const ProductCard = ({ product }) => {
-  
-  const { id, name, price, originalPrice, sizes, rating, images, colors } = product;
-  
+  const { id, name, price, originalPrice, sizes, rating, images, colors } =
+    product;
+
   const [wishlist, setWishlistState] = useState([]);
   useEffect(() => {
     setWishlistState(getWishlist());
   }, []);
 
-   const handleWishlist = (id) => {
+  const handleWishlist = (id) => {
     if (wishlist.includes(id)) {
-      
       removeWishlist(id);
-      setWishlistState(getWishlist()); 
+      setWishlistState(getWishlist());
     } else {
-      
       setWishlist(id);
-      setWishlistState(getWishlist()); 
+      setWishlistState(getWishlist());
     }
   };
 
-  
-const handleAddToCart = () => {
-  const cartData = {
-    ...product,
-    orderQuantity: 1,
-    orderColor: colors[0],
-    orderSize: sizes[0]
+  const handleAddToCart = () => {
+    const cartData = {
+      ...product,
+      orderQuantity: 1,
+      orderColor: colors[0],
+      orderSize: sizes[0],
+    };
+
+    setCart(cartData);
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Added to cart successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
-  setCart(cartData);
-
-  Swal.fire({
-    position: "center",
-    icon: "success",
-    title: "Added to cart successfully!",
-    showConfirmButton: false,
-    timer: 1500,
-  });
-};
-
-console.log(getCart())
-
+  console.log(getCart());
 
   return (
     <div className="bg-white group shadow-md overflow-hidden">
@@ -67,7 +69,7 @@ console.log(getCart())
         <div className="absolute flex flex-col space-y-3 right-5 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
           <span className="p-2 bg-gray-200 cursor-pointer rounded-md">
             <Link href={`/shop/${id}`}>
-            <Expand className="h-5 w-5" />
+              <Expand className="h-5 w-5" />
             </Link>
           </span>
           <span

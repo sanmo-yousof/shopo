@@ -5,10 +5,11 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import useSingleProduct from "@/hook/useSingleProduct";
 import { Seller } from "@/utils/utils";
+import DescriptionTabsSkeleton from "../descriptionTabsSkeletion";
 
 const DescriptionTabs = () => {
   const [isActive, setIsActive] = useState(1);
-  const { data, review } = useSingleProduct();
+  const { singleData, review ,loading} = useSingleProduct();
   const [reviewStar,setReviewStar] = useState(0)
 
   const tabs = [
@@ -16,6 +17,10 @@ const DescriptionTabs = () => {
     { id: 2, label: "Reviews" },
     { id: 3, label: "Seller Info" },
   ];
+
+  if(loading){
+    return <DescriptionTabsSkeleton/>
+  }
 
   return (
     <div className="bg-gray-100 py-6 mt-16">
@@ -38,11 +43,11 @@ const DescriptionTabs = () => {
           {isActive === 1 && (
             <div>
               <h3 className="font-semibold text-lg text-black mb-2">Introduction</h3>
-              <p>{data?.fullDescription || "No description available."}</p>
+              <p>{singleData?.fullDescription || "No description available."}</p>
 
               <h3 className="font-semibold text-lg text-black mt-6 mb-2">Features:</h3>
               <ul className="list-disc ml-6 space-y-1">
-                {data?.featured?.map((item, i) => (
+                {singleData?.featured?.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>

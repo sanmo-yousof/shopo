@@ -16,8 +16,8 @@ import google from "@/asset/loginImages/google.png"
 const Login = () => {
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl flex gap-6 py-12  flex-col md:flex-row mx-auto items-center px-2 ">
-        <div className="w-full py-8 px-6 lg:px-12 border bg-white md:w-1/2">
+      <div className="max-w-7xl flex gap-6 py-12  flex-col md:flex-row mx-auto items-center px-4 ">
+        <div className="w-full py-8 px-6 lg:px-12 rounded-md border bg-white md:w-1/2">
           <h2 className="text-2xl md:text-3xl text-center font-semibold">
             Log In
           </h2>
@@ -49,7 +49,7 @@ const Login = () => {
             </div>
 
             
-            <div className="flex my-8 text-sm justify-between items-center">
+            <div className="flex my-8 text-xs md:text-sm justify-between items-center">
               <div className=" text-gray-500 flex items-center gap-2">
               <input id="term" type="checkbox" />
               <label htmlFor="term">
@@ -64,25 +64,25 @@ const Login = () => {
               <input
                 type="submit"
                 value={"Create Account"}
-                className="bg-black text-white w-full py-3"
+                className="bg-black text-sm text-white w-full py-3"
               />
             </div>
 
             <div className="mt-4">
-              <Button className="w-full border bg-gray-100" size="lg">
+              <Button className="w-full  border bg-gray-100" size="lg">
                 <div className="flex gap-2 items-center text-gray-700">
                   <Image
                   src={google}
                   alt="google"
                   quality={100}
                   className="w-8"/>
-                  <span>Sign In with Google</span>
+                  <span className="text-sm">Sign In with Google</span>
                 </div>
               </Button>
             </div>
 
-            <div className="mt-4 flex items-center justify-center text-gray-500  gap-2">
-              <p className="text-gray-400">Don't have an Account?</p>
+            <div className="mt-4 flex text-xs md:text-sm items-center  text-gray-500  gap-2">
+              <p className="text-gray-400 ">Don't have an Account?</p>
               <Link className="text-black" href={"/register"}>Sign up free</Link>
             </div>
           </form>

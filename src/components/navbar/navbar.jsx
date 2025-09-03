@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header>
       <div className="">
-        <div className="flex max-w-7xl px-2 py-3 mx-auto items-center justify-between">
+        <div className="flex max-w-7xl px-4 py-3 mx-auto items-center justify-between">
           {/* Left Links */}
           <ul className="text-xs flex space-x-6 font-medium">
             <li><a href="#">Account</a></li>
@@ -42,7 +42,7 @@ export default function Navbar() {
           </div>
         </div>
         <hr />
-        <div className="flex mx-auto max-w-7xl py-5 px-2 justify-between items-center">
+        <div className="flex mx-auto max-w-7xl py-5 px-4 justify-between items-center">
           <div className="block lg:hidden">
             <MobileMenuToggleBtn />
           </div>

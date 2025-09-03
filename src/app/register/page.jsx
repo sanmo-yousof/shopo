@@ -15,8 +15,8 @@ const Register = () => {
   return (
     
       <div className=" bg-gray-100 ">
-        <div className="max-w-7xl flex gap-6 py-12  flex-col md:flex-row mx-auto items-center px-2 ">
-          <div className="w-full py-8 lg:px-12 px-6 border bg-white md:w-1/2">
+        <div className="max-w-7xl flex gap-6 py-12  flex-col md:flex-row mx-auto items-center px-4 ">
+          <div className="w-full py-8 lg:px-12 px-6 border rounded-md bg-white md:w-1/2">
             <h2 className="text-2xl md:text-3xl text-center font-semibold">
               Create Account
             </h2>
@@ -125,15 +125,15 @@ const Register = () => {
                   />
                 </div>
               </div>
-              <div className="my-8 text-gray-500 flex items-center gap-2">
+              <div className="my-8 text-gray-500 flex text-xs md:text-sm  items-center gap-2">
                 <input id="term" type="checkbox" />
                 <label htmlFor="term">I agree allterms and condition ShopO.</label>
               </div>
               <div>
-                <input type="submit" value={"Create Account"} className="bg-black text-white w-full py-3" />
+                <input type="submit" value={"Create Account"} className="bg-black text-sm text-white w-full py-3" />
               </div>
 
-              <div className="mt-4 flex items-center justify-center text-gray-500  gap-2">
+              <div className="mt-4 flex text-xs md:text-sm items-center justify-center text-gray-500  gap-2">
                 
                 <p className="text-gray-400">Already have an Account?</p>
                 <Link className="text-black" href={"/login"}>Log In</Link>

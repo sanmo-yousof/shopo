@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import WishlistSkeleton from "@/components/wishlistSkeleton";
 import useAllProducts from "@/hook/useAllProduct";
-import { getWishlist, removeWishlist } from "@/utils/loaclSorage";
+import { getWishlist, removeWishlist, setCart } from "@/utils/loaclSorage";
 import { Minus, Plus, Trash, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -22,9 +22,17 @@ import Swal from "sweetalert2";
 const Wishlist = () => {
   const [wishlistIds, setWishlistIds] = useState([]);
   const [data, loading] = useAllProducts();
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
-    setWishlistIds(getWishlist());
+    const ids = getWishlist();
+    setWishlistIds(ids);
+
+    const initialQuantities = {};
+    ids.forEach((id) => {
+      initialQuantities[id] = 1;
+    });
+    setQuantities(initialQuantities);
   }, []);
 
   const wishlistProducts = data.filter((product) =>
@@ -57,6 +65,22 @@ const Wishlist = () => {
   };
 
   const handleAddCart = () => {
+    wishlistProducts.forEach((product) => {
+      setCart({
+        ...product,
+        orderQuantity: quantities[product.id] || 1,
+        orderColor: product.colors[0],
+        orderSize: product.sizes[0],
+      });
+    });
+
+    // ✅ Reset all quantities back to 1
+    const resetQuantities = {};
+    wishlistProducts.forEach((product) => {
+      resetQuantities[product.id] = 1;
+    });
+    setQuantities(resetQuantities);
+
     Swal.fire({
       position: "center",
       icon: "success",
@@ -65,6 +89,21 @@ const Wishlist = () => {
       timer: 1500,
     });
   };
+
+  const handleIncrement = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }));
+  };
+
+  const handleDecrement = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
+    }));
+  };
+
   return (
     <>
       <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
@@ -107,8 +146,8 @@ const Wishlist = () => {
                   </td>
                   <td className="p-3 border-b">
                     <div
-                      className={`h-5 w-5 border rounded-full`}
-                      style={{ backgroundColor: product?.colors[3] }}
+                      className={`h-5 w-5 border border-black rounded-full`}
+                      style={{ backgroundColor: product?.colors[0] }}
                     />
                   </td>
                   <td className="p-3 text-xs md:text-sm border-b">
@@ -118,18 +157,33 @@ const Wishlist = () => {
                     ${product.price}
                   </td>
                   <td className="p-3 border-b">
-                    <div className="flex items-center justify-center gap-2 border  max-w-fit">
-                      <Button size={"sm"} className={"rounded-none"}>
+                    <div className="flex items-center justify-center gap-2 border max-w-fit">
+                      <Button
+                        size="sm"
+                        className="rounded-none"
+                        onClick={() => handleDecrement(product.id)}
+                        disabled={quantities[product.id] === 1}
+                      >
                         <Minus />
                       </Button>
-                      <span className="mx-2">0</span>
-                      <Button size={"sm"} className={"rounded-none"}>
+
+                      <span className="mx-2">
+                        {quantities[product.id] || 1}
+                      </span>
+
+                      <Button
+                        size="sm"
+                        className="rounded-none"
+                        onClick={() => handleIncrement(product.id)}
+                      >
                         <Plus />
                       </Button>
                     </div>
                   </td>
+
                   <td className="p-3 text-xs md:text-sm border-b">
-                    ${product.price}
+                    $
+                    {(product.price * (quantities[product.id] || 1)).toFixed(2)}
                   </td>
                   <td className="p-3 border-b ">
                     <Button
@@ -146,7 +200,7 @@ const Wishlist = () => {
           )}
         </table>
       </div>
-      <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-2">
+      <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-4">
         <Dialog>
           <form>
             <DialogTrigger asChild>
@@ -213,7 +267,9 @@ const Wishlist = () => {
                           : item?.name}
                       </p>
                     </div>
-                    <h3 className="text-sm text-gray-500 font-semibold">1X</h3>
+                    <h3 className="text-sm text-gray-500 font-semibold">
+                      {quantities[item.id] || 1}X
+                    </h3>
                   </div>
                 );
               })}

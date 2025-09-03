@@ -22,7 +22,7 @@ import Link from "next/link";
 const Menubar = () => {
   return (
     <div className="bg-[#1867d6] hidden lg:block">
-      <div className="flex items-center justify-between mx-auto max-w-7xl py-3 px-2">
+      <div className="flex items-center justify-between mx-auto max-w-7xl py-3 px-4">
         {/* Left side */}
         <div className="flex items-center gap-6">
           {/* All Categories Dropdown */}

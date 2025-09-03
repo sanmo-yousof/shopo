@@ -6,6 +6,7 @@ import { Checkbox } from "../ui/checkbox";
 import { useState } from "react";
 import { Categories, FilterBrands, Size, Storage } from "@/utils/utils";
 import { Plus } from "lucide-react";
+import { Slider } from "../ui/slider";
 
 const FilterSideBar = () => {
   const [store, setStore] = useState(Storage[0]);
@@ -40,6 +41,13 @@ const FilterSideBar = () => {
       {/* Price Range */}
       <div className="border-y py-6 ">
         <h4 className="text-black text-base mb-4 font-semibold">Price Range</h4>
+        <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className={cn("w-full")}
+      
+    />
       </div>
 
       {/* Brands */}

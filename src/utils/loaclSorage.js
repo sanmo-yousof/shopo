@@ -23,6 +23,8 @@ const removeWishlist = (id) => {
   window.dispatchEvent(new Event("wishlistUpdated"));
 };
 
+
+
 // cart
 const CART_KEY = "cart";
 
@@ -34,12 +36,14 @@ const getCart = () => {
 
 const setCart = (data) => {
   const oldArray = getCart();
+
   const existingIndex = oldArray.findIndex(
-    (item) => item.id === data.id && item.orderColor === data.orderColor
+    (item) =>
+      item.id === data.id &&
+      item.orderColor === data.orderColor &&
+      item.orderSize === data.orderSize
   );
-
   let updated;
-
   if (existingIndex !== -1) {
     updated = [...oldArray];
     updated[existingIndex].orderQuantity += data.orderQuantity || 1;
@@ -53,6 +57,7 @@ const setCart = (data) => {
   window.dispatchEvent(new Event("CartUpdated"));
   return true;
 };
+
 
 const removeCart = (id, orderColor) => {
   const updated = getCart().filter(
