@@ -52,7 +52,6 @@ const ProductCard = ({ product }) => {
     });
   };
 
-  console.log(getCart());
 
   return (
     <div className="bg-white group shadow-md overflow-hidden">

@@ -3,9 +3,10 @@
 import { Expand, Heart, Repeat2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { getWishlist, removeWishlist, setWishlist } from "@/utils/loaclSorage";
+import { getWishlist, removeWishlist, setCart, setWishlist } from "@/utils/loaclSorage";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 const ProductCardSecond = ({ product }) => {
   const {
@@ -20,6 +21,8 @@ const ProductCardSecond = ({ product }) => {
     images,
     badge,
     inStock,
+    colors,
+    sizes
   } = product;
 
   const [wishlist, setWishlistState] = useState([]);
@@ -36,6 +39,26 @@ const ProductCardSecond = ({ product }) => {
       setWishlistState(getWishlist());
     }
   };
+
+  const handleAddToCart = () => {
+    const cartData = {
+      ...product,
+      orderQuantity: 1,
+      orderColor: colors[0],
+      orderSize: sizes[0],
+    };
+
+    setCart(cartData);
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Added to cart successfully!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   return (
     <div className="bg-white group shadow-xs items-center flex relative  overflow-hidden">
       {/* Image Wrapper with fixed size */}
@@ -77,7 +100,7 @@ const ProductCardSecond = ({ product }) => {
           <span className="text-red-600 font-semibold">${price}</span>
         </div>
         <div className="mt-4">
-          <Button>Add to Cart</Button>
+          <Button onClick = {handleAddToCart}>Add to Cart</Button>
         </div>
       </div>
       <div className="absolute flex flex-col space-y-3 right-5 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">

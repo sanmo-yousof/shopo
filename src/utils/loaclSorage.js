@@ -89,6 +89,21 @@ const updateCartQuantity = (id, orderColor, action) => {
 };
 
 
+
+// order 
+const getOrder = () => {
+  let value = localStorage.getItem("getOrder");
+  return value ? JSON.parse(value) : [];
+};
+
+const setOrder = (object) => {
+  const oldArray = getOrder();
+    const updated = [...oldArray, object];
+    localStorage.setItem("getOrder", JSON.stringify(updated));
+    return true;
+};
+
+
 export {
   setWishlist,
   getWishlist,
@@ -96,5 +111,7 @@ export {
   getCart,
   removeCart,
   setCart,
-  updateCartQuantity
+  updateCartQuantity,
+  getOrder,
+  setOrder
 };

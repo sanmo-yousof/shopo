@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import OrderSummary from "./orderSummary";
-import { getCart } from "@/utils/loaclSorage";
+import { getCart, setOrder } from "@/utils/loaclSorage";
 import Swal from "sweetalert2";
 
 const BillingForm = () => {
@@ -55,8 +55,30 @@ const BillingForm = () => {
       return;
     }
 
-    // submit data (you can send to API here)
-    console.log("✅ Form submitted", formData);
+    // get cart data before clearing
+    const currentCart = getCart();
+
+    if (currentCart.length === 0) {
+      setError("Your cart is empty!");
+      return;
+    }
+
+    // build order object
+    const newOrder = {
+      OrderId: Date.now(), 
+      customer: formData,
+      items: currentCart,
+      totalAmount: currentCart.reduce(
+        (acc, item) => acc + item.price * item.orderQuantity,
+        0
+      ),
+      status: "pending", 
+      createdAt: new Date().toISOString(),
+    };
+
+    setOrder(newOrder);
+
+    console.log(newOrder);
 
     // reset form
     setFormData({

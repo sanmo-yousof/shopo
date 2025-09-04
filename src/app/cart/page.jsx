@@ -12,9 +12,7 @@ const Cart = () => {
         <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
           <h2 className="sectionHeading">Your Cart</h2>
         </div>
-
         <CartItem/>
-
         <Discount />
       </div>
     </>

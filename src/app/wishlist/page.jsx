@@ -16,8 +16,10 @@ import useAllProducts from "@/hook/useAllProduct";
 import { getWishlist, removeWishlist, setCart } from "@/utils/loaclSorage";
 import { Minus, Plus, Trash, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import emptyWishlist from '@/asset/emptyImages/emptyWishlist.png'
 
 const Wishlist = () => {
   const [wishlistIds, setWishlistIds] = useState([]);
@@ -74,7 +76,7 @@ const Wishlist = () => {
       });
     });
 
-    // ✅ Reset all quantities back to 1
+    // Reset all quantities back to 1
     const resetQuantities = {};
     wishlistProducts.forEach((product) => {
       resetQuantities[product.id] = 1;
@@ -111,7 +113,18 @@ const Wishlist = () => {
       </div>
 
       <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
-        <table className="min-w-[700px] w-full text-left border border-gray-200">
+        {
+          !loading && wishlistProducts.length === 0 ? (
+          <div className="flex min-h-[50vh] flex-col justify-center items-center">
+            <div>
+              <Image alt="emptyWishlist" src={emptyWishlist} className="w-32 md:w-54" />
+            </div>
+            <h4 className="text-gray-500 lg:text-lg font-semibold text-sm sm:text-base">
+              Your wishlist is empty!
+            </h4>
+            <Link className="mt-4" href={'/shop'}><Button>Shop</Button></Link>
+          </div>
+        ):(<table className="min-w-[700px] w-full text-left border border-gray-200">
           <thead className="bg-gray-100 text-xs sm:text-sm">
             <tr>
               <th className="p-3 border-b">PRODUCT</th>
@@ -198,9 +211,13 @@ const Wishlist = () => {
               ))}
             </tbody>
           )}
-        </table>
+        </table>)
+        }
+        
       </div>
-      <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-4">
+      {
+        wishlistProducts.length >0&&(
+          <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-4">
         <Dialog>
           <form>
             <DialogTrigger asChild>
@@ -235,7 +252,7 @@ const Wishlist = () => {
         </Dialog>
 
         <Dialog>
-          <form>
+         
             <DialogTrigger asChild>
               <Button size={"lg"}>Add to Cart</Button>
             </DialogTrigger>
@@ -287,9 +304,12 @@ const Wishlist = () => {
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
-          </form>
+
         </Dialog>
       </div>
+        )
+      }
+      
     </>
   );
 };

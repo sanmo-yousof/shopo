@@ -98,7 +98,7 @@ const ProductInfo = () => {
                 width={400}
                 height={400}
                 quality={100}
-                className=" border rounded-md p-4 sm:p-8 lg:p-10 w-full h-60        sm:h-72 md:h-80 lg:h-[400px] object-contain"
+                className=" border rounded-md p-4 sm:p-8 lg:p-10 w-full h-60 sm:h-72 md:h-80 lg:h-[400px] object-contain"
               />
             </div>
             <div className="lg:mt-4 mt-2 flex-wrap lg:gap-4 gap-2 flex">
