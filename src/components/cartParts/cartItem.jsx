@@ -26,6 +26,7 @@ import Swal from "sweetalert2";
 import Link from "next/link";
 
 import emptyCart from "@/asset/emptyImages/emptyCart.png";
+import EmptyContent from "../emptyContent";
 
 const CartItem = () => {
   const [cartdata, setCartData] = useState([]);
@@ -69,15 +70,12 @@ const CartItem = () => {
     <>
       <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
         {!loading && cartdata.length === 0 ? (
-          <div className="flex min-h-[50vh] flex-col justify-center items-center">
-            <div>
-              <Image alt="emptyCart" src={emptyCart} className="w-32 md:w-54" />
-            </div>
-            <h4 className="text-gray-500 lg:text-lg font-semibold text-sm sm:text-base">
-              Your cart is empty!
-            </h4>
-            <Link className="mt-4" href={'/shop'}><Button>Add to Cart</Button></Link>
-          </div>
+          <EmptyContent
+        emptyCart={emptyCart}
+        title=" Your cart is empty"
+        href="/shop"
+        buttonText="Add to Cart"
+      />
         ) : (
           <table className="min-w-[700px] w-full text-left border border-gray-200">
             <thead className="bg-gray-100  text-xs sm:text-sm">

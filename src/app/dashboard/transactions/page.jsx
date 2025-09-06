@@ -1,5 +1,6 @@
 import ProductViewModal from "@/components/dashboardComponents/productViewModal";
 import TransactionViewModal from "@/components/dashboardComponents/transactionModal";
+import TransactionTable from "@/components/dashboardComponents/transactionTable";
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 import { Transactions } from "@/utils/utils";
@@ -10,7 +11,9 @@ const Transaction = () => {
         <h2 className="lg:text-2xl text-base sm:text-xl font-semibold text-gray-700">
           Transactions
         </h2>
-        <div className="overflow-x-auto mt-3">
+
+        {/* transaction table  */}
+        {/* <div className="overflow-x-auto mt-3">
           <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow table-auto">
             <thead>
               <tr className="bg-blue-100 text-left text-xs md:text-sm font-semibold text-gray-700">
@@ -52,13 +55,16 @@ const Transaction = () => {
                   </td>
                   
                   <td className="md:py-4 py-2 px-4 border-b whitespace-nowrap">
-                    <TransactionViewModal/>
+                    <TransactionViewModal order={order}/>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
+
+        <TransactionTable/>
+
         <Pagination className={'pt-12'}>
       <PaginationContent>
         <PaginationItem>

@@ -60,7 +60,7 @@ const ProductViewModal = ({ data }) => {
 
           {data?.map((single, indx) => (
             <>
-              <div key={indx} className="flex  justify-between">
+              <div key={indx} className="flex md:gap-0 gap-4 justify-between">
                 <div className="flex gap-2 items-center">
                   <Image
                     alt="product"

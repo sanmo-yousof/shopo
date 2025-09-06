@@ -59,7 +59,6 @@ const Menubar = () => {
             <NavigationMenuList>
               {Navmenu.map((item, index) => {
                 if (item?.subMenu) {
-                  // Render dropdown with submenu
                   return (
                     <NavigationMenuItem key={index}>
                       <NavigationMenuTrigger className="flex items-center gap-2">
@@ -67,33 +66,31 @@ const Menubar = () => {
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="z-10">
                         <ul className="w-[220px] p-2 space-y-1">
-                          {item.subMenu.map((subItem, subIndex) => {
-                            return (
-                              <li key={subIndex}>
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    href={item.subhref[subIndex]}
-                                    className=" p-2 hover:bg-accent hover:text-accent-foreground rounded-md"
-                                  >
-                                    {subItem}
-                                  </Link>
-                                </NavigationMenuLink>
-                              </li>
-                            );
-                          })}
+                          {item.subMenu.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={item.subhref[subIndex]}
+                                  className="p-2 hover:bg-accent hover:text-accent-foreground rounded-md block"
+                                >
+                                  {subItem}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   );
                 } else {
-                  // Render normal menu link
-
+                  // ✅ Normal links: Use NavigationMenuItem without NavigationMenuLink
                   return (
                     <NavigationMenuItem key={index}>
-                      <Link href={item.href} legacyBehavior passHref>
-                        <NavigationMenuLink className="px-4 py-2 text-white hover:bg-[#1867d6] hover:text-white rounded-md">
-                          {item.mainManu}
-                        </NavigationMenuLink>
+                      <Link
+                        href={item.href}
+                        className="px-4 py-2 text-white hover:bg-[#1867d6] rounded-md block"
+                      >
+                        {item.mainManu}
                       </Link>
                     </NavigationMenuItem>
                   );

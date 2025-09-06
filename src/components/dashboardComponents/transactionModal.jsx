@@ -1,31 +1,41 @@
 import { Eye } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 import { Button } from "../ui/button";
 
-const TransactionViewModal = () => {
+const TransactionViewModal = ({order}) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button size={"sm"}>
-          <Eye className="w-4 h-4" />
+          <Eye />
         </Button>
       </DialogTrigger>
-
-      <DialogContent className=" sm:max-w-[425px]">
-        {/* 🔧 Required for accessibility */}
+      <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="sr-only">Product Details</DialogTitle>
-
+          <DialogTitle>Transactions Details</DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className=" text-gray-600 px-4">
-          <h3 className="text-sm lg:text-md font-semibold mb-2">
-            Transaction Details
-          </h3>
-          <p className="text-xs text-gray-500">
-            This is a sample description of the product. Add more info as
-            needed.
-          </p>
+        <div className="mx-2 space-y-1">
+          <p className="text-[11px]">Date : <span className="text-gray-500">{order.transactionDate}</span></p>
+          <p className="text-[11px]">TXID : <span className="text-gray-500">{order.transactionId}</span></p>
+          <p className="text-[11px]">Payment Method : <span className="text-gray-500">{order.method}</span></p>
+          <p className="text-[11px]">Details : <span className="text-gray-500">{order.details}</span></p>
         </div>
+
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button size="sm">Close</Button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

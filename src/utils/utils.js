@@ -975,66 +975,77 @@ export const Orders = [
 
 export const Transactions = [
   {
-    "transactionId": "TXN001",
-    "amount": 150.75,
-    "transactionDate": "2025-08-01",
-    "details": "Payment received"
+    transactionId: "TXN001",
+    amount: 150.75,
+    transactionDate: "2025-08-01",
+    details: "Payment received",
+    method: "Bank Transfer",
   },
   {
-    "transactionId": "TXN002",
-    "amount": 89.99,
-    "transactionDate": "2025-08-02",
-    "details": "Monthly subscription"
+    transactionId: "TXN002",
+    amount: 89.99,
+    transactionDate: "2025-08-02",
+    details: "Monthly subscription",
+    method: "Credit Card",
   },
   {
-    "transactionId": "TXN003",
-    "amount": 300.00,
-    "transactionDate": "2025-08-03",
-    "details": "Online purchase"
+    transactionId: "TXN003",
+    amount: 300.0,
+    transactionDate: "2025-08-03",
+    details: "Online purchase",
+    method: "Debit Card",
   },
   {
-    "transactionId": "TXN004",
-    "amount": 45.50,
-    "transactionDate": "2025-08-04",
-    "details": "Fuel refill"
+    transactionId: "TXN004",
+    amount: 45.5,
+    transactionDate: "2025-08-04",
+    details: "Fuel refill",
+    method: "UPI",
   },
   {
-    "transactionId": "TXN005",
-    "amount": 1200.00,
-    "transactionDate": "2025-08-05",
-    "details": "Salary credited"
+    transactionId: "TXN005",
+    amount: 1200.0,
+    transactionDate: "2025-08-05",
+    details: "Salary credited",
+    method: "Bank Transfer",
   },
   {
-    "transactionId": "TXN006",
-    "amount": 62.35,
-    "transactionDate": "2025-08-06",
-    "details": "Grocery shopping"
+    transactionId: "TXN006",
+    amount: 62.35,
+    transactionDate: "2025-08-06",
+    details: "Grocery shopping",
+    method: "Credit Card",
   },
   {
-    "transactionId": "TXN007",
-    "amount": 200.00,
-    "transactionDate": "2025-08-07",
-    "details": "Gym membership"
+    transactionId: "TXN007",
+    amount: 200.0,
+    transactionDate: "2025-08-07",
+    details: "Gym membership",
+    method: "Debit Card",
   },
   {
-    "transactionId": "TXN008",
-    "amount": 18.20,
-    "transactionDate": "2025-08-08",
-    "details": "Coffee shop"
+    transactionId: "TXN008",
+    amount: 18.2,
+    transactionDate: "2025-08-08",
+    details: "Coffee shop",
+    method: "Cash",
   },
   {
-    "transactionId": "TXN009",
-    "amount": 750.00,
-    "transactionDate": "2025-08-09",
-    "details": "Freelance work"
+    transactionId: "TXN009",
+    amount: 750.0,
+    transactionDate: "2025-08-09",
+    details: "Freelance work",
+    method: "Bank Transfer",
   },
   {
-    "transactionId": "TXN010",
-    "amount": 99.99,
-    "transactionDate": "2025-08-10",
-    "details": "Utility bill"
-  }
-]
+    transactionId: "TXN010",
+    amount: 99.99,
+    transactionDate: "2025-08-10",
+    details: "Utility bill",
+    method: "UPI",
+  },
+];
+
 
 export const Messages = [
   {

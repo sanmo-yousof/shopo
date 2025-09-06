@@ -19,7 +19,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import emptyWishlist from '@/asset/emptyImages/emptyWishlist.png'
+import emptyWishlist from "@/asset/emptyImages/emptyWishlist.png";
+import EmptyContent from "@/components/emptyContent";
 
 const Wishlist = () => {
   const [wishlistIds, setWishlistIds] = useState([]);
@@ -113,146 +114,145 @@ const Wishlist = () => {
       </div>
 
       <div className="max-w-7xl mt-6 mx-auto px-4 overflow-x-auto">
-        {
-          !loading && wishlistProducts.length === 0 ? (
-          <div className="flex min-h-[50vh] flex-col justify-center items-center">
-            <div>
-              <Image alt="emptyWishlist" src={emptyWishlist} className="w-32 md:w-54" />
-            </div>
-            <h4 className="text-gray-500 lg:text-lg font-semibold text-sm sm:text-base">
-              Your wishlist is empty!
-            </h4>
-            <Link className="mt-4" href={'/shop'}><Button>Shop</Button></Link>
-          </div>
-        ):(<table className="min-w-[700px] w-full text-left border border-gray-200">
-          <thead className="bg-gray-100 text-xs sm:text-sm">
-            <tr>
-              <th className="p-3 border-b">PRODUCT</th>
-              <th className="p-3 border-b">COLOR</th>
-              <th className="p-3 border-b">SIZE</th>
-              <th className="p-3 border-b">PRICE</th>
-              <th className="p-3 border-b">QUANTITY</th>
-              <th className="p-3 border-b">TOTAL</th>
-              <th className="p-3 border-b">ACTION</th>
-            </tr>
-          </thead>
-          {loading ? (
-            <WishlistSkeleton />
-          ) : (
-            <tbody>
-              {wishlistProducts?.map((product, indx) => (
-                <tr key={indx} className="text-gray-500  text-sm sm:text-base">
-                  <td className="p-3 border-b">
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src={product.images}
-                        quality={100}
-                        width={80}
-                        height={80}
-                        alt={product.name}
-                        className="border w-14 bg-white md:w-[90px] p-2"
-                      />
-                      <p className="text-black text-xs md:text-sm break-words w-[240px] sm:max-w-[300px]">
-                        {product.name}
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-3 border-b">
-                    <div
-                      className={`h-5 w-5 border border-black rounded-full`}
-                      style={{ backgroundColor: product?.colors[0] }}
-                    />
-                  </td>
-                  <td className="p-3 text-xs md:text-sm border-b">
-                    {product?.sizes[0]}
-                  </td>
-                  <td className="p-3 text-xs md:text-sm border-b">
-                    ${product.price}
-                  </td>
-                  <td className="p-3 border-b">
-                    <div className="flex items-center justify-center gap-2 border max-w-fit">
-                      <Button
-                        size="sm"
-                        className="rounded-none"
-                        onClick={() => handleDecrement(product.id)}
-                        disabled={quantities[product.id] === 1}
-                      >
-                        <Minus />
-                      </Button>
-
-                      <span className="mx-2">
-                        {quantities[product.id] || 1}
-                      </span>
-
-                      <Button
-                        size="sm"
-                        className="rounded-none"
-                        onClick={() => handleIncrement(product.id)}
-                      >
-                        <Plus />
-                      </Button>
-                    </div>
-                  </td>
-
-                  <td className="p-3 text-xs md:text-sm border-b">
-                    $
-                    {(product.price * (quantities[product.id] || 1)).toFixed(2)}
-                  </td>
-                  <td className="p-3 border-b ">
-                    <Button
-                      onClick={() => handleRemoveWishlist(product?.id)}
-                      size={"sm"}
-                      className="rounded bg-red-500"
-                    >
-                      <Trash />
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          )}
-        </table>)
-        }
-        
-      </div>
-      {
-        wishlistProducts.length >0&&(
-          <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-4">
-        <Dialog>
-          <form>
-            <DialogTrigger asChild>
-              <Button size={"lg"} variant={"outline"}>
-                Clean Wishlist
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Delete Wishlist Items? </DialogTitle>
-                <DialogDescription></DialogDescription>
-              </DialogHeader>
-
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button size="sm" variant="outline">
-                    Cancel
-                  </Button>
-                </DialogClose>
-                <DialogClose asChild>
-                  <Button
-                    onClick={handleDeleteWishlist}
-                    className="bg-red-500"
-                    size="sm"
+        {!loading && wishlistProducts.length === 0 ? (
+          <EmptyContent
+            emptyCart={emptyWishlist}
+            title="Your wishlist is empty"
+            href="/shop"
+            buttonText="Shop"
+          />
+        ) : (
+          <table className="min-w-[700px] w-full text-left border border-gray-200">
+            <thead className="bg-gray-100 text-xs sm:text-sm">
+              <tr>
+                <th className="p-3 border-b">PRODUCT</th>
+                <th className="p-3 border-b">COLOR</th>
+                <th className="p-3 border-b">SIZE</th>
+                <th className="p-3 border-b">PRICE</th>
+                <th className="p-3 border-b">QUANTITY</th>
+                <th className="p-3 border-b">TOTAL</th>
+                <th className="p-3 border-b">ACTION</th>
+              </tr>
+            </thead>
+            {loading ? (
+              <WishlistSkeleton />
+            ) : (
+              <tbody>
+                {wishlistProducts?.map((product, indx) => (
+                  <tr
+                    key={indx}
+                    className="text-gray-500  text-sm sm:text-base"
                   >
-                    Delete
-                  </Button>
-                </DialogClose>
-              </DialogFooter>
-            </DialogContent>
-          </form>
-        </Dialog>
+                    <td className="p-3 border-b">
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src={product.images}
+                          quality={100}
+                          width={80}
+                          height={80}
+                          alt={product.name}
+                          className="border w-14 bg-white md:w-[90px] p-2"
+                        />
+                        <p className="text-black text-xs md:text-sm break-words w-[240px] sm:max-w-[300px]">
+                          {product.name}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="p-3 border-b">
+                      <div
+                        className={`h-5 w-5 border border-black rounded-full`}
+                        style={{ backgroundColor: product?.colors[0] }}
+                      />
+                    </td>
+                    <td className="p-3 text-xs md:text-sm border-b">
+                      {product?.sizes[0]}
+                    </td>
+                    <td className="p-3 text-xs md:text-sm border-b">
+                      ${product.price}
+                    </td>
+                    <td className="p-3 border-b">
+                      <div className="flex items-center justify-center gap-2 border max-w-fit">
+                        <Button
+                          size="sm"
+                          className="rounded-none"
+                          onClick={() => handleDecrement(product.id)}
+                          disabled={quantities[product.id] === 1}
+                        >
+                          <Minus />
+                        </Button>
 
-        <Dialog>
-         
+                        <span className="mx-2">
+                          {quantities[product.id] || 1}
+                        </span>
+
+                        <Button
+                          size="sm"
+                          className="rounded-none"
+                          onClick={() => handleIncrement(product.id)}
+                        >
+                          <Plus />
+                        </Button>
+                      </div>
+                    </td>
+
+                    <td className="p-3 text-xs md:text-sm border-b">
+                      $
+                      {(product.price * (quantities[product.id] || 1)).toFixed(
+                        2
+                      )}
+                    </td>
+                    <td className="p-3 border-b ">
+                      <Button
+                        onClick={() => handleRemoveWishlist(product?.id)}
+                        size={"sm"}
+                        className="rounded bg-red-500"
+                      >
+                        <Trash />
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
+          </table>
+        )}
+      </div>
+      {wishlistProducts.length > 0 && (
+        <div className="max-w-7xl flex justify-end gap-4 mt-6 mx-auto px-4">
+          <Dialog>
+            <form>
+              <DialogTrigger asChild>
+                <Button size={"lg"} variant={"outline"}>
+                  Clean Wishlist
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Delete Wishlist Items? </DialogTitle>
+                  <DialogDescription></DialogDescription>
+                </DialogHeader>
+
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <Button size="sm" variant="outline">
+                      Cancel
+                    </Button>
+                  </DialogClose>
+                  <DialogClose asChild>
+                    <Button
+                      onClick={handleDeleteWishlist}
+                      className="bg-red-500"
+                      size="sm"
+                    >
+                      Delete
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </form>
+          </Dialog>
+
+          <Dialog>
             <DialogTrigger asChild>
               <Button size={"lg"}>Add to Cart</Button>
             </DialogTrigger>
@@ -304,12 +304,9 @@ const Wishlist = () => {
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
-
-        </Dialog>
-      </div>
-        )
-      }
-      
+          </Dialog>
+        </div>
+      )}
     </>
   );
 };
