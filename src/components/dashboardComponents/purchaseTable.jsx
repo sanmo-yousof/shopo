@@ -11,7 +11,7 @@ const PurchaseTable = () => {
   const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 3; //
+  const perPage = 3; 
 
   useEffect(() => {
     setLoading(true);

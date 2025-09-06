@@ -24,11 +24,11 @@ const TransactionViewModal = ({order}) => {
           <DialogTitle>Transactions Details</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="mx-2 space-y-1">
-          <p className="text-[11px]">Date : <span className="text-gray-500">{order.transactionDate}</span></p>
-          <p className="text-[11px]">TXID : <span className="text-gray-500">{order.transactionId}</span></p>
-          <p className="text-[11px]">Payment Method : <span className="text-gray-500">{order.method}</span></p>
-          <p className="text-[11px]">Details : <span className="text-gray-500">{order.details}</span></p>
+        <div className="mx-2 text-xs lg:text-sm space-y-1">
+          <p >Date : <span className="text-gray-500">{order.transactionDate}</span></p>
+          <p >TXID : <span className="text-gray-500">{order.transactionId}</span></p>
+          <p >Payment Method : <span className="text-gray-500">{order.method}</span></p>
+          <p>Details : <span className="text-gray-500">{order.details}</span></p>
         </div>
 
         <DialogFooter>
