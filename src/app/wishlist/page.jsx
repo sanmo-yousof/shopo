@@ -16,7 +16,6 @@ import useAllProducts from "@/hook/useAllProduct";
 import { getWishlist, removeWishlist, setCart } from "@/utils/loaclSorage";
 import { Minus, Plus, Trash, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import emptyWishlist from "@/asset/emptyImages/emptyWishlist.png";
@@ -267,26 +266,28 @@ const Wishlist = () => {
                     className="flex justify-between items-center px-4"
                     key={indx}
                   >
-                    <div className="flex items-center gap-2">
-                      <div>
+                    <div className="flex justify-between items-center gap-3 ">
+                      <div className="flex gap-2 items-center">
                         <Image
                           src={item?.images}
                           alt="product"
-                          width={20}
-                          height={20}
+                          width={50}
+                          height={50}
                           quality={100}
-                          className="w-6"
+                          className="w-8 lg:w-10"
                         />
-                      </div>
-                      <p className="text-[10px] text-gray-500">
-                        {item?.name.length > 20
+                        <p className="sm:text-xs text-[10px]  text-gray-500">
+                          {/* {item?.name.length > 20
                           ? item?.name.slice(0, 20) + "..."
-                          : item?.name}
-                      </p>
+                          : item?.name} */}
+                          {item?.name}
+                        </p>
+                      </div>
+
+                      <h3 className="text-sm text-gray-500 font-semibold">
+                        {quantities[item.id] || 1}X
+                      </h3>
                     </div>
-                    <h3 className="text-sm text-gray-500 font-semibold">
-                      {quantities[item.id] || 1}X
-                    </h3>
                   </div>
                 );
               })}

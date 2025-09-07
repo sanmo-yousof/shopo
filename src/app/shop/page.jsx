@@ -1,3 +1,4 @@
+'use client'
 
 import FilterSideBar from "@/components/shopParts/filterOption";
 import FilterBar from "@/components/shopParts/filterBar";
@@ -5,8 +6,19 @@ import AllProducts from "@/components/shopParts/allProducts";
 import Discount from "@/components/shopParts/discount";
 import PromotionalAds2 from "@/components/ads/promotionalAds2";
 import PromotionalAds1 from "@/components/ads/promotionalAds1";
+import { useSearchParams } from "next/navigation";
+
+
+
 
 const Shop = () => {
+
+  const searchParams = useSearchParams();
+  const q = searchParams.get("q");
+  const category = searchParams.get("category");
+
+  console.log(q,category)
+
   return (
     <div className="bg-[#f8f8f8] relative">
       {/* Page Layout */}
@@ -21,7 +33,7 @@ const Shop = () => {
         <div className="lg:col-span-3 ">
           
           {/* Product grid goes here */}
-          <AllProducts/>
+          <AllProducts query={q} category={category}/>
           <PromotionalAds1/>
         </div>
       </div>

@@ -60,7 +60,7 @@ const ProductViewModal = ({ data }) => {
 
           {data?.map((single, indx) => (
             <>
-              <div key={indx} className="flex md:gap-0 gap-4 justify-between">
+              <div key={indx} className="flex md:gap-0 gap-3 justify-between">
                 <div className="flex gap-2 items-center">
                   <Image
                     alt="product"
@@ -68,9 +68,9 @@ const ProductViewModal = ({ data }) => {
                     width={50}
                     height={50}
                     quality={100}
-                    className="w-6"
+                    className="w-8 lg:w-10"
                   />
-                  <p className="text-[10px] text-gray-500">{single?.name}</p>
+                  <p className="sm:text-xs text-[10px] text-gray-500">{single?.name}</p>
                 </div>
                 <h4 className="text-sm font-semibold text-gray-500">
                   {single?.orderQuantity}X

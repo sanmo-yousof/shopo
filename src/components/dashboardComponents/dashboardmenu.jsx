@@ -13,7 +13,7 @@ const DashboardMenu = () => {
   return (
     <>
     <div
-      className={`hidden lg:block  bg-white min-h-[100vh] 
+      className={`hidden lg:block  bg-white overflow-y-auto  h-[90vh] 
       ${openMenu ? "w-89" : "w-16"}  
       border transition-all duration-300`}
     >
@@ -21,17 +21,17 @@ const DashboardMenu = () => {
       <div
         title="Toggle Menu"
         onClick={() => setOpenMenu(!openMenu)}
-        className={`flex text-gray-500 ${
+        className={`flex bg-gray-100  ${
           openMenu ? "justify-between" : "justify-center"
         } items-center px-2 py-3`}
       >
         {openMenu ? (
           <>
-            <span className="font-bold text-sm lg:text-lg">Dashboard</span>
+            <span className="font-bold  text-sm lg:text-lg">Dashboard</span>
             <PanelRightOpenIcon className="cursor-pointer" />
           </>
         ) : (
-          <PanelLeftOpen className="cursor-pointer" />
+          <PanelLeftOpen className="cursor-pointer " />
         )}
       </div>
 

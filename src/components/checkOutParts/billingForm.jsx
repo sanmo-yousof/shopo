@@ -117,7 +117,7 @@ const BillingForm = () => {
             {/* First & Last Name */}
             <div className="grid mt-4 grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col space-y-2">
-                <label htmlFor="firstName">First Name*</label>
+                <label className="text-gray-600" htmlFor="firstName">First Name*</label>
                 <input
                   id="firstName"
                   type="text"
@@ -129,7 +129,7 @@ const BillingForm = () => {
                 />
               </div>
               <div className="flex flex-col space-y-2">
-                <label htmlFor="lastName">Last Name*</label>
+                <label className="text-gray-600" htmlFor="lastName">Last Name*</label>
                 <input
                   id="lastName"
                   value={formData.lastName}
@@ -144,7 +144,7 @@ const BillingForm = () => {
             {/* Email & Phone */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col space-y-2">
-                <label htmlFor="email">Email Address*</label>
+                <label className="text-gray-600" htmlFor="email">Email Address*</label>
                 <input
                   id="email"
                   type="email"
@@ -156,7 +156,7 @@ const BillingForm = () => {
                 />
               </div>
               <div className="flex flex-col space-y-2">
-                <label htmlFor="phone">Phone Number*</label>
+                <label className="text-gray-600" htmlFor="phone">Phone Number*</label>
                 <input
                   id="phone"
                   value={formData.phone}
@@ -170,7 +170,7 @@ const BillingForm = () => {
 
             {/* Country */}
             <div className="flex flex-col space-y-2">
-              <label htmlFor="country">Country*</label>
+              <label className="text-gray-600" htmlFor="country">Country*</label>
               <Select
                 onValueChange={(value) => handleSelectChange("country", value)}
               >
@@ -187,7 +187,7 @@ const BillingForm = () => {
 
             {/* Address */}
             <div className="flex flex-col space-y-2">
-              <label htmlFor="address">Address*</label>
+              <label className="text-gray-600" htmlFor="address">Address*</label>
               <input
                 id="address"
                 type="text"
@@ -202,7 +202,7 @@ const BillingForm = () => {
             {/* City & Postcode */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col space-y-2">
-                <label htmlFor="city">Town / City*</label>
+                <label className="text-gray-600" htmlFor="city">Town / City*</label>
                 <Select
                   onValueChange={(value) => handleSelectChange("city", value)}
                 >
@@ -217,7 +217,7 @@ const BillingForm = () => {
                 </Select>
               </div>
               <div className="flex flex-col space-y-2">
-                <label htmlFor="postcode">Postcode / ZIP*</label>
+                <label className="text-gray-600" htmlFor="postcode">Postcode / ZIP*</label>
                 <input
                   id="postcode"
                   value={formData.postcode}

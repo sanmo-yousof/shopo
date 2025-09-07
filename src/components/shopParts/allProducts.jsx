@@ -6,7 +6,7 @@ import useAllProducts from "@/hook/useAllProduct";
 import ProductCard1Skeletion from "../productCard1skeleton";
 import FilterBar from "./filterBar";
 
-const AllProducts = () => {
+const AllProducts = ({q,category}) => {
   const [data, loading] = useAllProducts();
   const [sort, setSort] = useState("name-asc");
   const [loader, setLoader] = useState(false);
@@ -42,7 +42,15 @@ const AllProducts = () => {
       setLoader(false); 
     }, 500); 
 
+  //  Category filter function 
+
+
+
+
     return () => clearTimeout(timer);
+
+
+
   }, [data, sort]);
 
   return (

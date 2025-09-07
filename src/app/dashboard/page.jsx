@@ -1,6 +1,5 @@
 
 import RecentOrders from "@/components/dashboardComponents/recentOrders";
-import { dashboardOverviewCards } from "@/utils/utils";
 
 
 const Overview = () => {

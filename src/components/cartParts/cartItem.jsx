@@ -169,7 +169,7 @@ const CartItem = () => {
                             <DialogDescription></DialogDescription>
                           </DialogHeader>
 
-                          <div className="flex p-3 justify-between">
+                          <div className="flex p-3 justify-between gap-3">
                             <div className="flex gap-2 items-center">
                               <Image
                                 alt="product"
@@ -177,9 +177,9 @@ const CartItem = () => {
                                 width={50}
                                 height={50}
                                 quality={100}
-                                className="w-6"
+                                className="w-8 lg:w-10"
                               />
-                              <p className="text-[10px] text-gray-500">
+                              <p className="sm:text-xs text-[10px]  text-gray-500">
                                 {product?.name}
                               </p>
                             </div>
