@@ -46,7 +46,7 @@ const EditProfile = () => {
           </div>
 
           <h3 className="text-gray-600 text-sm sm:text-lg font-semibold text-center">
-            Yousof Ali
+            Name
           </h3>
         </div>
 

@@ -41,8 +41,8 @@ export default function MobileMenu({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, HeartIcon ,Layout, LogIn];
-  const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
+  // const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, HeartIcon ,Layout, LogIn];
+  // const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
 
    
   
@@ -145,7 +145,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           <div className="w-full font-medium px-0">
             {Navmenu.map((category, index) => {
               const isMenuOpen = openSubmenuIndex === index;
-              const Icon = menuIcon[index];
+               const Icon = category.icon;
 
               const toggleSubmenu = () => {
                 setOpenSubmenuIndex((prev) => (prev === index ? null : index));
@@ -170,7 +170,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                     {/* Submenu */}
                     {isMenuOpen &&
                       category.subMenu.map((single, idx) => {
-                        const SubIcon = submenuIcon[idx];
+                        const SubIcon = category.submenuIcon[idx];
                         const isActive = pathname === category.subhref[idx];
 
                         return (

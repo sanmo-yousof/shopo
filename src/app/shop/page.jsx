@@ -33,7 +33,7 @@ const Shop = () => {
         <div className="lg:col-span-3 ">
           
           {/* Product grid goes here */}
-          <AllProducts query={q} category={category}/>
+          <AllProducts q={q} category={category}/>
           <PromotionalAds1/>
         </div>
       </div>

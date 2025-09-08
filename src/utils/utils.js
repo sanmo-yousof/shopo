@@ -16,7 +16,16 @@ import brand9 from "@/asset/homeImages/brand-9.png";
 import brand10 from "@/asset/homeImages/brand-10.png";
 import brand11 from "@/asset/homeImages/brand-11.png";
 import brand12 from "@/asset/homeImages/brand-12.png";
-import { Armchair, BaggageClaim, CarFront, CircleQuestionMark, Clock3, Coffee, Gamepad, Gamepad2, HeartIcon, House, icons, Images, Key, Layout, LogIn, Mail, MonitorSmartphone, PackageCheck, PackageSearch, PanelsTopLeft, ReceiptText, Repeat, RotateCcw, ScrollText, ShieldCheck, Shirt, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
+
+import blog1 from "@/asset/blogImages/blog1.png";
+import blog2 from "@/asset/blogImages/blog2.png";
+import blog3 from "@/asset/blogImages/blog3.png";
+import blog4 from "@/asset/blogImages/blog4.png";
+import blog5 from "@/asset/blogImages/blog5.png";
+import blog6 from "@/asset/blogImages/blog6.png";
+
+
+import { Armchair, BaggageClaim, CarFront, CircleQuestionMark, Clock3, Coffee, Gamepad, Gamepad2, HeartIcon, House, icons, Images, Key, Layout, LogIn, Mail, MonitorSmartphone, NotebookPen, PackageCheck, PackageSearch, PanelsTopLeft, ReceiptText, Repeat, RotateCcw, ScrollText, ShieldCheck, Shirt, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
 
 export const Countries = [
   { name: "United States", flag: flag1 },
@@ -116,15 +125,16 @@ export const Navmenu = [
     href:"/checkout",
     icon:ReceiptText
   },
-  {
-    mainManu: "Wishlist",
-    href:"/wishlist",
-    icon:HeartIcon
-  },
+ 
   {
     mainManu: "Dashboard",
     href:"/dashboard",
     icon:Layout
+  },
+   {
+    mainManu: "Blog",
+    href:"/blog",
+    icon:NotebookPen
   },
   {
     mainManu: "Login",
@@ -134,9 +144,9 @@ export const Navmenu = [
    {
     mainManu: "Pages",
      
-    subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ"],
-    subhref : ["/privacy","/terms","/faq"],
-    submenuIcon : [ShieldCheck, ScrollText, CircleQuestionMark]
+    subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ","Wishlist"],
+    subhref : ["/privacy","/terms","/faq","/wishlist"],
+    submenuIcon : [ShieldCheck, ScrollText, CircleQuestionMark,HeartIcon]
   }
 ];
 
@@ -1125,5 +1135,69 @@ export const mockMessages = [
     timestamp: new Date("2024-01-15T10:37:00"),
     senderName: "Mike Chen",
     senderAvatar: "/professional-man.png",
+  },
+]
+
+
+export const BlogPosts = [
+  {
+    id: 1,
+    title: "Scaring collection inspiration by",
+    description:
+      "Discover how modern architectural elements can transform your living space with bold geometric forms and striking visual contrasts that create dramatic focal points.",
+    date: "23 Jan",
+    image: blog1,
+    category: "Architecture",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
+  },
+  {
+    id: 2,
+    title: "Minimalist design furniture 2024",
+    description:
+      "Explore the latest trends in minimalist furniture design that emphasize clean lines, functional beauty, and sustainable materials for contemporary living.",
+    date: "23 Jan",
+    image: blog2,
+    category: "Furniture",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
+  },
+  {
+    id: 3,
+    title: "Green interior design inspiration",
+    description:
+      "Embrace nature-inspired design with lush green elements, natural textures, and eco-friendly materials that bring the outdoors into your home environment.",
+    date: "23 Jan",
+    image: blog3,
+    category: "Interior",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
+  },
+  {
+    id: 4,
+    title: "Reinterpret the classic bookshelf",
+    description:
+      "Transform traditional storage solutions with creative bookshelf designs that serve as both functional furniture and artistic statement pieces in modern homes.",
+    date: "23 Jan",
+    image: blog4,
+    category: "Storage",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
+  },
+  {
+    id: 5,
+    title: "Creative water features and exterior",
+    description:
+      "Incorporate innovative water elements and exterior design features that create serene environments and enhance the connection between indoor and outdoor spaces.",
+    date: "23 Jan",
+    image: blog5,
+    category: "Exterior",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
+  },
+  {
+    id: 6,
+    title: "Sweet seat: functional seat for small",
+    description:
+      "Maximize small living areas with clever seating solutions that combine comfort, style, and space-saving functionality in vibrant, contemporary designs.",
+    date: "23 Jan",
+    image: blog6,
+    category: "Seating",
+    fullDescription:"A taciti cras scelerisque scelerisque gravida natoque nulla vestibulum turpis primis adipiscing faucibus scelerisque adipiscing aliquet pretium. Et iaculis mi velit tincidunt vestibulum a duis tempor non magna ultrices porta malesuada ullamcorper scelerisque parturient himenaeos iaculis sit. Scelerisque sociosqu ullamcorper urna nisl mollis vestibulum pretium commodo inceptos. Ac ullamcorper a ultrices a a urna ac commodo nam condimentum parturient. Libero suspendisse facilisis parturient elementum curabitur. Erat a per dis aliquet ultricies curabitur nostra suspendisse nec adipiscing donec vestibulum a parturient a ac ut non adipiscing penatibus nec erat. A at nec rutrum nam molestie suspendisse scelerisque platea a ut commodo volutpat ullamcorper."
   },
 ]
