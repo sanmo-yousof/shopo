@@ -13,7 +13,7 @@ import Link from "next/link";
 const FAQ = () => {
   return (
     <div>
-      <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
+      <div className="bg-secondary w-full h-[180px] flex items-center justify-center">
         <h2 className="sectionHeading">Frequently Asked Questions</h2>
       </div>
       <div className="bg-gray-100 ">
@@ -31,20 +31,14 @@ const FAQ = () => {
               >
                 {FaqData?.map((data, indx) => {
                   return (
-                    <AccordionItem key={indx} value={`item-${indx+1}`}>
+                    <AccordionItem key={indx} value={`item-${indx + 1}`}>
                       <AccordionTrigger>{data?.question}</AccordionTrigger>
                       <AccordionContent className="flex flex-col gap-4 text-balance">
-                        
-                        <p>
-                         {
-                          data?.answer
-                         }
-                        </p>
+                        <p>{data?.answer}</p>
                       </AccordionContent>
                     </AccordionItem>
                   );
                 })}
-
               </Accordion>
             </div>
           </div>
@@ -98,7 +92,7 @@ const FAQ = () => {
             </form>
           </div>
         </div>
-        <Discount/>
+        <Discount />
       </div>
     </div>
   );

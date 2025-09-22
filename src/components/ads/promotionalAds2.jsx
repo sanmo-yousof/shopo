@@ -12,7 +12,7 @@ const PromotionalAds2 = () => {
         <h2 className="text-2xl mt-4 font-bold">Beat Wireless Headphone</h2>
       </div>
       <div className="absolute bottom-8 left-6">
-        <Link href={"#"} className="text-[#1867d6] underline text-sm">
+        <Link href={"#"} className="text-primary underline text-sm">
           Shop Now <ArrowRight className="inline h-5 w-5" />
         </Link>
       </div>

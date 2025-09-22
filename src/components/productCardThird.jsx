@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +29,10 @@ const ProductCardThird = ({ product }) => {
       <div>
         {/* Product Name */}
 
-        <Link  href={`/shop/${id}`} className="text-gray-700 cursor-pointer duration-400 hover:text-[#1867d6] font-semibold text-sm md:text-base">
+        <Link
+          href={`/shop/${id}`}
+          className="text-gray-700 cursor-pointer duration-400 hover:text-primary font-semibold text-sm md:text-base"
+        >
           {name.length > 20 ? name.slice(0, 20) + "..." : name}
         </Link>
 

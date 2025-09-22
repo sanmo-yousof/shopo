@@ -37,15 +37,11 @@ export default function MobileMenu({ isOpen, onClose }) {
   const [toggleMenu, setToggleMenu] = useState(true);
   const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
   const pathname = usePathname();
- 
 
   if (!isOpen) return null;
 
   // const menuIcon = [House, PackageSearch, ShoppingCart, ReceiptText, HeartIcon ,Layout, LogIn];
   // const submenuIcon = [ShieldCheck, ScrollText, CircleQuestionMark];
-
-   
-  
 
   return (
     <>
@@ -62,7 +58,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           <div className="flex space-x-3">
             <Repeat2 className="cursor-pointer w-6 h-6 text-gray-600" />
             <Link className="relative" href={"/wishlist"}>
-            <WishlistIcon/>
+              <WishlistIcon />
             </Link>
           </div>
           <Button
@@ -70,7 +66,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             className="rounded-full h-12 w-12"
             variant="outline"
           >
-            <X/>
+            <X />
           </Button>
         </div>
 
@@ -83,7 +79,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                 placeholder="Search Product..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-3 pr-12 py-2 border border-gray-300 rounded-none text-sm outline-none focus:border-[#1867d6]"
+                className="w-full pl-3 pr-12 py-2 border border-gray-300 rounded-none text-sm outline-none focus:border-primary"
               />
               <Button
                 size="sm"
@@ -130,8 +126,8 @@ export default function MobileMenu({ isOpen, onClose }) {
                   className={`w-full block py-3 px-4 duration-300 cursor-pointer flex items-center text-[12px] gap-2 
                     ${
                       isActive
-                        ? "bg-[#1867d6] text-white"
-                        : "hover:bg-[#1867d6] hover:text-white"
+                        ? "bg-primary text-white"
+                        : "hover:bg-primary hover:text-white"
                     }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -145,7 +141,7 @@ export default function MobileMenu({ isOpen, onClose }) {
           <div className="w-full font-medium px-0">
             {Navmenu.map((category, index) => {
               const isMenuOpen = openSubmenuIndex === index;
-               const Icon = category.icon;
+              const Icon = category.icon;
 
               const toggleSubmenu = () => {
                 setOpenSubmenuIndex((prev) => (prev === index ? null : index));
@@ -156,7 +152,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                   <div key={index}>
                     <div
                       onClick={toggleSubmenu}
-                      className="flex duration-300 cursor-pointer text-sm w-full py-3 px-4 justify-between items-center hover:bg-[#1867d6] hover:text-white"
+                      className="flex duration-300 cursor-pointer text-sm w-full py-3 px-4 justify-between items-center hover:bg-primary hover:text-white"
                     >
                       <p>{category.mainManu}</p>
                       <ChevronDown
@@ -180,8 +176,8 @@ export default function MobileMenu({ isOpen, onClose }) {
                             className={`flex w-full gap-2 text-sm py-3 px-6 items-center 
                               ${
                                 isActive
-                                  ? "bg-[#1867d6] text-white"
-                                  : "hover:bg-[#1867d6] hover:text-white"
+                                  ? "bg-primary text-white"
+                                  : "hover:bg-primary hover:text-white"
                               }`}
                           >
                             <SubIcon className="w-4 h-4" />
@@ -202,8 +198,8 @@ export default function MobileMenu({ isOpen, onClose }) {
                   className={`flex duration-300 cursor-pointer text-sm w-full py-3 px-4 gap-2 items-center 
                     ${
                       isActive
-                        ? "bg-[#1867d6] text-white"
-                        : "hover:bg-[#1867d6] hover:text-white"
+                        ? "bg-primary text-white"
+                        : "hover:bg-primary hover:text-white"
                     }`}
                 >
                   <Icon className="w-4" />

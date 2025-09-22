@@ -11,7 +11,7 @@ const PurchaseTable = () => {
   const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 3; 
+  const perPage = 3;
 
   useEffect(() => {
     setLoading(true);
@@ -70,7 +70,7 @@ const PurchaseTable = () => {
           <div className="overflow-x-auto mt-3">
             <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow table-auto">
               <thead>
-                <tr className="bg-blue-100 text-left text-xs md:text-sm font-semibold text-gray-700">
+                <tr className="bg-secondary text-left text-xs md:text-sm font-semibold text-gray-700">
                   <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
                     #Order ID
                   </th>

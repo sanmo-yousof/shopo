@@ -10,7 +10,7 @@ const EditProfile = () => {
         Update your Profile
       </h2>
       <div className="border mt-6 rounded-2xl mx-auto overflow-hidden bg-white max-w-4xl">
-        <div className="flex flex-col bg-blue-100 items-center py-8 justify-center">
+        <div className="flex flex-col bg-secondary items-center py-8 justify-center">
           <div className="relative">
             {/* Profile Picture */}
             <Image
@@ -19,13 +19,13 @@ const EditProfile = () => {
               height={100}
               quality={100}
               alt="User Profile"
-              className="rounded-full overflow-hidden p-1 mb-2 border-4 border-[#1867d6]"
+              className="rounded-full overflow-hidden p-1 mb-2 border-4 border-primary"
             />
 
             {/* Label for file input */}
             <label
               htmlFor="file-upload"
-              className="text-white absolute cursor-pointer rounded-full bg-[#1867d6] bottom-5 -right-2 p-1 border border-white"
+              className="text-white absolute cursor-pointer rounded-full bg-primary bottom-5 -right-2 p-1 border border-white"
             >
               <Camera />
             </label>

@@ -4,15 +4,28 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import google from "@/asset/loginImages/google.png";
 import Image from "next/image";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Login Success!",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      router.push("/dashboard"); 
+    });
   };
+
   return (
     <div className="w-full py-8 px-6 max-w-[500px] lg:px-12 rounded-md border bg-white ">
       <h2 className="text-2xl md:text-3xl text-center font-semibold">Log In</h2>
@@ -51,7 +64,7 @@ const LoginForm = () => {
             </label>
           </div>
           <div>
-            <Link href={"#"} className="text-[#1867d6]">
+            <Link href={"#"} className="text-primary">
               Forgot Password
             </Link>
           </div>
@@ -59,25 +72,25 @@ const LoginForm = () => {
         <div>
           <input
             type="submit"
-            value={"Create Account"}
-            className="bg-[#1867d6] rounded-md cursor-pointer text-sm text-white w-full py-3"
+            value={"Log In"}
+            className="bg-primary rounded-md cursor-pointer text-sm text-white w-full py-3"
           />
         </div>
-        <div className="mt-4">
-          <Button className="w-full py-5 rounded-md  border bg-gray-100">
-            <div className="flex gap-2 items-center text-gray-700">
-              <Image src={google} alt="google" quality={100} className="w-6" />
-              <span className="text-sm">Sign In with Google</span>
-            </div>
-          </Button>
-        </div>
-        <div className="mt-4 flex text-xs md:text-sm items-center   gap-2">
-          <p className="text-gray-600 ">Don't have an Account?</p>
-          <Link className="text-black" href={"/register"}>
-            Sign up free
-          </Link>
-        </div>
       </form>
+      <div className="mt-4">
+        <Button className="w-full py-5 rounded-md  border bg-gray-100">
+          <div className="flex gap-2 items-center text-gray-700">
+            <Image src={google} alt="google" quality={100} className="w-6" />
+            <span className="text-sm">Sign In with Google</span>
+          </div>
+        </Button>
+      </div>
+      <div className="mt-4 flex text-xs md:text-sm items-center   gap-2">
+        <p className="text-gray-600 ">Don't have an Account?</p>
+        <Link className="text-black" href={"/register"}>
+          Sign up free
+        </Link>
+      </div>
     </div>
   );
 };

@@ -19,8 +19,8 @@ const TransactionTable = () => {
   const [transactionData, setTransactionData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [currentPage,setCurrentPage] = useState(1);
-  const perPage = 3
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPage = 3;
 
   useEffect(() => {
     setLoading(true);
@@ -36,9 +36,9 @@ const TransactionTable = () => {
       });
   }, []);
 
-  const startIndex = (currentPage-1) * perPage;
+  const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
-  const visibleTransactions = transactionData.slice(startIndex,endIndex);
+  const visibleTransactions = transactionData.slice(startIndex, endIndex);
 
   return (
     <>
@@ -84,54 +84,54 @@ const TransactionTable = () => {
         </div>
       ) : (
         <>
-        <div className="overflow-x-auto mt-3">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow table-auto">
-            <thead>
-              <tr className="bg-blue-100 text-left text-xs md:text-sm font-semibold text-gray-700">
-                <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
-                  Transaction ID
-                </th>
-                <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
-                  Amount
-                </th>
-                <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
-                  Transaction Date
-                </th>
-                <th className="md:py-4 py-3 px-4 border-r whitespace-nowrap">
-                  Details
-                </th>
-                <th className="md:py-4 py-3 px-4 whitespace-nowrap min-w-[100px]">
-                  View
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {visibleTransactions.map((order, indx) => (
-                <tr
-                  key={indx}
-                  className="text-xs md:text-sm text-gray-700 hover:bg-gray-50 transition"
-                >
-                  <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    {order.transactionId}
-                  </td>
-                  <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    ${order.amount}
-                  </td>
-                  <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    {order.transactionDate}
-                  </td>
-                  <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
-                    {order.details}
-                  </td>
-                  <td className="md:py-4 py-2 px-4 border-b whitespace-nowrap">
-                    <TransactionViewModal order={order} />
-                  </td>
+          <div className="overflow-x-auto mt-3">
+            <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow table-auto">
+              <thead>
+                <tr className="bg-secondary text-left text-xs md:text-sm font-semibold text-gray-700">
+                  <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
+                    Transaction ID
+                  </th>
+                  <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
+                    Amount
+                  </th>
+                  <th className="md:py-4 py-3 border-r px-4 whitespace-nowrap">
+                    Transaction Date
+                  </th>
+                  <th className="md:py-4 py-3 px-4 border-r whitespace-nowrap">
+                    Details
+                  </th>
+                  <th className="md:py-4 py-3 px-4 whitespace-nowrap min-w-[100px]">
+                    View
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <CustomPagination
+              </thead>
+              <tbody>
+                {visibleTransactions.map((order, indx) => (
+                  <tr
+                    key={indx}
+                    className="text-xs md:text-sm text-gray-700 hover:bg-gray-50 transition"
+                  >
+                    <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
+                      {order.transactionId}
+                    </td>
+                    <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
+                      ${order.amount}
+                    </td>
+                    <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
+                      {order.transactionDate}
+                    </td>
+                    <td className="md:py-4 border-r py-2 px-4 border-b whitespace-nowrap">
+                      {order.details}
+                    </td>
+                    <td className="md:py-4 py-2 px-4 border-b whitespace-nowrap">
+                      <TransactionViewModal order={order} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <CustomPagination
             totalItems={transactionData.length}
             perPage={perPage}
             currentPage={currentPage}

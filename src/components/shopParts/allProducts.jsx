@@ -66,7 +66,7 @@ const AllProducts = ({ q, category }) => {
 
       {q ? (
         <h2 className="text-base text-center mt-6 font-semibold text-gray-500 sm:text-xl ">
-          Result For "<span className="text-[#1867d6]">{q}</span>"
+          Result For "<span className="text-primary">{q}</span>"
         </h2>
       ) : (
         ""

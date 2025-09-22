@@ -25,7 +25,7 @@ const OrderTracking = () => {
       </p>
 
       <div className="border max-w-2xl mx-auto mt-12 rounded md:p-16 p-3">
-        <h2 className=" text-center bg-blue-100 lg:text-lg sm:text-base text-sm font-semibold py-4 md:py-6 text-gray-700">
+        <h2 className=" text-center bg-secondary lg:text-lg sm:text-base text-sm font-semibold py-4 md:py-6 text-gray-700">
           Enter Your Order Number
         </h2>
 
@@ -62,7 +62,7 @@ const OrderTracking = () => {
                 <Button
                   type="button"
                   size="lg"
-                  className="w-full bg-[#1867d6] text-white py-2 rounded-md cursor-pointer mt-3"
+                  className="w-full bg-primary text-white py-2 rounded-md cursor-pointer mt-3"
                 >
                   Track Now
                 </Button>
@@ -70,13 +70,13 @@ const OrderTracking = () => {
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle>Your Order Tracking</DialogTitle>
-                  <DialogDescription>
-                    
-                  </DialogDescription>
+                  <DialogDescription></DialogDescription>
                 </DialogHeader>
 
-                <p className="text-xs lg:text-sm text-gray-500">no tracking data</p>
-                
+                <p className="text-xs lg:text-sm text-gray-500">
+                  no tracking data
+                </p>
+
                 <DialogFooter>
                   <DialogClose asChild>
                     <Button>Close</Button>

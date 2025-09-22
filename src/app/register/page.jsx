@@ -1,7 +1,6 @@
 
 import image from "@/asset/registerImages/register.png"
 import Image from "next/image";
-import Discount from "@/components/shopParts/discount";
 import RegisterForm from "@/components/loginRegisterParts/registerForm";
 
 

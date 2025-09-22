@@ -10,42 +10,11 @@ import {
 } from "@/components/ui/dialog";
 import { Eye } from "lucide-react";
 import Image from "next/image";
-import product from "@/asset/registerImages/register.png";
 import { Button } from "../ui/button";
 
 const ProductViewModal = ({ data }) => {
-  console.log(data);
   return (
     <>
-      {/* <Dialog>
-      <DialogTrigger asChild>
-        <Button size={"sm"}>
-          <Eye/>
-        </Button>
-      </DialogTrigger>
-
-      <DialogContent className="flex flex-row sm:max-w-[425px]">
-        
-        <DialogHeader>
-          <DialogTitle className="sr-only">Product Details</DialogTitle>
-          
-        </DialogHeader>
-
-        <div className="w-2/5">
-          <Image
-            alt="product"
-            src={product}
-            className="w-full h-auto object-cover rounded"
-          />
-        </div>
-
-        <div className="w-3/5 text-gray-600 px-4">
-          <h3 className="text-sm lg:text-md font-semibold mb-2">Product Name</h3>
-          <p className="text-xs text-gray-500">This is a sample description of the product. Add more info as needed.</p>
-        </div>
-      </DialogContent>
-    </Dialog> */}
-
       <Dialog>
         <DialogTrigger asChild>
           <Button size={"sm"}>
@@ -70,7 +39,11 @@ const ProductViewModal = ({ data }) => {
                     quality={100}
                     className="w-8 lg:w-10"
                   />
-                  <p className="sm:text-xs text-[10px] text-gray-500">{single?.name}</p>
+                  <p className="sm:text-xs text-[10px] text-gray-500">
+                    {single?.name?.length > 30
+                      ? single.name.slice(0, 30) + "..."
+                      : single?.name}
+                  </p>
                 </div>
                 <h4 className="text-sm font-semibold text-gray-500">
                   {single?.orderQuantity}X
@@ -81,9 +54,7 @@ const ProductViewModal = ({ data }) => {
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button size="sm" >
-                Close
-              </Button>
+              <Button size="sm">Close</Button>
             </DialogClose>
           </DialogFooter>
         </DialogContent>

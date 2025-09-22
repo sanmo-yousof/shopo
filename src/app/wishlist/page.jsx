@@ -108,7 +108,7 @@ const Wishlist = () => {
 
   return (
     <>
-      <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
+      <div className="bg-secondary w-full h-[180px] flex items-center justify-center">
         <h2 className="sectionHeading">WishList</h2>
       </div>
 

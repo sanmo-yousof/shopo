@@ -38,7 +38,11 @@ const DashBoardMobileMenu = () => {
                 quality={100}
                 alt="logo"
               />
-              <Button onClick = {() => setOpenMenu(false)} className="rounded-full h-12 w-12" variant="outline">
+              <Button
+                onClick={() => setOpenMenu(false)}
+                className="rounded-full h-12 w-12"
+                variant="outline"
+              >
                 X
               </Button>
             </div>
@@ -54,8 +58,8 @@ const DashBoardMobileMenu = () => {
                         className={`rounded-none py-3 px-4 duration-300 block cursor-pointer
                   ${
                     isActive
-                      ? "bg-[#1867d6] text-white"
-                      : "hover:bg-[#1867d6] hover:text-white"
+                      ? "bg-primary text-white"
+                      : "hover:bg-primary hover:text-white"
                   }`}
                       >
                         <div

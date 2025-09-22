@@ -1,34 +1,26 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDownIcon, Plus, PlusIcon } from "lucide-react"
+import * as React from "react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { ChevronDownIcon, Plus, PlusIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-function Accordion({
-  ...props
-}) {
+function Accordion({ ...props }) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
-function AccordionItem({
-  className,
-  ...props
-}) {
+function AccordionItem({ className, ...props }) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn("mt-3", className)}
-      {...props} />
+      {...props}
+    />
   );
 }
 
-function AccordionTrigger({
-  className,
-  children,
-  ...props
-}) {
+function AccordionTrigger({ className, children, ...props }) {
   return (
     <AccordionPrimitive.Header className="flex   bg-white ">
       <AccordionPrimitive.Trigger
@@ -40,7 +32,7 @@ function AccordionTrigger({
           transition-all outline-none hover:underline
           disabled:pointer-events-none  disabled:opacity-50
           border-b border-transparent
-          data-[state=open]:bg-[#1867d6]
+          data-[state=open]:bg-primary
           data-[state=open]:border-b
           data-[state=open]:text-white
           data-[state=open]:border-muted-foreground/30`,
@@ -55,20 +47,16 @@ function AccordionTrigger({
   );
 }
 
-
-function AccordionContent({
-  className,
-  children,
-  ...props
-}) {
+function AccordionContent({ className, children, ...props }) {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up px-3 data-[state=open]:animate-accordion-down text-gray-200 pt-3 overflow-hidden text-sm data-[state=open]:bg-[#1867d6]"
-      {...props}>
+      className="data-[state=closed]:animate-accordion-up px-3 data-[state=open]:animate-accordion-down text-gray-200 pt-3 overflow-hidden text-sm data-[state=open]:bg-primary"
+      {...props}
+    >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>
     </AccordionPrimitive.Content>
   );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

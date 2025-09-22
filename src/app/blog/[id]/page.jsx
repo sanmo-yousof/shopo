@@ -25,7 +25,7 @@ const BlogDetails = () => {
     <div className="grid gap-12 max-w-7xl px-4 py-6 mx-auto grid-cols-1 md:grid-cols-3">
       <div className="md:col-span-2 ">
         <div className=" justify-center my-4 flex items-center  gap-2 text-sm ">
-          <span className="bg-[#1867d6] rounded text-white p-1">
+          <span className="bg-primary rounded text-white p-1">
             {singleBlog?.category}
           </span>
         </div>
@@ -184,7 +184,11 @@ const BlogDetails = () => {
               />
             </div>
             <div className="mt-6">
-              <input type="submit" className="px-6 text-white rounded cursor-pointer py-3 bg-[#1867d6]" value={"Post Comment"}  />
+              <input
+                type="submit"
+                className="px-6 text-white rounded cursor-pointer py-3 bg-primary"
+                value={"Post Comment"}
+              />
             </div>
           </form>
         </div>

@@ -59,7 +59,6 @@ const ProductSearch = () => {
     return () => clearTimeout(timer);
   }, [query, data, category]);
 
-
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (query) params.set("q", query);
@@ -79,7 +78,8 @@ const ProductSearch = () => {
             onChange={(e) => {
               setQuery(e.target.value);
               setShowDropdown(true);
-            }}J
+            }}
+            J
             onFocus={() => setShowDropdown(true)}
             onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
             placeholder="Search Product...."
@@ -144,7 +144,7 @@ const ProductSearch = () => {
                               part.toLowerCase() === query.toLowerCase() ? (
                                 <span
                                   key={index}
-                                  className="text-[#1867d6] font-semibold"
+                                  className="text-primary font-semibold"
                                 >
                                   {part}
                                 </span>

@@ -1,9 +1,4 @@
-import {
-  ArrowRight,
-  MessageSquare,
-  Share2Icon,
-  User,
-} from "lucide-react";
+import { ArrowRight, MessageSquare, Share2Icon, User } from "lucide-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,7 +27,7 @@ const BlogCard = ({ post }) => {
 
       <div className="p-4">
         <div className=" text-center my-4 flex items-center  gap-2 text-sm ">
-          <span className="bg-[#1867d6] rounded text-white p-1">
+          <span className="bg-primary rounded text-white p-1">
             {post.category}
           </span>
         </div>

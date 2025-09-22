@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { getCart } from "@/utils/loaclSorage";
 
 const CartIcon = ({ size = 6 }) => {
-  const [cartCount, setCartCount] = useState(0); 
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     // update after client mounts
@@ -23,7 +23,7 @@ const CartIcon = ({ size = 6 }) => {
         style={{ width: size * 4, height: size * 4 }}
       />
       {cartCount >= 0 && (
-        <span className="absolute -top-1.5 -right-2 bg-[#1867d6] text-white text-[8px] rounded-full py-0.5 px-1.5">
+        <span className="absolute -top-1.5 -right-2 bg-primary text-white text-[8px] rounded-full py-0.5 px-1.5">
           {cartCount}
         </span>
       )}

@@ -2,9 +2,9 @@ import Discount from "@/components/shopParts/discount";
 import { TermsDAta } from "@/utils/utils";
 
 const Privacy = () => {
-  return(
-      <>
-      <div className="bg-blue-100 w-full h-[180px] flex items-center justify-center">
+  return (
+    <>
+      <div className="bg-secondary w-full h-[180px] flex items-center justify-center">
         <h2 className="sectionHeading">Privacy & Policy</h2>
       </div>
       <div className="max-w-7xl mt-8 lg:mt-12 space-y-8 mx-auto px-2">
@@ -23,7 +23,7 @@ const Privacy = () => {
             {ter.option && (
               <ul className="list-disc pl-5 text-xs sm:text-sm text-gray-500 space-y-1 mt-2">
                 {ter.option.map((item, idx) => (
-                  <li  key={idx}>{item}</li>
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
             )}
@@ -35,4 +35,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy
+export default Privacy;

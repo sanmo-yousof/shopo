@@ -50,11 +50,14 @@ const CustomPagination = ({
                 <PaginationLink
                   href="#"
                   isActive={page === currentPage}
-                   className={`${page === currentPage ? "bg-[#1867d6] text-white":"border border-[#1867d6]" }`}
+                  className={`${
+                    page === currentPage
+                      ? "bg-primary text-white"
+                      : "border border-primary"
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     onPageChange(page);
-                   
                   }}
                 >
                   {page}

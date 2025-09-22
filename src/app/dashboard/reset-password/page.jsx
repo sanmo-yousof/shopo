@@ -18,7 +18,7 @@ const ResetPassword = () => {
       </h2>
 
       <div className="max-w-[500px]  overflow-hidden mt-6 mx-auto rounded-2xl  border">
-        <h2 className="text-center text-sm py-8 font-semibold sm:text-base text:lg bg-blue-100">
+        <h2 className="text-center text-sm py-8 font-semibold sm:text-base text:lg bg-secondary">
           Change Your Password
         </h2>
         <form
@@ -65,7 +65,7 @@ const ResetPassword = () => {
 
           <div className="mt-6">
             <input
-              className="bg-[#1867d6] py-3 w-full text-white text-sm md:text-base cursor-pointer"
+              className="bg-primary py-3 w-full text-white text-sm md:text-base cursor-pointer"
               type="submit"
               value={"Update Password"}
             />

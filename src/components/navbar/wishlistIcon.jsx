@@ -21,7 +21,7 @@ const WishlistIcon = ({ size = 6 }) => {
         className="cursor-pointer text-gray-600"
         style={{ width: size * 4, height: size * 4 }}
       />
-      <span className="absolute -top-1.5 -right-2 bg-[#1867d6] text-white text-[8px] rounded-full py-0.5 px-1.5">
+      <span className="absolute -top-1.5 -right-2 bg-primary text-white text-[8px] rounded-full py-0.5 px-1.5">
         {wishlistCount}
       </span>
     </>

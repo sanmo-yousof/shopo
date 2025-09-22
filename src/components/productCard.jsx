@@ -52,7 +52,6 @@ const ProductCard = ({ product }) => {
     });
   };
 
-
   return (
     <div className="bg-white group shadow-md overflow-hidden">
       {/* Image Wrapper */}
@@ -74,7 +73,7 @@ const ProductCard = ({ product }) => {
           <span
             onClick={() => handleWishlist(id)}
             className={`p-2 rounded-md cursor-pointer ${
-              wishlist.includes(id) ? "bg-[#1867d6] text-white" : "bg-gray-200"
+              wishlist.includes(id) ? "bg-primary text-white" : "bg-gray-200"
             }`}
           >
             <Heart className="h-5 w-5" />
@@ -99,7 +98,7 @@ const ProductCard = ({ product }) => {
         {/* Product Name */}
         <Link
           href={`/shop/${id}`}
-          className="text-gray-700 cursor-pointer duration-400 hover:text-[#1867d6] font-semibold text-base line-clamp-2"
+          className="text-gray-700 cursor-pointer duration-400 hover:text-primary font-semibold text-base line-clamp-2"
         >
           {name}
         </Link>

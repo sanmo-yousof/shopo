@@ -16,7 +16,12 @@ import twitter from "@/asset/singleProductImages/twitter.png";
 import pinterest from "@/asset/singleProductImages/pinterest.png";
 import ProductInfoSkeleton from "../productInfoSkeleton";
 import useSingleProduct from "@/hook/useSingleProduct";
-import { getWishlist, removeWishlist, setCart, setWishlist } from "@/utils/loaclSorage";
+import {
+  getWishlist,
+  removeWishlist,
+  setCart,
+  setWishlist,
+} from "@/utils/loaclSorage";
 import Swal from "sweetalert2";
 
 const ProductInfo = () => {
@@ -64,9 +69,8 @@ const ProductInfo = () => {
     }
   };
 
-
   const handleAddtoCart = () => {
-      const cartData = {
+    const cartData = {
       ...singleData,
       orderQuantity: quantity,
       orderColor: color,
@@ -112,7 +116,7 @@ const ProductInfo = () => {
                     height={200}
                     quality={100}
                     className={`border ${
-                      image === im ? "border-[#1867d6]" : "border"
+                      image === im ? "border-primary" : "border"
                     } rounded-md cursor-pointer w-16 h-16 sm:w-24 sm:h-24  md:p-4 p-2`}
                     onClick={() => setImage(im)}
                   />
@@ -221,14 +225,18 @@ const ProductInfo = () => {
                 onClick={() => handleWishlist(singleData?.id)}
                 className={`border cursor-pointer px-2 sm:px-5 flex items-center ${
                   wishlist.includes(singleData?.id)
-                    ? "bg-[#1867d6] text-white"
+                    ? "bg-primary text-white"
                     : "bg-gray-200"
                 } justify-center`}
               >
                 <Heart className="md:h-8 md:w-8" />
               </div>
               <div className="w-full ">
-                <Button onClick={() => handleAddtoCart()} size={"lg"} className=" w-full ">
+                <Button
+                  onClick={() => handleAddtoCart()}
+                  size={"lg"}
+                  className=" w-full "
+                >
                   Add to Cart
                 </Button>
               </div>

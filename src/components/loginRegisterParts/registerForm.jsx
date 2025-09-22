@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Select,
   SelectContent,
@@ -7,11 +7,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const RegisterForm = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
+  const router = useRouter()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,12 +25,31 @@ const RegisterForm = () => {
     const phone = form.phone.value;
     const address = form.address.value;
     const zipCode = form.postcode.value;
+
+    const user = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      country,
+      address,
+      city,
+      zipCode,
+    };
+
+    console.log(user)
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Account Created!",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      router.push("/dashboard"); 
+    });
     
-    const user = {firstName,lastName,email,phone,country,address,city,zipCode};
-    console.log(user);
   };
-
-
 
   return (
     <div className="w-full py-8 lg:px-12 px-6 border rounded-md bg-white md:w-1/2">
@@ -96,9 +118,7 @@ const RegisterForm = () => {
           <label htmlFor="country" className="text-gray-600">
             Country
           </label>
-          <Select
-          onValueChange={setCountry}
-          >
+          <Select onValueChange={setCountry}>
             <SelectTrigger className="w-full  text-xs  shadow-none  py-5">
               <SelectValue placeholder="Select Country" />
             </SelectTrigger>
@@ -128,11 +148,9 @@ const RegisterForm = () => {
             <label className="text-gray-600" htmlFor="city">
               Town / City*
             </label>
-            <Select
-            onValueChange={setCity}
-            >
+            <Select onValueChange={setCity}>
               <SelectTrigger className="w-full text-xs rounded-md outline-0 shadow-none border py-5">
-                <SelectValue  placeholder="Select City" />
+                <SelectValue placeholder="Select City" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="miyami">Miyami Town</SelectItem>
@@ -156,7 +174,12 @@ const RegisterForm = () => {
           </div>
         </div>
         <div className="my-6 text-gray-500 flex text-xs md:text-sm  items-center gap-2">
-          <input className="cursor-pointer" id="term" type="checkbox" required />
+          <input
+            className="cursor-pointer"
+            id="term"
+            type="checkbox"
+            required
+          />
           <label className="cursor-pointer" htmlFor="term">
             I agree allterms and condition ShopO.
           </label>
@@ -165,7 +188,7 @@ const RegisterForm = () => {
           <input
             type="submit"
             value={"Create Account"}
-            className="bg-[#1867d6] rounded-md cursor-pointer text-sm text-white w-full py-3"
+            className="bg-primary rounded-md cursor-pointer text-sm text-white w-full py-3"
           />
         </div>
 

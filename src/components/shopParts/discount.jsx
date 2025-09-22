@@ -8,7 +8,7 @@ const Discount = () => {
     >
       <div className="max-w-3xl mx-auto ">
         <h2 className="lg:text-4xl text-center font-bold md:text-3xl  sm:text-2xl text-xl">
-          Get <span className="text-[#1867d6]">20%</span> Off Discount Coupon
+          Get <span className="text-primary">20%</span> Off Discount Coupon
         </h2>
         <p className="text-sm mt-2 text-center lg:text-base">
           by Subscribe our Newsletter
