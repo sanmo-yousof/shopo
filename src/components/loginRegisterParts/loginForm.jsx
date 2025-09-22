@@ -51,7 +51,7 @@ const LoginForm = () => {
             </label>
           </div>
           <div>
-            <Link href={"#"} className="text-blue-500">
+            <Link href={"#"} className="text-[#1867d6]">
               Forgot Password
             </Link>
           </div>

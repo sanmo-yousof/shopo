@@ -17,7 +17,7 @@ const DashBoardMobileMenu = () => {
       <div className="mb-6 lg:hidden">
         <Button onClick={() => setOpenMenu(!openMenu)}>
           <SidebarOpen />
-          <span>Dashboard</span>
+          <span>Dashboard </span>
         </Button>
       </div>
 

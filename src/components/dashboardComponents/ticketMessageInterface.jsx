@@ -67,7 +67,7 @@ const TicketMessageInterface = () => {
         <Link href={"/dashboard/tickets"}>
           <Button size={"sm"}>
             <MoveLeft />
-            Back
+            Back 
           </Button>
         </Link>
         <h2 className="lg:text-2xl  sm:text-xl text-base font-semibold text-gray-700">
@@ -162,10 +162,10 @@ const TicketMessageInterface = () => {
           <Button
             onClick={handleSendMessage}
             disabled={!newMessage.trim()}
-            className="bg-blue-500 hover:bg-accent/90 text-accent-foreground"
+            
           >
             <Send className="h-4 w-4" />
-            <span className="sr-only">Send message</span>
+            <span className="sr-only">Send  message</span>
           </Button>
         </div>
       </div>

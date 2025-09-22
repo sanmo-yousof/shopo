@@ -10,7 +10,9 @@ export default function DashboardLayout({ children }) {
         <DashboardMenu />
         <div className="dashboard-content w-full lg:px-0 px-4 py-4">
           <DashBoardMobileMenu/>
-          {children}
+          <div className="min-h-[70vh]">
+            {children}
+          </div>
           </div>
       </div>
       </div>

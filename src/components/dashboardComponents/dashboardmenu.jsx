@@ -13,7 +13,7 @@ const DashboardMenu = () => {
   return (
     <>
     <div
-      className={`hidden lg:block  bg-white overflow-y-auto  h-[90vh] 
+      className={`hidden lg:block sticky mb-4 top-2 bg-white overflow-y-auto  h-fit 
       ${openMenu ? "w-89" : "w-16"}  
       border transition-all duration-300`}
     >

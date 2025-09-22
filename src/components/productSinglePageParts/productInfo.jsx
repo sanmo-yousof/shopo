@@ -112,7 +112,7 @@ const ProductInfo = () => {
                     height={200}
                     quality={100}
                     className={`border ${
-                      image === im ? "border-blue-800" : "border"
+                      image === im ? "border-[#1867d6]" : "border"
                     } rounded-md cursor-pointer w-16 h-16 sm:w-24 sm:h-24  md:p-4 p-2`}
                     onClick={() => setImage(im)}
                   />

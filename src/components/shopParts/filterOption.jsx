@@ -80,7 +80,7 @@ const FilterSideBar = () => {
               className={cn(
                 "py-2 px-4 text-xs rounded-none",
                 stor === store
-                  ? "bg-blue-500 text-white border-blue-500"
+                  ? "bg-[#1867d6] text-white border-[#1867d6]"
                   : "bg-white"
               )}
             >

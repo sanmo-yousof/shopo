@@ -79,7 +79,7 @@ const ProductSearch = () => {
             onChange={(e) => {
               setQuery(e.target.value);
               setShowDropdown(true);
-            }}
+            }}J
             onFocus={() => setShowDropdown(true)}
             onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
             placeholder="Search Product...."
