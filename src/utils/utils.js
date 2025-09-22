@@ -25,7 +25,7 @@ import blog5 from "@/asset/blogImages/blog5.png";
 import blog6 from "@/asset/blogImages/blog6.png";
 
 
-import { Armchair, BaggageClaim, CarFront, CircleQuestionMark, Clock3, Coffee, Gamepad, Gamepad2, HeartIcon, House, icons, Images, Key, Layout, LogIn, Mail, MonitorSmartphone, NotebookPen, PackageCheck, PackageSearch, PanelsTopLeft, ReceiptText, Repeat, RotateCcw, ScrollText, ShieldCheck, Shirt, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, UserPenIcon, Wallet } from "lucide-react";
+import { Armchair, BaggageClaim, CarFront, CircleQuestionMark, Clock3, Coffee, Gamepad, Gamepad2, HeartIcon, House, icons, Images, Key, Layout, LogIn, Mail, MonitorSmartphone, NotebookPen, PackageCheck, PackageSearch, PanelsTopLeft, ReceiptText, Repeat, RotateCcw, ScrollText, ShieldCheck, Shirt, ShoppingBag, ShoppingCart, Ticket, Trophy, Truck, User, UserPenIcon, Wallet } from "lucide-react";
 
 export const Countries = [
   { name: "United States", flag: flag1 },
@@ -116,37 +116,48 @@ export const Navmenu = [
      icon:PackageSearch
   },
   {
+   mainManu:"FAQ",
+   href:"/faq",
+   icon:CircleQuestionMark
+  },
+  
+  // {
+  //   mainManu: "Checkout",
+  //   href:"/checkout",
+  //   icon:ReceiptText
+  // },
+ 
+  // {
+  //   mainManu: "Dashboard",
+  //   href:"/dashboard",
+  //   icon:Layout
+  // },
+   {
+    mainManu: "Blogs",
+    href:"/blog",
+    icon:NotebookPen
+  },
+  {
+    mainManu: "My Account",
+    href:"/dashboard",
+    icon:User
+  },
+  {
     mainManu: "Cart",
     href:"/cart",
     icon:ShoppingCart
   },
   {
-    mainManu: "Checkout",
-    href:"/checkout",
-    icon:ReceiptText
-  },
- 
-  {
-    mainManu: "Dashboard",
-    href:"/dashboard",
-    icon:Layout
+    mainManu: "Wishlist",
+    href:"/wishlist",
+    icon:HeartIcon
   },
    {
-    mainManu: "Blog",
-    href:"/blog",
-    icon:NotebookPen
-  },
-  {
-    mainManu: "Login",
-    href:"/login",
-    icon:LogIn
-  },
-   {
-    mainManu: "Pages",
+    mainManu: "More",
      
-    subMenu: ["Privacy Policy", "Terms and Conditions", "FAQ","Wishlist"],
-    subhref : ["/privacy","/terms","/faq","/wishlist"],
-    submenuIcon : [ShieldCheck, ScrollText, CircleQuestionMark,HeartIcon]
+    subMenu: ["Privacy Policy", "Terms and Conditions"],
+    subhref : ["/privacy","/terms"],
+    submenuIcon : [ShieldCheck, ScrollText]
   }
 ];
 

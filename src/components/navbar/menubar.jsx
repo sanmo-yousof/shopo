@@ -101,9 +101,11 @@ const Menubar = () => {
         </div>
 
         {/* Right side */}
+        <Link href={'/dashboard'}>
         <Button variant={"secondary"} className="rounded-none">
-          Become a Seller <ChevronRight size={16} />
+          DashBoard <ChevronRight size={16} />
         </Button>
+        </Link>
       </div>
     </div>
   );

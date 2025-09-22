@@ -5,25 +5,50 @@ import { Button } from "@/components/ui/button";
 import google from "@/asset/loginImages/google.png";
 import Image from "next/image";
 import Swal from "sweetalert2";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const LoginForm = () => {
   const router = useRouter();
-  const handleLogin = (e) => {
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Login Success!",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => {
-      router.push("/dashboard"); 
-    });
+    try {
+      const res = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Login failed");
+        return;
+      }
+
+      // ✅ Success toast
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Login Success!",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        router.push(redirect);
+      });
+    } catch (err) {
+      setError("Something went wrong. Try again!");
+    }
   };
 
   return (
@@ -38,6 +63,7 @@ const LoginForm = () => {
             id="email"
             type="email"
             name="email"
+            defaultValue="test@test.com"
             className="outline-0 border rounded-md p-3"
             placeholder="Enter Your Email"
             required
@@ -51,6 +77,7 @@ const LoginForm = () => {
             id="pass"
             type="password"
             name="password"
+            defaultValue="123456"
             className="outline-0 border rounded-md p-3"
             placeholder="Enter Your Password"
             required
@@ -69,6 +96,7 @@ const LoginForm = () => {
             </Link>
           </div>
         </div>
+        {error && <p className="text-xs md:text-sm text-red-500">{error}</p>}
         <div>
           <input
             type="submit"
@@ -85,7 +113,7 @@ const LoginForm = () => {
           </div>
         </Button>
       </div>
-      <div className="mt-4 flex text-xs md:text-sm items-center   gap-2">
+      <div className="mt-4 flex text-xs md:text-sm items-center gap-2">
         <p className="text-gray-600 ">Don't have an Account?</p>
         <Link className="text-black" href={"/register"}>
           Sign up free

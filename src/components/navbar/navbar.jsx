@@ -1,5 +1,3 @@
-
-
 import { Repeat2, UserRound } from "lucide-react";
 import Image from "next/image";
 import { Countries, Currencys, Languages } from "@/utils/utils";
@@ -11,7 +9,6 @@ import WishlistIcon from "./wishlistIcon";
 import CartIcon from "./cartIcon";
 import ProductSearch from "./productSearch";
 
-
 export default function Navbar() {
   return (
     <header>
@@ -19,9 +16,15 @@ export default function Navbar() {
         <div className="flex max-w-7xl px-4 py-3 mx-auto items-center justify-between">
           {/* Left Links */}
           <ul className="text-xs flex space-x-6 font-medium">
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">Support</a></li>
+            <li>
+              <Link href={"/dashboard"}>Account</Link>
+            </li>
+            <li>
+              <Link href={"/dashboard/order-tracking"}>Track Order</Link>
+            </li>
+            <li>
+              <Link href={"/terms"}>Support</Link>
+            </li>
           </ul>
 
           {/* Dropdowns */}
@@ -32,21 +35,24 @@ export default function Navbar() {
           </div>
         </div>
         <hr />
+
         <div className="flex mx-auto max-w-7xl py-5 px-4 justify-between items-center">
           <div className="block lg:hidden">
             <MobileMenuToggleBtn />
           </div>
           <div>
-            <Image src="/logo-3.svg" alt="logo" width={150} height={50} />
+            <Link href={'/'}>
+              <Image src="/logo-3.svg" alt="logo" width={150} height={50} />
+            </Link>
           </div>
-          <ProductSearch/>
+          <ProductSearch />
           <div className="flex space-x-4">
             <Repeat2 className="cursor-pointer w-6 h-6 hidden lg:block text-gray-600" />
             <Link className="relative hidden lg:block" href={"/wishlist"}>
               <WishlistIcon />
             </Link>
             <Link className="relative" href={"/cart"}>
-              <CartIcon/>
+              <CartIcon />
             </Link>
             <Link href={"/dashboard"}>
               <UserRound className="cursor-pointer hidden lg:block w-6 h-6 text-gray-600" />

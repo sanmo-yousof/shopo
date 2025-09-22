@@ -6,15 +6,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+// import { AuthContext } from "@/context-api/authProviders";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 const RegisterForm = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-  const router = useRouter()
+  const router = useRouter();
+  // const { user, registerUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const RegisterForm = () => {
     const phone = form.phone.value;
     const address = form.address.value;
     const zipCode = form.postcode.value;
+    const password = form.password.value;
 
     const user = {
       firstName,
@@ -35,9 +38,10 @@ const RegisterForm = () => {
       address,
       city,
       zipCode,
+      password,
     };
 
-    console.log(user)
+    registerUser(user);
 
     Swal.fire({
       position: "center",
@@ -46,10 +50,11 @@ const RegisterForm = () => {
       showConfirmButton: false,
       timer: 1500,
     }).then(() => {
-      router.push("/dashboard"); 
+      router.push("/login");
     });
-    
   };
+
+  console.log(user);
 
   return (
     <div className="w-full py-8 lg:px-12 px-6 border rounded-md bg-white md:w-1/2">
@@ -113,6 +118,19 @@ const RegisterForm = () => {
               required
             />
           </div>
+        </div>
+        <div className="text-xs flex flex-col gap-1 mt-4">
+          <label htmlFor="password" className="text-gray-600">
+            Password*
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            className="outline-0 border rounded-md p-3"
+            placeholder="Enter Password"
+            required
+          />
         </div>
         <div className="text-xs flex flex-col gap-1 mt-4">
           <label htmlFor="country" className="text-gray-600">

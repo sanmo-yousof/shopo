@@ -50,7 +50,7 @@ const FilterSideBar = () => {
       </div>
 
       {/* Brands */}
-      <div className="border-b py-6">
+      {/* <div className="border-b py-6">
         <h4 className="text-black text-base font-semibold mb-4">Brands</h4>
         <div className="flex text-gray-500 flex-col space-y-3">
           {FilterBrands.map((brand) => (
@@ -65,10 +65,10 @@ const FilterSideBar = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Storage */}
-      <div className="py-6">
+      {/* <div className="py-6">
         <h4 className="text-black text-base font-semibold mb-4">Storage</h4>
         <div className="flex flex-wrap gap-2 text-xs">
           {Storage?.map((stor) => (
@@ -87,7 +87,7 @@ const FilterSideBar = () => {
             </Button>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Sizes */}
       <div className="border-t py-6">

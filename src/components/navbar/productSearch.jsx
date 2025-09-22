@@ -68,7 +68,7 @@ const ProductSearch = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative hidden lg:block">
       <div className="border rounded-md justify-between gap-2 items-center overflow-hidden w-[500px] hidden lg:flex">
         {/* Search input */}
         <div className="text-sm  w-[250px]">

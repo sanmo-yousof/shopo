@@ -16,7 +16,7 @@ const Home = () => {
     <div className="bg-[#f7f7f7]">
       <HeroSlider />
 
-      <AllBrands />
+      {/* <AllBrands /> */}
 
       <NewArrivals />
 
@@ -38,7 +38,7 @@ const Home = () => {
 
       <PopularSales />
 
-      <FlashSale />
+      {/* <FlashSale /> */}
 
       <PopularSaleSecond />
       
